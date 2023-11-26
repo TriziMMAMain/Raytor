@@ -2,15 +2,17 @@
 import {ref} from 'vue'
 
 import Menu from '../components/Menu.vue'
+import Menu2 from '../components/MenuSecond.vue'
 </script>
 
 <template>
+  <!--    Menu-->
+  <div class="menu">
+<!--    <Menu></Menu>-->
+    <Menu2></Menu2>
+  </div>
   <v-container class="pa-0">
     <div class="wrap">
-      <!--    Menu-->
-      <div class="menu">
-        <Menu></Menu>
-      </div>
       <!--    Content -->
       <div class="content">
 
@@ -33,15 +35,16 @@ import Menu from '../components/Menu.vue'
   width: 100%;
   min-height: 300vh;
   position: relative;
-  background-color: #ae7878;
+  background-color: $text;
 }
 
 // Menu
 
 .menu {
   width: 100%;
-  height: 70px;
-  background-color: blue;
+  height: 50px;
+  position: fixed;
+  z-index: 105;
 }
 
 // Content

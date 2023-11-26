@@ -11,7 +11,7 @@
       <!--      Выпадающая менюшка 1-->
       <v-expansion-panels variant="accordion">
         <v-expansion-panel>
-          <v-expansion-panel-title collapse-icon="none" expand-icon="none">
+          <v-expansion-panel-title collapse-icon="false" expand-icon="false">
             <h1 class="expansionPanelTitle">
               Company
             </h1>
@@ -68,12 +68,29 @@
           variant="outlined"
       ></v-text-field>
     </div>
-    <div class="languageTranslate">
-      <h1 class="languageTranslateTitle">En</h1>
+
+    <div class="expansion_panel_menu_language">
+      <!--      Выпадающая менюшка 2-->
+      <v-expansion-panels variant="accordion">
+        <v-expansion-panel>
+          <v-expansion-panel-title collapse-icon="none" expand-icon="none">
+            <h1 class="expansionPanelTitle">
+              En
+            </h1>
+          </v-expansion-panel-title>
+
+          <v-expansion-panel-text>
+            <h1 class="expansionPanelText">En</h1>
+          </v-expansion-panel-text>
+
+          <v-expansion-panel-text>
+            <h1 class="expansionPanelText">Ru</h1>
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+      </v-expansion-panels>
+
     </div>
-    <!--  <div class="title_color"></div>-->
-    <!--  <div class="title_color2"></div>-->
-    <!--  <div class="title_color3"></div>-->
+
   </div>
 </template>
 
@@ -105,6 +122,7 @@
   height: 100%;
   text-align: center;
   font-size: 1.8rem;
+  font-weight: 600;
   padding: 7px;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -114,6 +132,7 @@
 
 .title_main:hover {
   transition: all 0.3s ease-in-out;
+  font-weight: 700;
   color: $surface;
   background-color: $primary;
 }
@@ -121,34 +140,57 @@
 // Expansions
 
 .expansion_panel_menu {
-  width: 100px;
+  width: 200px;
   height: 100%;
-
-  background-color: red;
 }
 
 .v-expansion-panels {
-  width: 100px;
-  height: 70px;
+  width: 100%;
 }
 
 .v-expansion-panel {
-  width: 100px;
-  background-color: $primary;
+  width: 100%;
 }
 
 .v-expansion-panel-title {
   width: 100%;
+  height: 70px;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
   background-color: $primary;
+}
+
+.v-expansion-panel-title:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: $surface;
 }
 
 .expansionPanelTitle {
-  font-size: .75rem;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  font-size: 1.3rem;
+  padding: 16px 24px;
+  transition: all 0.3s ease-in-out;
+  color: $textSpan;
+}
+
+.expansionPanelTitle:hover {
+  transition: all 0.3s ease-in-out;
+  color: $primary;
 }
 
 .v-expansion-panel-text {
-
   background-color: $primary;
+}
+
+.expansionPanelText {
+  width: 100%;
+  height: 100%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $text;
+  text-decoration: none;
 }
 
 // Buttons
@@ -157,13 +199,11 @@
   min-width: 20%;
   height: 100%;
   display: flex;
-  justify-content: space-evenly;
 }
 
 .button_active {
-  width: 100px;
+  width: 130px;
   height: 70px;
-  background-color: red;
 }
 
 .href_active {
@@ -172,7 +212,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a1a1a;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  color: $textSpan;
+  background-color: $primary;
+}
+
+.href_active:hover {
+  transition: all 0.3s ease-in-out;
+  color: $primary;
+  background-color: $textSpan;
 }
 
 .search_block {
@@ -182,16 +233,12 @@
   background-color: $surface;
 }
 
-.languageTranslate {
-  min-width: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// Language
 
-.languageTranslateTitle {
-  font-size: 1.5rem;
-  color: $background;
+.expansion_panel_menu_language {
+  width: 100px;
+  height: 100%;
+  background-color: red;
 }
 
 </style>
