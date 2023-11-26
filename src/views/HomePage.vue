@@ -2,20 +2,19 @@
 import {ref} from 'vue'
 
 import Menu from '../components/Menu.vue'
-import Menu2 from '../components/MenuSecond.vue'
+import Content from '../components/ContentInPage.vue'
 </script>
 
 <template>
   <!--    Menu-->
   <div class="menu">
-<!--    <Menu></Menu>-->
-    <Menu2></Menu2>
+    <Menu></Menu>
   </div>
   <v-container class="pa-0">
     <div class="wrap">
       <!--    Content -->
       <div class="content">
-
+        <Content></Content>
       </div>
       <!--    News -->
       <div class="news">
@@ -50,7 +49,7 @@ import Menu2 from '../components/MenuSecond.vue'
 // Content
 
 .content {
-
+  width: 100%;
 }
 
 // News
