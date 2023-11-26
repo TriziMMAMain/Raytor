@@ -35,6 +35,34 @@ const heightFuncInCarousel = () => {
   }
 }
 
+const content = ref([
+  {
+    icon: 'medal-outline',
+    title: 'Over 60 years',
+    text: 'experience in designing and manufacturing of PRE'
+  },
+  {
+    icon: 'help-buoy-outline',
+    title: 'Over 500',
+    text: 'lives saved in 2022'
+  },
+  {
+    icon: 'hammer-outline',
+    title: 'Modern',
+    text: 'research and development center (R&D center)'
+  },
+  {
+    icon: 'map-outline',
+    title: 'Representative offices',
+    text: 'in 3 regions worldwide'
+  },
+  {
+    icon: 'construct-outline',
+    title: 'Products',
+    text: 'used in 50+ countries'
+  },
+])
+
 </script>
 
 <template>
@@ -64,13 +92,26 @@ const heightFuncInCarousel = () => {
       </div>
     </div>
     <div class="content_about_us">
-      <v-img src="#"></v-img>
+      <h1 class="block_main_title">ABOUT US</h1>
+      <div class="block_img">
+        <v-img src="https://www.dezega.com/sites/default/files/2017-08/bg_2%20экран-min_0.png"></v-img>
+      </div>
       <div class="about_us_block_main">
-        <div class="about_us_block">
-          <div class="block_icon"></div>
+        <div class="about_us_block" v-for="i in content">
+          <div class="block_icon">
+            <ion-icon :name="i.icon"></ion-icon>
+          </div>
+          <div class="block_content">
+            <h1 class="content_title">{{ i.title }}</h1>
+            <p class="content_text">{{ i.text }}</p>
+          </div>
+          <a class="href_about_us" href="#"></a>
+
         </div>
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -134,6 +175,110 @@ const heightFuncInCarousel = () => {
   transform: rotate(-90deg);
   font-size: 3rem;
   color: $primary;
+}
+
+// Content About Us
+
+.content_about_us {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  padding: 20px 0 20px 0;
+  background-color: $surface;
+}
+
+// Photo
+
+.block_img {
+  width: 60%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.v-img {
+  width: 100%;
+  height: 100%;
+}
+
+// About Us Main
+
+.about_us_block_main {
+  position: absolute;
+  top: 30px;
+  right: 15%;
+}
+
+.href_about_us {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.block_main_title {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 3rem;
+  font-weight: 600;
+  transform: rotate(90deg);
+  color: $primary;
+}
+
+.about_us_block {
+  width: 570px;
+  height: 120px;
+  position: relative;
+  display: flex;
+  margin-bottom: 22px;
+  border: 1px solid $primary;
+  background-color: $textSpan;
+}
+
+.block_icon {
+  width: 120px;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-icon {
+  font-size: 3rem;
+  padding: 15px;
+  border: 1px solid $primary;
+  color: $primary;
+}
+
+.block_content {
+  width: 450px;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.content_title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $primary;
+}
+
+.content_text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+
+
+.href_about_us:hover {
+  transition: all 0.3s ease-in-out;
+
 }
 
 //
