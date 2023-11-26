@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import './style.css'
 import App from './App.vue'
+import { createManager } from '@vue-youtube/core';
 
 // - router
 import router from './routes'
@@ -15,7 +16,16 @@ import Toast from './plugins/toast.js'
 // Vuetify
 import { vuetify } from "./plugins/vuetify.js";
 
-// -
+// YouTube
+
+const manager = createManager({
+    deferLoading: {
+        enabled: true,
+        autoLoad: true,
+    },
+});
+
+//
 app.use(createPinia())
 app.use(Toast, {
     transition: "Vue-Toastification__fade",
@@ -34,4 +44,5 @@ router.afterEach(() => {
 });
 app.use(router)
 app.use(vuetify)
+app.use(manager)
 app.mount('#app')

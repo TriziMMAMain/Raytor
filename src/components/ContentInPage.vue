@@ -2,6 +2,7 @@
 import {ref} from 'vue'
 import {useDisplay} from 'vuetify'
 const {name} = useDisplay()
+import { YoutubeIframe } from '@vue-youtube/component';
 
 const slides = ref([
   {
@@ -56,8 +57,20 @@ const heightFuncInCarousel = () => {
         </v-carousel-item>
       </v-carousel>
     </div>
-    <div class="content_introduction"></div>
-    <div class="content_about_us"></div>
+    <div class="content_introduction">
+      <div class="introduction_youtube">
+        <h1 class="introduction_youtube_title">INTRODUCTION</h1>
+        <youtube-iframe video-id="PllzEKkfw5I" />
+      </div>
+    </div>
+    <div class="content_about_us">
+      <v-img src="#"></v-img>
+      <div class="about_us_block_main">
+        <div class="about_us_block">
+          <div class="block_icon"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -68,19 +81,18 @@ const heightFuncInCarousel = () => {
   width: 100%;
   min-height: 100vh;
   padding-top: 50px;
-  background-color: rgba(0, 0, 255, 0.35);
 }
 
 // Carousel
 
 .content_carousel {
   width: 100%;
-  min-height: 300vh;
+  min-height: 100vh;
 }
 
 .v-carousel {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .v-carousel-item {
@@ -98,7 +110,32 @@ const heightFuncInCarousel = () => {
   color: #ffffff;
 }
 
-//
+// YouTube
 
+.content_introduction {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $surface;
+}
+
+.introduction_youtube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 20px 0;
+}
+
+.introduction_youtube_title {
+  position: absolute;
+  left: 0;
+  transform: rotate(-90deg);
+  font-size: 3rem;
+  color: $primary;
+}
+
+//
 
 </style>
