@@ -3,6 +3,7 @@ import {ref} from 'vue'
 
 import Menu from '../components/Menu.vue'
 import Content from '../components/ContentInPage.vue'
+import News from '../components/NewsComponent.vue'
 </script>
 
 <template>
@@ -18,7 +19,7 @@ import Content from '../components/ContentInPage.vue'
       </div>
       <!--    News -->
       <div class="news">
-
+        <News></News>
       </div>
 
     </div>
@@ -55,6 +56,7 @@ import Content from '../components/ContentInPage.vue'
 // News
 
 .news {
+  width: 100%;
 }
 
 </style>

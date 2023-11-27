@@ -91,24 +91,25 @@ const content = ref([
         <youtube-iframe video-id="PllzEKkfw5I" />
       </div>
     </div>
-    <div class="content_about_us">
-      <h1 class="block_main_title">ABOUT US</h1>
-      <div class="block_img">
-        <v-img src="https://www.dezega.com/sites/default/files/2017-08/bg_2%20экран-min_0.png"></v-img>
-      </div>
-      <div class="about_us_block_main">
-        <div class="about_us_block" v-for="i in content">
-          <div class="block_icon">
-            <ion-icon :name="i.icon"></ion-icon>
-          </div>
-          <div class="block_content">
-            <h1 class="content_title">{{ i.title }}</h1>
-            <p class="content_text">{{ i.text }}</p>
-          </div>
-          <a class="href_about_us" href="#"></a>
-
-        </div>
-      </div>
+    <div class="content_about_us_main">
+     <div class="content_about_us">
+       <h1 class="block_main_title">ABOUT US</h1>
+       <div class="block_img">
+         <v-img src="https://www.dezega.com/sites/default/files/2017-08/bg_2%20экран-min_0.png"></v-img>
+       </div>
+       <div class="about_us_block_main">
+         <div class="about_us_block" v-for="i in content">
+           <div class="block_icon">
+             <ion-icon :name="i.icon"></ion-icon>
+           </div>
+           <div class="block_content">
+             <h1 class="content_title">{{ i.title }}</h1>
+             <p class="content_text">{{ i.text }}</p>
+           </div>
+           <a class="href_about_us" href="#"></a>
+         </div>
+       </div>
+     </div>
     </div>
 
 
@@ -179,21 +180,26 @@ const content = ref([
 
 // Content About Us
 
-.content_about_us {
+.content_about_us_main {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: start;
+  height: 110vh;
+  margin-top: 10px;
   padding: 20px 0 20px 0;
   background-color: $surface;
+}
+
+.content_about_us {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: start;
 }
 
 // Photo
 
 .block_img {
   width: 60%;
-  height: 100%;
-  margin-top: 20px;
+  padding-top: 60px;
 }
 
 .v-img {
@@ -253,6 +259,8 @@ ion-icon {
   padding: 15px;
   border: 1px solid $primary;
   color: $primary;
+  transition: all 0.3s ease-in-out;
+
 }
 
 .block_content {
@@ -264,21 +272,43 @@ ion-icon {
 
 .content_title {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: $primary;
+  transition: all 0.3s ease-in-out;
+
 }
 
 .content_text {
   font-size: 1.1rem;
   font-weight: 500;
   color: #ffffff;
+  transition: all 0.3s ease-in-out;
+
 }
 
 
 
-.href_about_us:hover {
+.about_us_block:hover {
   transition: all 0.3s ease-in-out;
+  border: 1px solid $textSpan;
+  background-color: $primary;
 
+
+  .content_title {
+    transition: all 0.3s ease-in-out;
+    color: $textSpan;
+  }
+
+  .content_text {
+    transition: all 0.3s ease-in-out;
+    color: $textSpan;
+  }
+
+  ion-icon {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid $textSpan;
+    color: $textSpan;
+  }
 }
 
 //
