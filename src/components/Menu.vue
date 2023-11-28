@@ -20,7 +20,7 @@ const openAndCloseMenuThird = () => {
 <template>
   <div class="wrap_menu">
     <div class="header">
-      <a class="title_main" href="#">Reytor LTD</a>
+      <a class="title_main" href="/">Reytor LTD</a>
     </div>
 
     <div class="panel_menu">
@@ -33,7 +33,7 @@ const openAndCloseMenuThird = () => {
 
     <!--      Кнопки-->
     <div class="buttons_menu">
-      <div class="button_active"><a href="#" class="href_active">Catalogue</a></div>
+      <div class="button_active"><a href="/catalog/" class="href_active">Catalogue</a></div>
       <div class="button_active"><a href="#" class="href_active">News</a></div>
       <div class="button_active"><a href="#" class="href_active">Career</a></div>
     </div>
