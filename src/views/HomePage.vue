@@ -35,7 +35,7 @@ const link = ref([
   <div class="menu">
     <Menu></Menu>
   </div>
-  <v-container class="pa-0">
+  <v-container fluid class="pa-0">
     <div class="wrap">
       <!--    Content -->
       <div class="content">
@@ -68,7 +68,7 @@ const link = ref([
   width: 100%;
   min-height: 300vh;
   position: relative;
-  background-color: $text;
+  background-color: $surface;
 }
 
 // Menu
@@ -103,10 +103,10 @@ const link = ref([
 .footer_main {
   width: 100%;
   height: 100%;
-  padding: 5px;
+  padding: 15px 5px 15px 5px;
   display: flex;
   align-items: center;
-  background-color: $surface;
+  background-color: $textSpan;
 }
 
 .footer_title, .footer_title_second {
@@ -132,9 +132,9 @@ const link = ref([
 }
 
 .footer_link {
-  width: 10%;
-  height: 70px;
-  font-size: 1.5rem;
+  min-width: 7%;
+  height: 50px;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
