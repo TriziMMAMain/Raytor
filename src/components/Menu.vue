@@ -87,7 +87,6 @@ const openAndCloseMenuThird = () => {
 .header {
   width: 220px;
   height: 100%;
-  margin-right: 10px;
   display: flex;
 }
 
@@ -99,6 +98,8 @@ const openAndCloseMenuThird = () => {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  border-right: 1px solid $surface;
+  border-left: 1px solid $surface;
   color: $primary;
   background-color: $surface;
 }
