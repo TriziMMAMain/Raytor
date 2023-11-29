@@ -122,7 +122,6 @@ const content = ref([
 .wrap_content {
   width: 100%;
   min-height: 100vh;
-  padding-top: 50px;
 }
 
 // Carousel
@@ -175,6 +174,7 @@ const content = ref([
   left: 0;
   transform: rotate(-90deg);
   font-size: 3rem;
+  font-weight: 600;
   color: $primary;
 }
 

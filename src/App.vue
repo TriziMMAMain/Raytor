@@ -38,10 +38,12 @@ const link = ref([
     <div class="menu">
       <Menu></Menu>
     </div>
-    <router-view name="Home page"></router-view>
-    <router-view name="Catalog"></router-view>
+    <div class="content">
+      <router-view name="Home page"></router-view>
+      <router-view name="Catalog"></router-view>
 
-    <router-view></router-view>
+      <router-view></router-view>
+    </div>
     <!--      Footer-->
     <div class="footer">
       <div class="footer_main">
@@ -73,12 +75,18 @@ const link = ref([
   z-index: 105;
 }
 
+// Content
+
+.content {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 50px;
+}
 
 // Footer
 
 .footer {
   width: 100%;
-  margin-top: 10px;
   min-height: 20px;
 }
 
