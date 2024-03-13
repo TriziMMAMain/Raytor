@@ -33,7 +33,7 @@ import News from '../components/NewsComponent.vue'
   width: 100%;
   min-height: 300vh;
   position: relative;
-  background-color: $surface;
+  //background-color: $surface;
 }
 
 

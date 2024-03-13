@@ -11,9 +11,13 @@
   "dependencies": {
     "@vue-youtube/component": "^0.0.6",
     "ionicons": "^7.2.1",
+    "leaflet": "^1.9.4",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "pinia": "^2.0.28",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "vue": "^3.3.8",

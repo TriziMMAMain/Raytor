@@ -81,12 +81,13 @@ const heightFuncInBtn = () => {
 
 .wrap_news {
   width: 100%;
-  margin-top: 10px;
   padding: 20px 0 20px 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: $surface;
+  background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
+  background-size: cover;
+  //background-color: $surface;
 }
 
 .block_news_main {

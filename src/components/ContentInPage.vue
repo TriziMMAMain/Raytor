@@ -1,68 +1,54 @@
 <script setup="">
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 import {useDisplay} from 'vuetify'
-const {name} = useDisplay()
+import photoHomePage from '../assets/photo/photoInHomePage.jpg'
+import L from 'leaflet';
 import { YoutubeIframe } from '@vue-youtube/component';
+const {name} = useDisplay()
 
 const slides = ref([
   {
-    src: 'https://www.dezega.com/sites/default/files/2023-01/3_background-min.png',
     title: 'Keep safe'
   },
   {
-    src: 'https://www.dezega.com/sites/default/files/2023-01/1_background-min-p-70.png',
     title: 'Human life is priceless'
   },
   {
-    src: 'https://www.dezega.com/sites/default/files/2023-01/4_background-min.png',
     title: 'Trust the professionals'
   }
 ])
-
-const heightFuncInCarousel = () => {
-  if (name.value === 'xs') {
-    return '400'
-  } else if (name.value === 'sm') {
-    return '400'
-  } else if (name.value === 'md') {
-    return '400'
-  } else if (name.value === 'lg') {
-    return '580'
-  } else if (name.value === 'xl') {
-    return '700'
-  } else if (name.value === 'xxl') {
-    return '800'
-  }
-}
-
 const content = ref([
   {
-    icon: 'medal-outline',
-    title: 'Over 60 years',
-    text: 'experience in designing and manufacturing of PRE'
+    icon: 'globe-outline',
+    title: 'LLC "REITOR LTD"'
   },
   {
-    icon: 'help-buoy-outline',
-    title: 'Over 500',
-    text: 'lives saved in 2022'
+    icon: 'navigate-outline',
+    title: 'st. Zverinetskaya 63, Kyiv, 01014, Ukraine',
   },
   {
-    icon: 'hammer-outline',
-    title: 'Modern',
-    text: 'research and development center (R&D center)'
+    icon: 'call-outline',
+    title: '+380955889773',
   },
   {
-    icon: 'map-outline',
-    title: 'Representative offices',
-    text: 'in 3 regions worldwide'
-  },
-  {
-    icon: 'construct-outline',
-    title: 'Products',
-    text: 'used in 50+ countries'
-  },
+    icon: 'at-circle-outline',
+    title: 'reitorltd@gmail.com',
+  }
 ])
 
+// Leaflet
+
+const map = ref(null);
+
+onMounted(() => {
+  const mymap = L.map('map').setView([50.405814, 30.555269], 17);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+  }).addTo(mymap);
+  const newMarker = L.marker([50.405814, 30.555269]).addTo(mymap);
+
+  map.value = mymap;
+});
 </script>
 
 <template>
@@ -70,7 +56,7 @@ const content = ref([
     <div class="content_carousel">
       <v-carousel
           cycle
-          :height="heightFuncInCarousel()"
+          height="100vh"
           hide-delimiter-background
           :show-arrows="false"
           show-arrows="hover"
@@ -78,11 +64,13 @@ const content = ref([
         <v-carousel-item
             v-for="(item, i) in slides"
             :key="i"
-            :src="item.src"
             cover
         >
           <h1 class="v-carousel-item-title">{{ item.title }}</h1>
         </v-carousel-item>
+        <div class="background_photo_carousel">
+          <img class="background_photo_carousel_img" alt="" :src="photoHomePage">
+        </div>
       </v-carousel>
     </div>
     <div class="content_introduction">
@@ -92,10 +80,11 @@ const content = ref([
       </div>
     </div>
     <div class="content_about_us_main">
+      <h1 class="block_main_title">ABOUT US</h1>
      <div class="content_about_us">
-       <h1 class="block_main_title">ABOUT US</h1>
        <div class="block_img">
-         <v-img src="https://www.dezega.com/sites/default/files/2017-08/bg_2%20экран-min_0.png"></v-img>
+<!--         карта Киева-->
+         <div id="map"></div>
        </div>
        <div class="about_us_block_main">
          <div class="about_us_block" v-for="i in content">
@@ -104,9 +93,7 @@ const content = ref([
            </div>
            <div class="block_content">
              <h1 class="content_title">{{ i.title }}</h1>
-             <p class="content_text">{{ i.text }}</p>
            </div>
-           <a class="href_about_us" href="#"></a>
          </div>
        </div>
      </div>
@@ -122,6 +109,7 @@ const content = ref([
 .wrap_content {
   width: 100%;
   min-height: 100vh;
+  background-color: $surface;
 }
 
 // Carousel
@@ -129,9 +117,24 @@ const content = ref([
 .content_carousel {
   width: 100%;
   min-height: 100vh;
+  background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
+  background-size: cover;
 }
 
 .v-carousel {
+  width: 100%;
+  height: 100vh;
+}
+
+.background_photo_carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+}
+
+.background_photo_carousel_img {
   width: 100%;
   height: 100%;
 }
@@ -140,15 +143,18 @@ const content = ref([
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 3;
 }
 
 .v-carousel-item-title {
   position: absolute;
   top: 30%;
   left: 20%;
-  font-size: 3.5rem;
+  width: 600px;
+  font-size: 6.5rem;
   font-weight: 600;
-  color: #ffffff;
+  font-family: "Candara", sans-serif;
+  color: #ffffff // $primary;
 }
 
 // YouTube
@@ -156,7 +162,9 @@ const content = ref([
 .content_introduction {
   width: 100%;
   min-height: 100vh;
-  background-color: $surface;
+  background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
+  background-size: cover;
+  //background-color: $surface;
 }
 
 .introduction_youtube {
@@ -166,7 +174,7 @@ const content = ref([
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0 20px 0;
+  padding: 10%;
 }
 
 .introduction_youtube_title {
@@ -175,22 +183,36 @@ const content = ref([
   transform: rotate(-90deg);
   font-size: 3rem;
   font-weight: 600;
-  color: $primary;
+  color: $text;
 }
 
 // Content About Us
 
 .content_about_us_main {
   width: 100%;
-  height: 110vh;
-  margin-top: 10px;
-  padding: 20px 0 20px 0;
-  background-color: $surface;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
+  background-size: cover;
+}
+
+
+.block_main_title {
+  width: 100%;
+  position: absolute;
+  top: -15%;
+  left: 0;
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 600;
+  color: $text;
 }
 
 .content_about_us {
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: flex;
   justify-content: start;
 }
@@ -198,50 +220,40 @@ const content = ref([
 // Photo
 
 .block_img {
-  width: 60%;
-  padding-top: 60px;
+  width: 55%;
+  margin-left: 50px;
+  transform: translateY(50%, -50%);
 }
 
-.v-img {
-  width: 100%;
-  height: 100%;
+
+#map {
+  z-index: 2;
+  height: 800px;
+  background-color: #333;
+  color: #fff;
+}
+
+.leaflet-control-container {
+  background-color: #333;
+  color: #fff;
 }
 
 // About Us Main
 
 .about_us_block_main {
-  position: absolute;
-  top: 30px;
-  right: 15%;
-}
-
-.href_about_us {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.3s ease-in-out;
-
-}
-
-.block_main_title {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  font-size: 3rem;
-  font-weight: 600;
-  transform: rotate(90deg);
-  color: $primary;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .about_us_block {
-  width: 570px;
-  height: 120px;
-  position: relative;
+  width: 70%;
+  min-height: 120px;
   display: flex;
-  margin-bottom: 22px;
-  border: 1px solid $primary;
+  align-items: center;
+  margin-bottom: 5%;
   background-color: $textSpan;
 }
 
@@ -255,60 +267,20 @@ const content = ref([
 }
 
 ion-icon {
-  font-size: 3rem;
+  font-size: 4rem;
   padding: 15px;
-  border: 1px solid $primary;
   color: $primary;
-  transition: all 0.3s ease-in-out;
-
 }
 
 .block_content {
   width: 450px;
   padding: 10px;
-  transition: all 0.3s ease-in-out;
-
 }
 
 .content_title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: $primary;
-  transition: all 0.3s ease-in-out;
-
-}
-
-.content_text {
-  font-size: 1.1rem;
+  font-size: 2.5rem;
   font-weight: 500;
-  color: #ffffff;
-  transition: all 0.3s ease-in-out;
-
-}
-
-
-
-.about_us_block:hover {
-  transition: all 0.3s ease-in-out;
-  border: 1px solid $textSpan;
-  background-color: $primary;
-
-
-  .content_title {
-    transition: all 0.3s ease-in-out;
-    color: $textSpan;
-  }
-
-  .content_text {
-    transition: all 0.3s ease-in-out;
-    color: $textSpan;
-  }
-
-  ion-icon {
-    transition: all 0.3s ease-in-out;
-    border: 1px solid $textSpan;
-    color: $textSpan;
-  }
+  color: $secondary;
 }
 
 //
