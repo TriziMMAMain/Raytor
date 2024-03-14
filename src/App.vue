@@ -2,7 +2,7 @@
 import {ref} from "vue";
 // Page's
 import HomePage from './views/HomePage.vue'
-import Catalog from './views/CatalogPage.vue'
+import Catalog from './views/ProductsPage.vue'
 // Components
 import Menu from './components/Menu.vue'
 

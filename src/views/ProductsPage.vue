@@ -1,5 +1,5 @@
 <script setup="">
-import CatalogComponent from '../components/CatalogComponent.vue'
+import CatalogComponent from '../components/ProductsComponent.vue'
 </script>
 
 <template>

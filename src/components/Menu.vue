@@ -22,41 +22,15 @@ const openAndCloseMenuThird = () => {
     <div class="header">
       <a class="title_main" href="/">Reytor LTD</a>
     </div>
-
     <div class="panel_menu">
-      <h1 @click="openAndCloseMenu()" class="menu_title">Company</h1>
-      <div v-if="valueOpenAndClose" class="panel_menu_absolute">
-        <a href="#" class="menu_text">About Us</a>
-        <a href="#" class="menu_text">Contacts</a>
-      </div>
+      <h1 class="menu_title">Home</h1>
     </div>
 
     <!--      Кнопки-->
     <div class="buttons_menu">
-      <div class="button_active"><a href="/catalog/" class="href_active">Catalogue</a></div>
+      <div class="button_active"><a href="/products/" class="href_active">Products</a></div>
       <div class="button_active"><a href="#" class="href_active">News</a></div>
-      <div class="button_active"><a href="#" class="href_active">Career</a></div>
     </div>
-
-    <div class="panel_menu">
-      <h1 @click="openAndCloseMenuSecond()" class="menu_title">Press Centre</h1>
-      <div v-if="valueOpenAndCloseSecond" class="panel_menu_absolute">
-        <a href="#" class="menu_text">Terms And Conditions</a>
-        <a href="#" class="menu_text">Media</a>
-      </div>
-    </div>
-
-    <div class="search_block">
-      <v-text-field
-          clearable
-          label="Search"
-          prepend-icon="fa-brands fa-searchengin"
-          density="compact"
-          variant="outlined"
-          class="search_block_v_text_field"
-      ></v-text-field>
-    </div>
-
     <div class="panel_menu_third">
       <h1 @click="openAndCloseMenuThird()" class="menu_title">En</h1>
       <div v-if="valueOpenAndCloseThird" class="panel_menu_absolute">
