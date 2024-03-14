@@ -278,7 +278,7 @@ ion-icon {
 }
 
 .content_title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 500;
   color: $secondary;
 }

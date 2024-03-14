@@ -1,11 +1,117 @@
 <script setup="">
 import {ref} from 'vue'
 import {useDisplay} from 'vuetify'
+
 const {name} = useDisplay()
 
 //
 
 const newsContent = ref([
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-11/2_carbo-30_newz_web-_au.jpg?itok=ml_cUxpp',
+    date: '22.11.2023',
+    title: 'DEZEGA CARBO 30 approved in Australia for IDHL atmosphere applications',
+    text: 'We are pleased to announce the successful certification of our new product, the CARBO 30 self-…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/vinacomin_newz_web.jpg?itok=qP_-3T2a',
+    date: '18.10.2023',
+    title: "We're proud to be part of VINACOMIN 2023 with our partner, MIECO",
+    text: 'DEZEGA is excited to announce its successful participation in the VINACOMIN 2023 Semi-Professional…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/imrb_2023_newz_web_final.jpg?itok=Pd1GhIcQ',
+    date: '12.10.2023',
+    title: 'IMRB 2023: A Memorable Event!',
+    text: 'International Mines Rescue Body Conference (IMRB 2023) held in South Africa from the 1st till the…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-11/2_carbo-30_newz_web-_au.jpg?itok=ml_cUxpp',
+    date: '22.11.2023',
+    title: 'DEZEGA CARBO 30 approved in Australia for IDHL atmosphere applications',
+    text: 'We are pleased to announce the successful certification of our new product, the CARBO 30 self-…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/vinacomin_newz_web.jpg?itok=qP_-3T2a',
+    date: '18.10.2023',
+    title: "We're proud to be part of VINACOMIN 2023 with our partner, MIECO",
+    text: 'DEZEGA is excited to announce its successful participation in the VINACOMIN 2023 Semi-Professional…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/imrb_2023_newz_web_final.jpg?itok=Pd1GhIcQ',
+    date: '12.10.2023',
+    title: 'IMRB 2023: A Memorable Event!',
+    text: 'International Mines Rescue Body Conference (IMRB 2023) held in South Africa from the 1st till the…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-11/2_carbo-30_newz_web-_au.jpg?itok=ml_cUxpp',
+    date: '22.11.2023',
+    title: 'DEZEGA CARBO 30 approved in Australia for IDHL atmosphere applications',
+    text: 'We are pleased to announce the successful certification of our new product, the CARBO 30 self-…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/vinacomin_newz_web.jpg?itok=qP_-3T2a',
+    date: '18.10.2023',
+    title: "We're proud to be part of VINACOMIN 2023 with our partner, MIECO",
+    text: 'DEZEGA is excited to announce its successful participation in the VINACOMIN 2023 Semi-Professional…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/imrb_2023_newz_web_final.jpg?itok=Pd1GhIcQ',
+    date: '12.10.2023',
+    title: 'IMRB 2023: A Memorable Event!',
+    text: 'International Mines Rescue Body Conference (IMRB 2023) held in South Africa from the 1st till the…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-11/2_carbo-30_newz_web-_au.jpg?itok=ml_cUxpp',
+    date: '22.11.2023',
+    title: 'DEZEGA CARBO 30 approved in Australia for IDHL atmosphere applications',
+    text: 'We are pleased to announce the successful certification of our new product, the CARBO 30 self-…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/vinacomin_newz_web.jpg?itok=qP_-3T2a',
+    date: '18.10.2023',
+    title: "We're proud to be part of VINACOMIN 2023 with our partner, MIECO",
+    text: 'DEZEGA is excited to announce its successful participation in the VINACOMIN 2023 Semi-Professional…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/imrb_2023_newz_web_final.jpg?itok=Pd1GhIcQ',
+    date: '12.10.2023',
+    title: 'IMRB 2023: A Memorable Event!',
+    text: 'International Mines Rescue Body Conference (IMRB 2023) held in South Africa from the 1st till the…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-11/2_carbo-30_newz_web-_au.jpg?itok=ml_cUxpp',
+    date: '22.11.2023',
+    title: 'DEZEGA CARBO 30 approved in Australia for IDHL atmosphere applications',
+    text: 'We are pleased to announce the successful certification of our new product, the CARBO 30 self-…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/vinacomin_newz_web.jpg?itok=qP_-3T2a',
+    date: '18.10.2023',
+    title: "We're proud to be part of VINACOMIN 2023 with our partner, MIECO",
+    text: 'DEZEGA is excited to announce its successful participation in the VINACOMIN 2023 Semi-Professional…',
+    urlInNews: '#'
+  },
+  {
+    photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-10/imrb_2023_newz_web_final.jpg?itok=Pd1GhIcQ',
+    date: '12.10.2023',
+    title: 'IMRB 2023: A Memorable Event!',
+    text: 'International Mines Rescue Body Conference (IMRB 2023) held in South Africa from the 1st till the…',
+    urlInNews: '#'
+  },
   {
     photoUrl: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-11/2_carbo-30_newz_web-_au.jpg?itok=ml_cUxpp',
     date: '22.11.2023',
@@ -49,29 +155,35 @@ const heightFuncInBtn = () => {
 <template>
   <div class="wrap_news">
     <div class="block_news_main">
-      <v-window
-          v-model="window"
+
+      <v-slide-group
           show-arrows
       >
-        <v-window-item
-            v-for="i in newsContent"
-            :key="i"
+
+        <v-slide-group-item
+            class="pa-3"
+            v-for="n in newsContent"
+            :key="n"
         >
+
           <div class="block_news">
+            <div class="block_news_divider_left"></div>
+            <div class="block_news_divider_right"></div>
             <div class="news_img">
-              <v-img :src="i.photoUrl"></v-img>
+              <v-img :src="n.photoUrl"></v-img>
             </div>
             <div class="news_content">
-              <p class="content_date">{{ i.date }}</p>
-              <h1 class="content_title">{{ i.title }}</h1>
-              <p class="content_text">{{ i.text }}</p>
-              <div class="content_button">
-                <v-btn :height="heightFuncInBtn()" :href="i.urlInNews">More</v-btn>
-              </div>
+              <p class="content_date">{{ n.date }}</p>
+              <h1 class="content_title">{{ n.title }}</h1>
+              <p class="content_text">{{ n.text }}</p>
+            </div>
+            <div class="content_button">
+              <v-btn :height="heightFuncInBtn()" :href="n.urlInNews">More</v-btn>
             </div>
           </div>
-        </v-window-item>
-      </v-window>
+        </v-slide-group-item>
+      </v-slide-group>
+
     </div>
   </div>
 </template>
@@ -94,68 +206,125 @@ const heightFuncInBtn = () => {
   width: 100%;
 }
 
-.v-window {
+.v-slide-group {
   width: 90%;
   margin: 0 auto;
+  min-height: 650px;
 }
 
-v-window-item {}
+.v-slide-group-item {
+}
+
+.block_news_divider_left, .block_news_divider_right {
+  width: 150px;
+  height: 150px;
+  transition: all 0.3s ease-in-out;
+}
+
+.block_news_divider_left {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  border-top: 1px solid $warning;
+  border-left: 1px solid $warning;
+}
+
+.block_news_divider_right {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  border-right: 1px solid $warning;
+  border-bottom: 1px solid $warning;
+
+}
 
 .block_news {
-  width: 80%;
+  width: 350px;
+  min-height: 650px;
+  position: relative;
   display: flex;
-  margin: 0 auto;
+  flex-direction: column;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  margin-left: 150px;
   padding: 25px;
   transition: all 0.3s ease-in-out;
   border: 1px solid $primary;
   background-color: $textSpan;
 }
 
+.block_news:hover {
+
+  .v-btn {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid $textSpan;
+    color: $textSpan;
+    background-color: $warning;
+  }
+
+  .block_news_divider_left, .block_news_divider_right {
+    width: 250px;
+    height: 250px;
+  }
+
+  .block_news_divider_left {
+    border-top: 2px solid $warning;
+    border-left: 2px solid $warning;
+  }
+
+  .block_news_divider_right {
+    border-right: 2px solid $warning;
+    border-bottom: 2px solid $warning;
+  }
+}
+
 .news_img {
-  width: 35%;
+  width: 100%;
+
 }
 
 .v-img {
   width: 100%;
-  height: 100%;
+  position: relative;
+  right: -20%;
+
 }
 
 .news_content {
-  width: 75%;
-  height: 100%;
-  margin-left: 25px;
+  width: 100%;
+  min-height: 400px;
+  margin-top: 40px;
 }
 
 .content_date {
-  font-size: .95rem;
+  font-size: 1rem;
   font-weight: 700;
-  transition: all 0.3s ease-in-out;
   color: #ffffff;
 }
 
 .content_title {
+  width: 100%;
   font-size: 1.6rem;
   font-weight: 700;
-  transition: all 0.3s ease-in-out;
-  color: $primary;
+  color: $warning;
 }
 
 .content_text {
-  width: 80%;
+  width: 100%;
   margin-top: 10px;
   font-size: 1.2rem;
   font-weight: 600;
-  transition: all 0.3s ease-in-out;
+  margin-bottom: 100px;
   color: #ffffff;
 }
 
 .content_button {
   width: 100%;
-  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 5%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 30px;
 }
 
 .v-btn {
@@ -165,35 +334,6 @@ v-window-item {}
   border: 1px solid $textSpan;
   color: $textSpan;
   background-color: $primary;
-}
-
-.v-btn:hover {
-  transition: all 0.3s ease-in-out;
-  border: 1px solid $primary;
-  color: $primary;
-  background-color: $textSpan;
-}
-
-.block_news:hover {
-  transition: all 0.3s ease-in-out;
-  border: 1px solid $textSpan;
-  background-color: $primary;
-
-  .content_date {
-    transition: all 0.3s ease-in-out;
-    color: $textSpan;
-  }
-
-  .content_title {
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    color: $textSpan;
-  }
-
-  .content_text {
-    transition: all 0.3s ease-in-out;
-    color: $textSpan;
-  }
 }
 
 </style>
