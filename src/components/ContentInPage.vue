@@ -8,13 +8,13 @@ const {name} = useDisplay()
 
 const slides = ref([
   {
-    title: 'Keep safe'
+    title: 'KEEP SAFE'
   },
   {
-    title: 'Human life is priceless'
+    title: 'HUMAN LIFE IS PRICELESS'
   },
   {
-    title: 'Trust the professionals'
+    title: 'TRUST THE PROFESSEIONALS'
   }
 ])
 const content = ref([
@@ -28,7 +28,7 @@ const content = ref([
   },
   {
     icon: 'call-outline',
-    title: '+380955889773',
+    title: '+(380) 95 588 9773',
   },
   {
     icon: 'at-circle-outline',
@@ -202,8 +202,8 @@ onMounted(() => {
 .block_main_title {
   width: 100%;
   position: absolute;
-  top: -15%;
-  left: 0;
+  top: 0;
+
   text-align: center;
   font-size: 5rem;
   font-weight: 600;
@@ -228,7 +228,7 @@ onMounted(() => {
 
 #map {
   z-index: 2;
-  height: 800px;
+  height: 600px;
   background-color: #333;
   color: #fff;
 }
@@ -280,7 +280,7 @@ ion-icon {
 .content_title {
   font-size: 2rem;
   font-weight: 500;
-  color: $secondary;
+  color: $primary;
 }
 
 //

@@ -72,6 +72,7 @@ const link = ref([
   width: 100%;
   height: 50px;
   position: fixed;
+  top: 0;
   z-index: 105;
 }
 
@@ -80,7 +81,6 @@ const link = ref([
 .content {
   width: 100%;
   min-height: 100vh;
-  padding-top: 50px;
 }
 
 // Footer

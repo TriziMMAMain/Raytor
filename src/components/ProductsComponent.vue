@@ -128,7 +128,7 @@ const page = ref(1)
 .wrap_main {
   width: 80%;
   min-height: 100vh;
-  margin: 0 auto;
+  margin: 100px auto;
   position: relative;
   background-color: #FFFFFF;
 }

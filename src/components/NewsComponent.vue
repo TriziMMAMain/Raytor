@@ -170,15 +170,17 @@ const heightFuncInBtn = () => {
             <div class="block_news_divider_left"></div>
             <div class="block_news_divider_right"></div>
             <div class="news_img">
-              <v-img :src="n.photoUrl"></v-img>
+              <div class="news_img_photo">
+                <img class="news_img_photo_main" alt="" :src="n.photoUrl">
+              </div>
             </div>
             <div class="news_content">
-              <p class="content_date">{{ n.date }}</p>
+              <p class="content_date"><ion-icon name="calendar-outline"></ion-icon> {{ n.date }}</p>
               <h1 class="content_title">{{ n.title }}</h1>
               <p class="content_text">{{ n.text }}</p>
             </div>
             <div class="content_button">
-              <v-btn :height="heightFuncInBtn()" :href="n.urlInNews">More</v-btn>
+              <v-btn  :height="heightFuncInBtn()" :href="n.urlInNews">More</v-btn>
             </div>
           </div>
         </v-slide-group-item>
@@ -216,23 +218,23 @@ const heightFuncInBtn = () => {
 }
 
 .block_news_divider_left, .block_news_divider_right {
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
   transition: all 0.3s ease-in-out;
 }
 
 .block_news_divider_left {
   position: absolute;
-  top: -30px;
-  left: -30px;
+  top: -20px;
+  left: -20px;
   border-top: 1px solid $warning;
   border-left: 1px solid $warning;
 }
 
 .block_news_divider_right {
   position: absolute;
-  bottom: -30px;
-  right: -30px;
+  bottom: -20px;
+  right: -20px;
   border-right: 1px solid $warning;
   border-bottom: 1px solid $warning;
 
@@ -249,7 +251,7 @@ const heightFuncInBtn = () => {
   margin-left: 150px;
   padding: 25px;
   transition: all 0.3s ease-in-out;
-  border: 1px solid $primary;
+  border: 1px solid #8b8989;
   background-color: $textSpan;
 }
 
@@ -257,9 +259,9 @@ const heightFuncInBtn = () => {
 
   .v-btn {
     transition: all 0.3s ease-in-out;
-    border: 1px solid $textSpan;
-    color: $textSpan;
-    background-color: $warning;
+    border: 1px solid transparent;
+    color: #ffffff;
+    background-color: $primary;
   }
 
   .block_news_divider_left, .block_news_divider_right {
@@ -280,14 +282,21 @@ const heightFuncInBtn = () => {
 
 .news_img {
   width: 100%;
-
 }
 
-.v-img {
+.news_img_photo {
   width: 100%;
   position: relative;
   right: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8b8989;
+}
 
+.news_img_photo_main {
+  width: 100%;
+  padding: 7px;
 }
 
 .news_content {
@@ -296,25 +305,35 @@ const heightFuncInBtn = () => {
   margin-top: 40px;
 }
 
+ion-icon {
+  font-size: 1.7rem;
+  margin-right: 5px;
+}
+
 .content_date {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #ffffff;
 }
 
 .content_title {
   width: 100%;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: $warning;
+  line-height: 1.8rem;
+  margin-top: 30px;
+  color: $primary;
 }
 
 .content_text {
   width: 100%;
-  margin-top: 10px;
   font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 100px;
+  font-weight: 400;
+  line-height: 1.8rem;
+  margin-top: 30px;
+  margin-bottom: 150px;
   color: #ffffff;
 }
 
@@ -330,10 +349,11 @@ const heightFuncInBtn = () => {
 .v-btn {
   width: 300px;
   font-size: 2rem;
+  font-family: "Calibri Light", sans-serif;
   transition: all 0.3s ease-in-out;
-  border: 1px solid $textSpan;
-  color: $textSpan;
-  background-color: $primary;
+  border: 1px solid #8b8989;
+  color: #8b8989;
+  background-color: transparent;
 }
 
 </style>
