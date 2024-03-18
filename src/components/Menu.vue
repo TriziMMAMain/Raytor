@@ -1,10 +1,8 @@
 <script setup="">
 import {onMounted, ref, watch} from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import {useRoute, useRouter} from 'vue-router';
 
 // Router
-
-
 
 
 // Value
@@ -34,6 +32,23 @@ const tabsCounter = async (currentUrl) => {
 
 //
 
+const isHovered = ref(false);
+const barPosition = ref(0);
+
+watch(isHovered, (newValue) => {
+  if (newValue) {
+    setInterval(() => {
+      if (barPosition.value < 200) {
+        barPosition.value += 5;
+      } else {
+        barPosition.value = 0;
+      }
+    }, 50);
+  }
+});
+
+//
+
 onMounted(async () => {
   currentUrl.value = window.location.href;
   await tabsCounter(currentUrl.value)
@@ -46,21 +61,22 @@ onMounted(async () => {
       <a class="title_main" href="/">REYTOR LTD</a>
     </div>
     <div class="panel_buttons_actions">
-      <v-tabs
-          v-model="tabs"
-          height="70px"
-      >
-        <v-tab href="/" :value="1">HOME</v-tab>
-        <v-tab href="/products/" :value="2">PRODUCTS</v-tab>
-        <v-tab href="/news/" :value="3">NEWS</v-tab>
-        <v-tab :value="4" @click="openAndCloseMenu()">EN</v-tab>
-      </v-tabs>
-      <div v-if="valueOpenAndCloseLanguage" class="panel_menu_absolute">
-        <a @click="openAndCloseMenuLanguage('En')" href="#" class="menu_text">En</a>
-        <a @click="openAndCloseMenuLanguage('Ru')" href="#" class="menu_text">Ru</a>
+      <div class="v-tabs">
+        <h1 class="v-tab" href="/">HOME</h1>
+        <h1 class="v-tab" href="/products/">PRODUCTS</h1>
+        <h1 class="v-tab" href="/news/">NEWS</h1>
+        <h1 class="v-tab" @click="openAndCloseMenu()">EN</h1>
       </div>
+
     </div>
+
+    <div v-if="valueOpenAndCloseLanguage" class="panel_menu_absolute">
+      <a @click="openAndCloseMenuLanguage('En')" href="#" class="menu_text">En</a>
+      <a @click="openAndCloseMenuLanguage('Ru')" href="#" class="menu_text">Ru</a>
+    </div>
+
   </div>
+
 </template>
 
 <style lang="scss" scoped>
@@ -74,7 +90,8 @@ onMounted(async () => {
   height: 70px;
   display: flex;
   //background-color: $textSpan;
-  //background-color: rgba(255, 0, 0, 0.64);
+  background-color: rgba(255, 253, 253, 0.11);
+  backdrop-filter: blur(2px);
 }
 
 // Header
@@ -171,10 +188,40 @@ onMounted(async () => {
   width: 230px;
   height: 100%;
   font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
   text-decoration: none;
-  color: $textSpan;
-  background-color: $primary;
+  position: relative;
+  padding-bottom: 3px; /* высота линии */
+  color: #ffffff;
+  background-color: $textSpan;
+
 }
+
+.v-tab:hover {
+  cursor: pointer;
+  color: $primary;
+}
+
+.v-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px; /* высота линии */
+  background-color: #ff0000; /* цвет линии */
+  transition: all 0.3s ease-in-out;
+}
+
+.v-tab:hover::after {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
 
 .panel_menu_third {
   width: 100px;
@@ -196,7 +243,6 @@ onMounted(async () => {
   height: 80px;
 
 }
-
 
 
 // Language
