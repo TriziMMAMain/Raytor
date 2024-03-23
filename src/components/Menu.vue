@@ -1,6 +1,7 @@
 <script setup="">
 import {onMounted, ref, watch} from 'vue';
 import {useRoute, useRouter} from 'vue-router';
+import logoReytor from '../assets/photo/Logo_REYTOR.svg'
 
 // Router
 
@@ -58,14 +59,14 @@ onMounted(async () => {
 <template>
   <div class="wrap_menu">
     <div class="header">
-      <a class="title_main" href="/">REYTOR LTD</a>
+      <a class="title_main" href="/"><img class="logoReytor" :src="logoReytor" alt=""></a>
     </div>
     <div class="panel_buttons_actions">
       <div class="v-tabs">
-        <h1 class="v-tab" href="/">HOME</h1>
-        <h1 class="v-tab" href="/products/">PRODUCTS</h1>
-        <h1 class="v-tab" href="/news/">NEWS</h1>
-        <h1 class="v-tab" @click="openAndCloseMenu()">EN</h1>
+        <a class="v-tab" href="/">HOME</a>
+        <a class="v-tab" href="/products/">PRODUCTS</a>
+        <a class="v-tab" href="/news/">NEWS</a>
+        <a class="v-tab" @click="openAndCloseMenu()">EN</a>
       </div>
 
     </div>
@@ -87,7 +88,7 @@ onMounted(async () => {
 
 .wrap_menu {
   width: 100%;
-  height: 70px;
+  height: 80px;
   display: flex;
   //background-color: $textSpan;
   background-color: rgba(255, 253, 253, 0.11);
@@ -107,11 +108,14 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: $primary;
   background-color: $surface;
+}
+
+.logoReytor {
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 // Expansions
@@ -145,12 +149,11 @@ onMounted(async () => {
 .menu_title:hover {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  color: $primary;
-  background-color: $surface;
+  background-color: rgba(252, 76, 4, 0.91);
 }
 
 .panel_menu_absolute {
-  width: 200px;
+  width: 230px;
   position: absolute;
   right: 0;
   bottom: -120px;
@@ -160,7 +163,7 @@ onMounted(async () => {
 
 .menu_text {
   width: 100%;
-  height: 60px;
+  height: 100%;
   font-size: 1.5rem;
   font-weight: 600;
   padding: 10px 15px;
@@ -179,7 +182,7 @@ onMounted(async () => {
 // Third
 
 .v-tabs {
-  height: 70px;
+  height: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -195,7 +198,7 @@ onMounted(async () => {
   transition: all 0.3s ease-in-out;
   text-decoration: none;
   position: relative;
-  padding-bottom: 3px; /* высота линии */
+  padding-bottom: 3px;
   color: #ffffff;
   background-color: $textSpan;
 
