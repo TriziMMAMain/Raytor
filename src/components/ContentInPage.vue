@@ -2,7 +2,6 @@
 import {ref, onMounted} from 'vue'
 import {useDisplay} from 'vuetify'
 import photoHomePage from '../assets/photo/photoInHomePage.jpg'
-import L from 'leaflet';
 import { YoutubeIframe } from '@vue-youtube/component';
 const {name} = useDisplay()
 
@@ -38,16 +37,9 @@ const content = ref([
 
 // Leaflet
 
-const map = ref(null);
 
 onMounted(() => {
-  const mymap = L.map('map').setView([50.405814, 30.555269], 17);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-  }).addTo(mymap);
-  const newMarker = L.marker([50.405814, 30.555269]).addTo(mymap);
 
-  map.value = mymap;
 });
 </script>
 
@@ -73,31 +65,33 @@ onMounted(() => {
         </div>
       </v-carousel>
     </div>
-    <div class="content_introduction">
-      <div class="introduction_youtube">
-        <h1 class="introduction_youtube_title">INTRODUCTION</h1>
-        <youtube-iframe video-id="PllzEKkfw5I" />
+    <v-container>
+      <div class="content_introduction">
+        <div class="introduction_youtube">
+          <h1 class="introduction_youtube_title">INTRODUCTION</h1>
+          <youtube-iframe video-id="PllzEKkfw5I" />
+        </div>
       </div>
-    </div>
-    <div class="content_about_us_main">
-      <h1 class="block_main_title">ABOUT US</h1>
-     <div class="content_about_us">
-       <div class="block_img">
-<!--         карта Киева-->
-         <div id="map"></div>
-       </div>
-       <div class="about_us_block_main">
-         <div class="about_us_block" v-for="i in content">
-           <div class="block_icon">
-             <ion-icon :name="i.icon"></ion-icon>
-           </div>
-           <div class="block_content">
-             <h1 class="content_title">{{ i.title }}</h1>
-           </div>
-         </div>
-       </div>
-     </div>
-    </div>
+      <div class="content_about_us_main">
+        <h1 class="block_main_title">ABOUT US</h1>
+        <div class="content_about_us">
+          <div class="block_img">
+            <!--         карта Киева-->
+            <div class="map"></div>
+          </div>
+          <div class="about_us_block_main">
+            <div class="about_us_block" v-for="i in content">
+              <div class="block_icon">
+                <ion-icon :name="i.icon"></ion-icon>
+              </div>
+              <div class="block_content">
+                <h1 class="content_title">{{ i.title }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </v-container>
 
 
   </div>
@@ -107,9 +101,9 @@ onMounted(() => {
 @import '../assets/mixins.scss';
 
 .wrap_content {
-  width: 100%;
   min-height: 100vh;
-  background-color: $surface;
+  margin-bottom: 5vh;
+  background-color: #ffffff;
 }
 
 // Carousel
@@ -162,8 +156,12 @@ onMounted(() => {
 .content_introduction {
   width: 100%;
   min-height: 100vh;
-  background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
-  background-size: cover;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
+  //background-size: cover;
   //background-color: $surface;
 }
 
@@ -174,14 +172,13 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10%;
 }
 
 .introduction_youtube_title {
   position: absolute;
-  left: 0;
+  left: -5vw;
   transform: rotate(-90deg);
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 600;
   color: $text;
 }
@@ -194,18 +191,17 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
-  background-size: cover;
+  flex-direction: column;
+  //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
+  //background-size: cover;
 }
 
 
 .block_main_title {
   width: 100%;
-  position: absolute;
-  top: 0;
 
   text-align: center;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 600;
   color: $text;
 }
@@ -213,24 +209,23 @@ onMounted(() => {
 .content_about_us {
   width: 100%;
   height: 100%;
+  margin-top: 10vh;
   display: flex;
-  justify-content: start;
+  justify-content: center;
 }
 
 // Photo
 
 .block_img {
   width: 55%;
-  margin-left: 50px;
   transform: translateY(50%, -50%);
 }
 
 
-#map {
+.map {
   z-index: 2;
   height: 600px;
-  background-color: #333;
-  color: #fff;
+  background-color: $surface;
 }
 
 .leaflet-control-container {

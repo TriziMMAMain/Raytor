@@ -66,14 +66,14 @@ onMounted(async () => {
         <a class="v-tab" href="/">HOME</a>
         <a class="v-tab" href="/products/">PRODUCTS</a>
         <a class="v-tab" href="/news/">NEWS</a>
-        <a class="v-tab" @click="openAndCloseMenu()">EN</a>
+        <h1 class="v-tab" @click="openAndCloseMenu()">EN <ion-icon name="caret-down-outline"></ion-icon></h1>
       </div>
 
     </div>
 
     <div v-if="valueOpenAndCloseLanguage" class="panel_menu_absolute">
-      <a @click="openAndCloseMenuLanguage('En')" href="#" class="menu_text">En</a>
-      <a @click="openAndCloseMenuLanguage('Ru')" href="#" class="menu_text">Ru</a>
+      <a @click="openAndCloseMenuLanguage('En')" href="#" class="menu_text">EN</a>
+      <a @click="openAndCloseMenuLanguage('Ua')" href="#" class="menu_text">UA</a>
     </div>
 
   </div>
@@ -175,8 +175,8 @@ onMounted(async () => {
 
 .menu_text:hover {
   transition: all 0.3s ease-in-out;
-  text-decoration: 1px solid $textSpan;
-  background-color: rgba(174, 113, 54, 0.9);
+  font-weight: 600;
+  background-color: #e1988e;
 }
 
 // Third

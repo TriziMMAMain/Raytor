@@ -15,10 +15,6 @@ import News from '../components/NewsComponent.vue'
       <div class="content">
         <Content></Content>
       </div>
-      <!--    News -->
-      <div class="news">
-        <News></News>
-      </div>
 
     </div>
   </v-container>
@@ -43,10 +39,5 @@ import News from '../components/NewsComponent.vue'
   width: 100%;
 }
 
-// News
-
-.news {
-  width: 100%;
-}
 
 </style>
