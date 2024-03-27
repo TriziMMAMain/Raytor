@@ -1,8 +1,9 @@
 <script setup="">
-import {ref, onMounted} from 'vue'
+import {ref, computed, onMounted, onBeforeUnmount} from 'vue'
 import {useDisplay} from 'vuetify'
 import photoHomePage from '../assets/photo/photoInHomePage.jpg'
-import { YoutubeIframe } from '@vue-youtube/component';
+import {YoutubeIframe} from '@vue-youtube/component';
+
 const {name} = useDisplay()
 
 const slides = ref([
@@ -35,41 +36,70 @@ const content = ref([
   }
 ])
 
-// Leaflet
+// Carousel
 
+const mainImage = 'https://sportishka.com/uploads/posts/2023-12/1701737070_sportishka-com-p-gori-amanos-vkontakte-6.jpg';
+const secondaryImage1 = 'https://proprikol.ru/wp-content/uploads/2022/10/kartinki-s-mezhdunarodnym-dnem-gor-26.jpg';
+const secondaryImage2 = 'http://vsegda-pomnim.com/uploads/posts/2022-04/1649124761_13-vsegda-pomnim-com-p-priroda-gor-foto-17.jpg';
 
-onMounted(() => {
+const secondaryImageOpacity = ref(0);
+const thirdImageOpacity = ref(0);
+const fourImageOpacity = ref(0);
 
-});
+const secondaryImageDelay = ref(0);
+const thirdImageDelay = ref(0);
+const fourImageDelay = ref(0);
+
+const changeImage = () => {
+  setInterval(() => {
+    if (secondaryImageOpacity.value === 0) {
+      secondaryImageOpacity.value = 100;
+    } else if (thirdImageOpacity.value === 0) {
+      thirdImageOpacity.value = 100
+      fourImageOpacity.value = 100
+    } else {
+      secondaryImageOpacity.value = 0
+      thirdImageOpacity.value = 0
+      fourImageOpacity.value = 0
+
+      secondaryImageDelay.value = 2
+      thirdImageDelay.value = 2
+      fourImageDelay.value = 1
+    }
+  }, 3000)
+}
+
+changeImage();
 </script>
 
 <template>
   <div class="wrap_content">
     <div class="content_carousel">
-      <v-carousel
-          cycle
-          height="100vh"
-          hide-delimiter-background
-          :show-arrows="false"
-          show-arrows="hover"
-      >
-        <v-carousel-item
-            v-for="(item, i) in slides"
-            :key="i"
-            cover
-        >
-          <h1 class="v-carousel-item-title">{{ item.title }}</h1>
-        </v-carousel-item>
-        <div class="background_photo_carousel">
-          <img class="background_photo_carousel_img" alt="" :src="photoHomePage">
+
+      <div class="carousel">
+        <div class="carousel-wrapper">
+          <div class="main-image" :class="{ 'show-divider': secondaryImageOpacity > 0 }">
+            <img :src="mainImage" alt="" class="main-image-content">
+          </div>
+          <div class="secondary-image" :style="{ opacity: secondaryImageOpacity + '%', transition: 'opacity 1s ' + secondaryImageDelay + 's' }">
+            <img :src="secondaryImage1" alt="" class="secondary-image-content">
+          </div>
+          <div class="secondary-image2" :style="{opacity: secondaryImageOpacity + '%', transition: 'opacity 1s ' + secondaryImageDelay + 's' }">
+            <img :src="secondaryImage1" alt="" class="secondary-image-content2">
+          </div>
+          <div class="secondary-image3" :style="{opacity: fourImageOpacity + '%', transition: 'opacity 1s ' + fourImageDelay + 's' }">
+            <img :src="secondaryImage2" alt="" class="secondary-image-content3">
+          </div>
         </div>
-      </v-carousel>
+      </div>
+
     </div>
+
     <v-container>
       <div class="content_introduction">
         <div class="introduction_youtube">
           <h1 class="introduction_youtube_title">INTRODUCTION</h1>
-          <youtube-iframe video-id="PllzEKkfw5I" />
+          <youtube-iframe video-id="PllzEKkfw5I"/>
         </div>
       </div>
       <div class="content_about_us_main">
@@ -110,46 +140,12 @@ onMounted(() => {
 
 .content_carousel {
   width: 100%;
-  min-height: 100vh;
-  background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
-  background-size: cover;
-}
-
-.v-carousel {
-  width: 100%;
   height: 100vh;
+  //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
+  //background-size: cover;
+  background-color: rgba(255, 0, 0, 0.87);
 }
 
-.background_photo_carousel {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  z-index: 2;
-}
-
-.background_photo_carousel_img {
-  width: 100%;
-  height: 100%;
-}
-
-.v-carousel-item {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 3;
-}
-
-.v-carousel-item-title {
-  position: absolute;
-  top: 30%;
-  left: 20%;
-  width: 600px;
-  font-size: 6.5rem;
-  font-weight: 600;
-  font-family: "Candara", sans-serif;
-  color: #ffffff // $primary;
-}
 
 // YouTube
 
@@ -279,5 +275,94 @@ ion-icon {
 }
 
 //
+.carousel {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-image {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  background-color: yellow;
+  transition: border-bottom 1s;
+}
+
+.main-image-content {
+  width: 100%;
+  height: 100vh;
+}
+
+.secondary-image {
+  width: 100%;
+  height: 100vh;
+  left: -20%;
+  z-index: 1;
+  transition: opacity 1s;
+  transform: skewY(-45deg);
+  overflow: hidden; /* Скрыть содержимое, выходящее за пределы блока */
+}
+
+.secondary-image-content {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: 36%;
+  left: 20%;
+  transform: skewY(45deg);
+}
+
+.secondary-image2 {
+  width: 100%;
+  height: 140vh;
+  position: absolute;
+  top: 0;
+  left: 30%;
+  z-index: 2;
+  transition: opacity 1s;
+  transform: skewY(-45deg);
+  overflow: hidden;
+}
+
+.secondary-image-content2 {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: -38%;
+  left: -30%;
+  transform: skewY(45deg);
+}
+
+.secondary-image3 {
+  width: 120%;
+  height: 140vh;
+  position: absolute;
+  top: 0;
+  left: 30%;
+  z-index: 2;
+  transition: opacity 1s;
+  transform: skewY(-45deg);
+  overflow: hidden;
+}
+
+.secondary-image-content3 {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: -51%;
+  left: -25%;
+  transform: skewY(45deg);
+}
 
 </style>
