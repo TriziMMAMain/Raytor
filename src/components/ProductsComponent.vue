@@ -41,6 +41,32 @@ const productsList = ref([
     text: 'The test set will test the parameters of any self-contained breathing apparatus, self-contained panoramic masks and…'
   },
 ])
+const productsFilter = ref([
+  {
+    title: 'STANDARD',
+    text: ['En','DSTU','IS','SANS','Others'],
+  },
+  {
+    title: 'MANUFACTURER',
+    text: ['DEZEGA SP', 'DONSORB'],
+  },
+  {
+    title: 'FIELD',
+    text: ['SCSR', 'Closed-circuit SCBA', 'Emergency escape hood','Auxiliary equipment'],
+  }
+])
+
+const titleLink = () => {
+  window.location.reload()
+}
+
+const checkboxChange = () => {
+  console.log(vCheckboxValue.value);
+}
+const vCheckboxValue = ref([])
+const resetFocus = () => {
+  document.activeElement.blur(); // Снимаем фокус с текущего активного элемента
+}
 const heightFuncInCarousel = () => {
   if (name.value === 'xs') {
     return '50'
@@ -60,43 +86,32 @@ const page = ref(1)
 </script>
 
 <template>
-  <div class="wrap_main">
-    <h1 class="title_absolute">CATALOGUE</h1>
+  <v-container class="wrap_main">
+<!--    <h1 class="title_absolute">CATALOGUE</h1>-->
     <div class="filter_menu">
-      <div class="filter_block">
-        <h1 class="filter_title">Standard</h1><v-icon icon="fa-solid fa-bars"></v-icon>
-        <div class="filter_block_hiden">
-          <h1 class="hiden_title_main">- Any -</h1>
-          <br>
-          <h1 class="hiden_title">En</h1>
-          <h1 class="hiden_title">DSTU</h1>
-          <h1 class="hiden_title">IS</h1>
-          <h1 class="hiden_title">SANS</h1>
-          <h1 class="hiden_title">Others</h1>
-        </div>
-      </div>
-      <div class="filter_block">
-        <h1 class="filter_title">Manufacturer</h1><v-icon icon="fa-solid fa-bars"></v-icon>
-        <div class="filter_block_hiden">
-          <h1 class="hiden_title_main">- Any -</h1>
-          <br>
-          <h1 class="hiden_title">DEZEGA SP</h1>
-          <h1 class="hiden_title">DONSORB</h1>
-        </div>
 
-      </div>
-      <div class="filter_block">
-        <h1 class="filter_title">Field</h1><v-icon icon="fa-solid fa-bars"></v-icon>
-        <div class="filter_block_hiden">
-          <h1 class="hiden_title_main">- Any -</h1>
-          <br>
-          <h1 class="hiden_title">SCSR</h1>
-          <h1 class="hiden_title">Closed-circuit SCBA</h1>
-          <h1 class="hiden_title">Emergency escape hood</h1>
-          <h1 class="hiden_title">Auxiliary equipment</h1>
-        </div>
+      <h1 class="filter_menu_title">FILTER</h1>
 
-      </div>
+      <v-expansion-panels variant="accordion">
+        <v-expansion-panel
+            v-for="i in productsFilter"
+            :key="i"
+        >
+          <v-expansion-panel-title>
+            <h1 class="v-expansion-panel-title-h1">{{ i.title }}</h1>
+          </v-expansion-panel-title>
+
+          <v-expansion-panel-text>
+            <div class="v-expansion-panel-text-div">
+              <v-checkbox  color="primary" v-model="vCheckboxValue" v-for="text in i.text"
+                           :value="text" :label="text"
+                           @change="checkboxChange()"></v-checkbox>
+            </div>
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+      </v-expansion-panels>
+
+
     </div>
     <div class="card_catalog">
       <div class="card_block" v-for="i in productsList">
@@ -104,7 +119,7 @@ const page = ref(1)
           <img class="block_img" alt="" :src="i.photo">
         </div>
         <div class="card_content">
-          <h1 class="card_title">{{ i.title }}</h1>
+          <h1 @click="titleLink" class="card_title">{{ i.title }}</h1>
           <p class="card_text">{{ i.text }}</p>
 
         </div>
@@ -119,16 +134,15 @@ const page = ref(1)
           rounded="circle"
           :length="4"></v-pagination>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <style lang="scss" scoped>
 @import '../assets/mixins.scss';
 
 .wrap_main {
-  width: 80%;
   min-height: 100vh;
-  margin: 100px auto;
+  margin-top: 100px;
   position: relative;
   background-color: #FFFFFF;
 }
@@ -147,79 +161,48 @@ const page = ref(1)
 
 .filter_menu {
   width: 100%;
-  height: 120px;
-  margin-top: 50px;
+  min-height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+flex-direction: column;
 }
 
-.filter_block {
-  width: 450px;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-  -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-  box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-  background-color: $textSpan;
-}
+.filter_menu_title {
 
-.filter_title {
-  font-size: 1.7rem;
+  font-size: 5rem;
   font-weight: 600;
-  padding-left: 25px;
-  color: $primary;
-}
-
-.v-icon {
-  padding-right: 25px;
-  font-size: 2.5rem;
-  color: $primary;
-}
-
-.filter_block_hiden {
-  display: none;
-}
-
-.hiden_title_main {
-  width: fit-content;
-  font-size: 1.5rem;
-  font-weight: 700;
+  text-align: center;
   color: $textSpan;
 }
 
-.hiden_title {
-  width: fit-content;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: $textSpan;
+.v-expansion-panels {
+  margin-top: 50px;
 }
 
-.hiden_title_main:hover, .hiden_title:hover {
-  cursor: pointer;
-  text-decoration: underline;
+.v-expansion-panel-title {
+  padding: 35px;
 }
 
-.filter_block:hover {
-  position: relative;
-  .filter_block_hiden {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 130px;
-    position: absolute;
-    top: -20px;
-    padding: 10px;
-    background-color: $primary;
-    -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-    -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-    box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-  }
+.v-expansion-panel-title-h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
 }
+
+.v-expansion-panel-text {}
+
+.v-expansion-panel-text-div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.v-checkbox {
+  width: 50%;
+}
+
+
 
 // Card
 
@@ -238,7 +221,7 @@ const page = ref(1)
   min-height: 650px;
   margin-top: 70px;
   margin-bottom: 70px;
-  padding: 25px;
+  padding: 35px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -246,7 +229,7 @@ const page = ref(1)
   -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
   -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
   box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-  background-color: $textSpan;
+  background-color: #ffffff;
 }
 
 .photo_block {
@@ -266,18 +249,26 @@ const page = ref(1)
 }
 
 .card_title {
-  font-size: 1.5rem;
+  min-height: 200px;
+  font-size: 1.7rem;
   font-weight: 700;
   padding-top: 30px;
   color: $primary;
 }
 
+.card_title:hover {
+  cursor: pointer;
+  text-decoration: $background underline;
+  text-underline-offset: 0.4rem;
+}
+
 .card_text {
-  font-size: 1rem;
-  font-weight: 600;
+  min-height: 100px;
+  font-size: 1.1rem;
+  font-weight: 700;
   padding-top: 30px;
   padding-bottom: 30px;
-  color: #ffffff;
+  color: $textSpan;
 }
 
 .card_actions {
@@ -293,29 +284,27 @@ const page = ref(1)
   font-size: 1.5rem;
   font-weight: 700;
   transition: all 0.3s ease-in-out;
-  border: 1px solid $textSpan;
   color: $textSpan;
   background-color: $primary;
 }
 
 .v-btn:hover {
   transition: all 0.3s ease-in-out;
-  border: 1px solid $primary;
   color: $primary;
-  background-color: $textSpan;
+  background-color: #ffffff;
 }
 
 .card_block:hover {
   transition: all 0.3s ease-in-out;
-  transform: translateY(-10px);
-  background-color: $primary;
+  -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+  -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+  box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
 
   .card_title {
-    font-weight: 700;
-    color: $textSpan;
+
   }
   .card_text {
-    color: $textSpan;
+
   }
 }
 

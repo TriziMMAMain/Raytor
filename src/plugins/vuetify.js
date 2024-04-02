@@ -16,7 +16,7 @@ const myCustomTheme = {
     colors: {
         background: '#626461',
         surface: '#10100F',
-        primary: '#88C2CE',
+        primary: '#fc4c04',
         text: '#666666',
         secondary: '#03DAC6',
         textSpan: '#1a1a1a',

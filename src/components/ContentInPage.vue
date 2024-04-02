@@ -1,22 +1,12 @@
 <script setup="">
-import {ref, computed, onMounted, onBeforeUnmount} from 'vue'
+import {ref, computed, watch, onMounted, onBeforeUnmount} from 'vue'
 import {useDisplay} from 'vuetify'
 import photoHomePage from '../assets/photo/photoInHomePage.jpg'
 import {YoutubeIframe} from '@vue-youtube/component';
+import 'animate.css';
 
 const {name} = useDisplay()
 
-const slides = ref([
-  {
-    title: 'KEEP SAFE'
-  },
-  {
-    title: 'HUMAN LIFE IS PRICELESS'
-  },
-  {
-    title: 'TRUST THE PROFESSEIONALS'
-  }
-])
 const content = ref([
   {
     icon: 'globe-outline',
@@ -38,60 +28,86 @@ const content = ref([
 
 // Carousel
 
-const mainImage = 'https://sportishka.com/uploads/posts/2023-12/1701737070_sportishka-com-p-gori-amanos-vkontakte-6.jpg';
-const secondaryImage1 = 'https://proprikol.ru/wp-content/uploads/2022/10/kartinki-s-mezhdunarodnym-dnem-gor-26.jpg';
-const secondaryImage2 = 'http://vsegda-pomnim.com/uploads/posts/2022-04/1649124761_13-vsegda-pomnim-com-p-priroda-gor-foto-17.jpg';
+import mainImage from '../assets/photo/backgroundPhotoInCarousel1.png'
+import secondaryImage1 from '../assets/photo/backgroundPhotoInCarousel2.png'
+import secondaryImage2 from '../assets/photo/backgroundPhotoInCarousel3.png'
+const slides = ref([
+  {
+    title: 'KEEP SAFE',
+    src: mainImage
+  },
+  {
+    title: 'HUMAN LIFE IS PRICELESS',
+    src: secondaryImage1
+  },
+  {
+    title: 'TRUST THE PROFESSEIONALS',
+    src: secondaryImage2
+  }
+])
+// const images = ref([mainImage, secondaryImage1, secondaryImage2])
+const currentIndex = ref(0);
+const h1Visible = ref(false);
 
-const secondaryImageOpacity = ref(0);
-const thirdImageOpacity = ref(0);
-const fourImageOpacity = ref(0);
+const checkVisibility = () => {
+  const h1 = document.querySelector('.v-carousel-item-title.active');
+  if (h1) {
+    const rect = h1.getBoundingClientRect();
+    h1Visible.value = rect.top < window.innerHeight && rect.bottom >= 0;
+  } else {
+    h1Visible.value = false;
+  }
+};
 
-const secondaryImageDelay = ref(0);
-const thirdImageDelay = ref(0);
-const fourImageDelay = ref(0);
+watch(currentIndex, () => {
+  checkVisibility();
+});
 
-const changeImage = () => {
+onMounted(() => {
   setInterval(() => {
-    if (secondaryImageOpacity.value === 0) {
-      secondaryImageOpacity.value = 100;
-    } else if (thirdImageOpacity.value === 0) {
-      thirdImageOpacity.value = 100
-      fourImageOpacity.value = 100
-    } else {
-      secondaryImageOpacity.value = 0
-      thirdImageOpacity.value = 0
-      fourImageOpacity.value = 0
+    currentIndex.value = (currentIndex.value + 1) % slides.value.length;
+  }, 5000);
+});
+// carousel
 
-      secondaryImageDelay.value = 2
-      thirdImageDelay.value = 2
-      fourImageDelay.value = 1
-    }
-  }, 3000)
-}
 
-changeImage();
 </script>
 
 <template>
   <div class="wrap_content">
     <div class="content_carousel">
 
-      <div class="carousel">
-        <div class="carousel-wrapper">
-          <div class="main-image" :class="{ 'show-divider': secondaryImageOpacity > 0 }">
-            <img :src="mainImage" alt="" class="main-image-content">
-          </div>
-          <div class="secondary-image" :style="{ opacity: secondaryImageOpacity + '%', transition: 'opacity 1s ' + secondaryImageDelay + 's' }">
-            <img :src="secondaryImage1" alt="" class="secondary-image-content">
-          </div>
-          <div class="secondary-image2" :style="{opacity: secondaryImageOpacity + '%', transition: 'opacity 1s ' + secondaryImageDelay + 's' }">
-            <img :src="secondaryImage1" alt="" class="secondary-image-content2">
-          </div>
-          <div class="secondary-image3" :style="{opacity: fourImageOpacity + '%', transition: 'opacity 1s ' + fourImageDelay + 's' }">
-            <img :src="secondaryImage2" alt="" class="secondary-image-content3">
-          </div>
-        </div>
+      <div class="carousel" v-for="(image, index) in slides">
+        <img :key="index" alt="" :src="image.src" :class="{ active: index === currentIndex }" class="image" />
+        <h1 class="v-carousel-item-title animate__animated"
+            :class="{ active: index === currentIndex, 'animate__fadeInLeftBig': index === currentIndex }">{{ image.title }}</h1>
       </div>
+
+
+<!--        <div class="carousel-wrapper">-->
+<!--          <v-carousel-->
+<!--              cycle-->
+<!--              height="100vh"-->
+<!--              hide-delimiters-->
+<!--              interval="1000"-->
+<!--              :show-arrows="false"-->
+<!--              direction="vertical"-->
+<!--              continuous-->
+<!--              :center-align="true"-->
+<!--              class="carousela"-->
+<!--          >-->
+<!--            <v-carousel-item-->
+<!--                v-for="(item, i) in slides"-->
+<!--                :key="i"-->
+<!--                :src="item.src"-->
+<!--                cover-->
+<!--            >-->
+<!--              <h1 class="v-carousel-item-title animate__animated animate__fadeInRightBig">{{ item.title }}</h1>-->
+<!--            </v-carousel-item>-->
+<!--          </v-carousel>-->
+
+<!--        </div>-->
+
 
     </div>
 
@@ -143,7 +159,7 @@ changeImage();
   height: 100vh;
   //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
   //background-size: cover;
-  background-color: rgba(255, 0, 0, 0.87);
+  background-color: $text;
 }
 
 
@@ -275,94 +291,62 @@ ion-icon {
 }
 
 //
-.carousel {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
 
 .carousel-wrapper {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.main-image {
-  width: 100%;
-  height: 100vh;
+
+.v-carousel-item-title {
   position: absolute;
-  top: 0;
+  top: 20%;
+  left: 10%;
+  font-size: 3.5rem;
+  font-weight: 600;
   z-index: 0;
-  background-color: yellow;
-  transition: border-bottom 1s;
+  transition: opacity 1s;
+  color: #ffffff;
 }
 
-.main-image-content {
+
+.carousel {
   width: 100%;
   height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
 }
 
-.secondary-image {
-  width: 100%;
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  left: -20%;
+  transition: opacity 1s;
+  z-index: 0;
+}
+
+.active {
   z-index: 1;
-  transition: opacity 1s;
-  transform: skewY(-45deg);
-  overflow: hidden; /* Скрыть содержимое, выходящее за пределы блока */
+  opacity: 1;
 }
 
-.secondary-image-content {
-  width: 1920px;
-  height: 1080px;
-  position: absolute;
-  top: 36%;
-  left: 20%;
-  transform: skewY(45deg);
+.image:not(.active) {
+  opacity: 0;
 }
 
-.secondary-image2 {
-  width: 100%;
-  height: 140vh;
-  position: absolute;
-  top: 0;
-  left: 30%;
-  z-index: 2;
-  transition: opacity 1s;
-  transform: skewY(-45deg);
-  overflow: hidden;
+
+.v-carousel-item-title:not(.active) {
+  opacity: 0;
 }
 
-.secondary-image-content2 {
-  width: 1920px;
-  height: 1080px;
-  position: absolute;
-  top: -38%;
-  left: -30%;
-  transform: skewY(45deg);
-}
+// asdsa
 
-.secondary-image3 {
-  width: 120%;
-  height: 140vh;
-  position: absolute;
-  top: 0;
-  left: 30%;
-  z-index: 2;
-  transition: opacity 1s;
-  transform: skewY(-45deg);
-  overflow: hidden;
-}
-
-.secondary-image-content3 {
-  width: 1920px;
-  height: 1080px;
-  position: absolute;
-  top: -51%;
-  left: -25%;
-  transform: skewY(45deg);
-}
 
 </style>
