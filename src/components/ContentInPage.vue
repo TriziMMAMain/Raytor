@@ -1,9 +1,59 @@
 <script setup="">
-import {ref, computed, watch, onMounted, onBeforeUnmount} from 'vue'
+import {ref, computed, watch, onMounted, onUnmounted, onBeforeUnmount} from 'vue'
 import {useDisplay} from 'vuetify'
 import photoHomePage from '../assets/photo/photoInHomePage.jpg'
 import {YoutubeIframe} from '@vue-youtube/component';
 import 'animate.css';
+
+import mainImage from '../assets/photo/backgroundPhotoInCarousel1.png'
+import secondaryImage1 from '../assets/photo/backgroundPhotoInCarousel2.png'
+import secondaryImage2 from '../assets/photo/backgroundPhotoInCarousel3.png'
+const slides = ref([
+  {
+    title: 'KEEP SAFE',
+    src: mainImage
+  },
+  {
+    title: 'HUMAN LIFE IS PRICELESS',
+    src: secondaryImage1
+  },
+  {
+    title: 'TRUST THE PROFESSEIONALS',
+    src: secondaryImage2
+  }
+])
+const currentIndex = ref(0)
+
+const printedText = ref('');
+
+let typingSpeed = 150; // Скорость печатания (миллисекунды)
+
+const typeText = (text) => {
+  let i = 0;
+  const intervalId = setInterval(() => {
+    if (i <= text.length) {
+      printedText.value = text.substring(0, i);
+      i++;
+    } else {
+      clearInterval(intervalId);
+    }
+  }, typingSpeed);
+}
+
+onMounted(() => {
+  typeText(slides.value[currentIndex.value].title);
+  const intervalId = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % slides.value.length;
+    printedText.value = '';
+    typeText(slides.value[currentIndex.value].title);
+  }, 5000);
+
+  onUnmounted(() => {
+    clearInterval(intervalId);
+  });
+});
+
+
 
 const {name} = useDisplay()
 
@@ -28,25 +78,9 @@ const content = ref([
 
 // Carousel
 
-import mainImage from '../assets/photo/backgroundPhotoInCarousel1.png'
-import secondaryImage1 from '../assets/photo/backgroundPhotoInCarousel2.png'
-import secondaryImage2 from '../assets/photo/backgroundPhotoInCarousel3.png'
-const slides = ref([
-  {
-    title: 'KEEP SAFE',
-    src: mainImage
-  },
-  {
-    title: 'HUMAN LIFE IS PRICELESS',
-    src: secondaryImage1
-  },
-  {
-    title: 'TRUST THE PROFESSEIONALS',
-    src: secondaryImage2
-  }
-])
+
 // const images = ref([mainImage, secondaryImage1, secondaryImage2])
-const currentIndex = ref(0);
+
 const h1Visible = ref(false);
 
 const checkVisibility = () => {
@@ -63,11 +97,6 @@ watch(currentIndex, () => {
   checkVisibility();
 });
 
-onMounted(() => {
-  setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % slides.value.length;
-  }, 5000);
-});
 // carousel
 
 
@@ -77,12 +106,12 @@ onMounted(() => {
   <div class="wrap_content">
     <div class="content_carousel">
 
-      <div class="carousel" v-for="(image, index) in slides">
-        <img :key="index" alt="" :src="image.src" :class="{ active: index === currentIndex }" class="image" />
-        <h1 class="v-carousel-item-title animate__animated"
-            :class="{ active: index === currentIndex, 'animate__fadeInLeft': index === currentIndex }">{{ image.title }}</h1>
+      <div class="carousel" v-for="(slide, index) in slides" :key="index">
+        <img alt="" :src="slide.src" :class="{ active: index === currentIndex }" class="image" />
+        <h1 class="v-carousel-item-title" :class="{ active: index === currentIndex }">
+          <span class="v-carousel-item-title-span">{{ printedText }}</span><span class="cursor">|</span>
+        </h1>
       </div>
-<!--      <h1 class="h1asd cssanimation typing"> Example </h1>-->
 
 
 
@@ -350,30 +379,25 @@ ion-icon {
 
 // asdsa
 
-.h1asd {
-  font-size: 4rem;
+.cursor {
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+.v-carousel-item-title-span {
+  font-size: 3.5rem;
+  font-weight: 600;
+  z-index: 0;
+  transition: opacity 1s;
   color: #ffffff;
-  opacity: 1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
 }
 
-.typing {
-  width: 473px;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid #7E2EA0;
-  animation: typing 5s steps(12, end), cursor .5s steps(12, end) infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-}
-
-@keyframes cursor {
-  50% { border-color: transparent }
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }
 
 </style>
