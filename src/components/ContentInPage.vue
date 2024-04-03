@@ -80,11 +80,13 @@ onMounted(() => {
       <div class="carousel" v-for="(image, index) in slides">
         <img :key="index" alt="" :src="image.src" :class="{ active: index === currentIndex }" class="image" />
         <h1 class="v-carousel-item-title animate__animated"
-            :class="{ active: index === currentIndex, 'animate__fadeInLeftBig': index === currentIndex }">{{ image.title }}</h1>
+            :class="{ active: index === currentIndex, 'animate__fadeInLeft': index === currentIndex }">{{ image.title }}</h1>
       </div>
+<!--      <h1 class="h1asd cssanimation typing"> Example </h1>-->
 
 
-<!--        <div class="carousel-wrapper">-->
+
+      <!--        <div class="carousel-wrapper">-->
 <!--          <v-carousel-->
 <!--              cycle-->
 <!--              height="100vh"-->
@@ -348,5 +350,30 @@ ion-icon {
 
 // asdsa
 
+.h1asd {
+  font-size: 4rem;
+  color: #ffffff;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+}
+
+.typing {
+  width: 473px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #7E2EA0;
+  animation: typing 5s steps(12, end), cursor .5s steps(12, end) infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+}
+
+@keyframes cursor {
+  50% { border-color: transparent }
+}
 
 </style>
