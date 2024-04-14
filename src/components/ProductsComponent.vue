@@ -1,42 +1,45 @@
 <script setup="">
 import {ref} from 'vue'
 import {useDisplay} from 'vuetify'
+
 const {name} = useDisplay()
+
+import photoProducts from '../assets/photo/photo380x250.jpg'
 
 const productsList = ref([
   {
     url: '#',
-    photo: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-09/r-70_450x265px_0.jpg?itok=9_SrLQUF',
+    photo: photoProducts,
     title: 'Compressed oxygen self-contained closed-circuit breathing apparatus DEZEGA P-70',
     text: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus.'
   },
   {
     url: '#',
-    photo: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-06/1_carbo-30_450x265px_0.jpg?itok=foPfg6Vb',
+    photo: photoProducts,
     title: 'DEZEGA self-contained self-rescuer CARBO 30',
     text: 'CARBO 30 self-rescuer is a personal respiratory protective device on chemically bound oxygen with a closed breathing circuit…'
   },
   {
     url: '#',
-    photo: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2022-07/kompresor_450x265px.jpg?itok=xzOnXi1m',
+    photo: photoProducts,
     title: 'DEZEGA OXYGEN GAS BOOSTER SYSTEM HIHPG2',
     text: 'HIHPG2 is necessary equipment for closed-circuit SCBAs of P-30EX, P-70 type and other self-contained breathing apparatuses…'
   },
   {
     url: '#',
-    photo: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2023-11/3_emscape_450x265px.jpg?itok=aXXR1sXk',
+    photo: photoProducts,
     title: 'Emergency escape hood DEZEGA EmSCAPE',
     text: 'DEZEGA EmSCAPE Emergency Escape Hood is a chemical oxygen personal respiratory protective device with a closed breathing…'
   },
   {
     url: '#',
-    photo: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2021-09/carbo_1_450x265px_5.jpg?itok=7Dtni8ib',
+    photo: photoProducts,
     title: 'DEZEGA self-contained self-rescuer CARBO 60',
     text: 'A personal respiratory protective device on chemically bound oxygen with a closed breathing circuit, used for escape from…'
   },
   {
     url: '#',
-    photo: 'https://www.dezega.com/sites/default/files/styles/news_front_page/public/2019-10/checkup_1_450x265px_0.jpg?itok=cPBCCZng',
+    photo: photoProducts,
     title: 'Breathing equipment test set DEZEGA CheckUp',
     text: 'The test set will test the parameters of any self-contained breathing apparatus, self-contained panoramic masks and…'
   },
@@ -44,7 +47,7 @@ const productsList = ref([
 const productsFilter = ref([
   {
     title: 'STANDARD',
-    text: ['En','DSTU','IS','SANS','Others'],
+    text: ['En', 'DSTU', 'IS', 'SANS', 'Others'],
   },
   {
     title: 'MANUFACTURER',
@@ -52,7 +55,7 @@ const productsFilter = ref([
   },
   {
     title: 'FIELD',
-    text: ['SCSR', 'Closed-circuit SCBA', 'Emergency escape hood','Auxiliary equipment'],
+    text: ['SCSR', 'Closed-circuit SCBA', 'Emergency escape hood', 'Auxiliary equipment'],
   }
 ])
 
@@ -87,7 +90,6 @@ const page = ref(1)
 
 <template>
   <v-container class="wrap_main">
-<!--    <h1 class="title_absolute">CATALOGUE</h1>-->
     <div class="filter_menu">
 
       <h1 class="filter_menu_title">FILTER</h1>
@@ -103,9 +105,9 @@ const page = ref(1)
 
           <v-expansion-panel-text>
             <div class="v-expansion-panel-text-div">
-              <v-checkbox  color="primary" v-model="vCheckboxValue" v-for="text in i.text"
-                           :value="text" :label="text"
-                           @change="checkboxChange()"></v-checkbox>
+              <v-checkbox color="primary" v-model="vCheckboxValue" v-for="text in i.text"
+                          :value="text" :label="text"
+                          @change="checkboxChange()"></v-checkbox>
             </div>
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -114,17 +116,22 @@ const page = ref(1)
 
     </div>
     <div class="card_catalog">
+      <h1 class="title_absolute">CATALOGUE</h1>
       <div class="card_block" v-for="i in productsList">
         <div class="photo_block">
           <img class="block_img" alt="" :src="i.photo">
         </div>
         <div class="card_content">
-          <h1 @click="titleLink" class="card_title">{{ i.title }}</h1>
-          <p class="card_text">{{ i.text }}</p>
+          <div class="content_title">
+            <h1 @click="titleLink" class="card_title">{{ i.title }}</h1>
+          </div>
+          <div class="content_text">
+            <p class="card_text">{{ i.text }}</p>
+          </div>
 
         </div>
         <div class="card_actions">
-          <v-btn :height="heightFuncInCarousel()">More</v-btn>
+          <v-btn class="v-btn" :height="heightFuncInCarousel()">MORE</v-btn>
         </div>
       </div>
     </div>
@@ -148,13 +155,13 @@ const page = ref(1)
 }
 
 .title_absolute {
-  font-size: 3rem;
+  width: 100vw;
+  font-size: 5rem;
   font-weight: 600;
-  position: absolute;
-  top: 40%;
-  left: -15%;
-  transform: rotate(-90deg);
-  color: $secondary;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: $textSpan;
 }
 
 // Filter
@@ -165,7 +172,7 @@ const page = ref(1)
   display: flex;
   align-items: center;
   justify-content: space-between;
-flex-direction: column;
+  flex-direction: column;
 }
 
 .filter_menu_title {
@@ -190,7 +197,8 @@ flex-direction: column;
   color: #ffffff;
 }
 
-.v-expansion-panel-text {}
+.v-expansion-panel-text {
+}
 
 .v-expansion-panel-text-div {
   width: 100%;
@@ -201,7 +209,6 @@ flex-direction: column;
 .v-checkbox {
   width: 50%;
 }
-
 
 
 // Card
@@ -224,7 +231,7 @@ flex-direction: column;
   padding: 35px;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  //border-radius: 10px;
   transition: all 0.3s ease-in-out;
   -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
   -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
@@ -248,26 +255,37 @@ flex-direction: column;
   flex-direction: column;
 }
 
-.card_title {
+.content_title {
+  width: 100%;
   min-height: 200px;
+  padding-top: 30px;
+}
+
+.card_title {
   font-size: 1.7rem;
   font-weight: 700;
-  padding-top: 30px;
+  font-family: "Segoe UI", sans-serif;
+
   color: $primary;
 }
 
 .card_title:hover {
   cursor: pointer;
-  text-decoration: $background underline;
+  //text-decoration: $background underline;
   text-underline-offset: 0.4rem;
 }
 
-.card_text {
-  min-height: 100px;
-  font-size: 1.1rem;
-  font-weight: 700;
+.content_text {
+  min-height: 200px;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.card_text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: "Segoe UI", sans-serif;
+
   color: $textSpan;
 }
 
@@ -276,16 +294,19 @@ flex-direction: column;
   height: 50px;
   display: flex;
   align-items: end;
-  justify-content: center;
+  justify-content: left;
 }
 
 .v-btn {
-  width: 350px;
+  width: 150px;
   font-size: 1.5rem;
   font-weight: 700;
+  border-radius: 0;
+  font-family: "Segoe UI", sans-serif;
   transition: all 0.3s ease-in-out;
   color: $textSpan;
   background-color: $primary;
+
 }
 
 .v-btn:hover {
@@ -303,6 +324,7 @@ flex-direction: column;
   .card_title {
 
   }
+
   .card_text {
 
   }

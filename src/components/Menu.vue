@@ -91,8 +91,6 @@ onMounted(async () => {
   height: 80px;
   display: flex;
   //background-color: $textSpan;
-  background-color: rgba(255, 253, 253, 0.11);
-  backdrop-filter: blur(2px);
 }
 
 // Header
@@ -100,6 +98,8 @@ onMounted(async () => {
 .header {
   width: 30%;
   height: 100%;
+  backdrop-filter: blur(4px);
+  background-color: rgba(104, 102, 102, 0.56);
 }
 
 .title_main {
@@ -108,7 +108,8 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $surface;
+  //background-color: $surface;
+
 }
 
 .logoReytor {
@@ -116,6 +117,7 @@ onMounted(async () => {
   height: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
+  display: none;
 }
 
 // Expansions
@@ -126,6 +128,8 @@ onMounted(async () => {
   display: flex;
   justify-content: right;
   align-items: center;
+  backdrop-filter: blur(4px);
+  background-color: rgba(104, 102, 102, 0.56);
 }
 
 .panel_menu {
@@ -149,7 +153,7 @@ onMounted(async () => {
 .menu_title:hover {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  background-color: rgba(252, 76, 4, 0.91);
+  background-color: $primary
 }
 
 .panel_menu_absolute {
@@ -188,10 +192,11 @@ onMounted(async () => {
 }
 
 .v-tab {
-  width: 230px;
+  width: 260px;
   height: 100%;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
+  font-family: Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -200,13 +205,15 @@ onMounted(async () => {
   position: relative;
   padding-bottom: 3px;
   color: #ffffff;
-  background-color: $textSpan;
-
+  //background-color: $textSpan;
+  //backdrop-filter: blur(4px);
+  //background-color: rgba(104, 102, 102, 0.56);
 }
 
 .v-tab:hover {
   cursor: pointer;
   color: $primary;
+  //color: #023dce;
 }
 
 .v-tab::after {
@@ -216,7 +223,7 @@ onMounted(async () => {
   left: 0;
   width: 0;
   height: 3px; /* высота линии */
-  background-color: #ff0000; /* цвет линии */
+  background-color: $primary;
   transition: all 0.3s ease-in-out;
 }
 

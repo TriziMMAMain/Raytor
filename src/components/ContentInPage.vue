@@ -26,7 +26,7 @@ const currentIndex = ref(0)
 
 const printedText = ref('');
 
-let typingSpeed = 150; // Скорость печатания (миллисекунды)
+let typingSpeed = 100; // Скорость печатания (миллисекунды)
 
 const typeText = (text) => {
   let i = 0;
@@ -154,7 +154,9 @@ watch(currentIndex, () => {
         <div class="content_about_us">
           <div class="block_img">
             <!--         карта Киева-->
-            <div class="map"></div>
+            <div class="map">
+              <img class="img_map" src="../assets/photo/mapEN.jpeg" alt="">
+            </div>
           </div>
           <div class="about_us_block_main">
             <div class="about_us_block" v-for="i in content">
@@ -219,10 +221,10 @@ watch(currentIndex, () => {
 
 .introduction_youtube_title {
   position: absolute;
-  left: -5vw;
+  left: -10vw;
   transform: rotate(-90deg);
   font-size: 4rem;
-  font-weight: 600;
+  font-weight: 550;
   color: $text;
 }
 
@@ -242,7 +244,6 @@ watch(currentIndex, () => {
 
 .block_main_title {
   width: 100%;
-
   text-align: center;
   font-size: 4rem;
   font-weight: 600;
@@ -267,8 +268,16 @@ watch(currentIndex, () => {
 
 .map {
   z-index: 2;
-  height: 600px;
-  background-color: $surface;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.img_map {
+  width: 85%;
 }
 
 .leaflet-control-container {
@@ -316,9 +325,11 @@ ion-icon {
 }
 
 .content_title {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  line-height: 1.5;
   font-weight: 500;
-  color: $primary;
+  font-family: "Segoe UI", sans-serif;
+  color: #ffffff;
 }
 
 //
@@ -386,6 +397,8 @@ ion-icon {
 .v-carousel-item-title-span {
   font-size: 3.5rem;
   font-weight: 600;
+  //font-family: Helvetica, sans-serif;
+  font-family: Verdana, sans-serif;
   z-index: 0;
   transition: opacity 1s;
   color: #ffffff;
