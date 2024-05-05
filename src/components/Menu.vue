@@ -194,9 +194,9 @@ onMounted(async () => {
 .v-tab {
   width: 260px;
   height: 100%;
-  font-size: 2.2rem;
-  font-weight: 700;
-  font-family: Verdana, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 4px;
   display: flex;
   justify-content: center;
   align-items: center;

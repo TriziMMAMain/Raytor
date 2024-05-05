@@ -26,7 +26,7 @@ const currentIndex = ref(0)
 
 const printedText = ref('');
 
-let typingSpeed = 100; // Скорость печатания (миллисекунды)
+let typingSpeed = 70; // Скорость печатания (миллисекунды)
 
 const typeText = (text) => {
   let i = 0;
@@ -347,7 +347,7 @@ ion-icon {
   position: absolute;
   top: 20%;
   left: 10%;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 600;
   z-index: 0;
   transition: opacity 1s;
@@ -395,10 +395,9 @@ ion-icon {
 }
 
 .v-carousel-item-title-span {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 600;
-  //font-family: Helvetica, sans-serif;
-  font-family: Verdana, sans-serif;
+
   z-index: 0;
   transition: opacity 1s;
   color: #ffffff;

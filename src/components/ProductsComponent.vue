@@ -67,9 +67,6 @@ const checkboxChange = () => {
   console.log(vCheckboxValue.value);
 }
 const vCheckboxValue = ref([])
-const resetFocus = () => {
-  document.activeElement.blur(); // Снимаем фокус с текущего активного элемента
-}
 const heightFuncInCarousel = () => {
   if (name.value === 'xs') {
     return '50'
@@ -105,9 +102,15 @@ const page = ref(1)
 
           <v-expansion-panel-text>
             <div class="v-expansion-panel-text-div">
-              <v-checkbox color="primary" v-model="vCheckboxValue" v-for="text in i.text"
-                          :value="text" :label="text"
-                          @change="checkboxChange()"></v-checkbox>
+              <v-checkbox color="primary" v-model="vCheckboxValue" v-for="textValue in i.text"
+                          :value="textValue"
+                          @change="checkboxChange()">
+                <template v-slot:label>
+                  <p class="v_checkbox_label">
+                    {{ textValue }}
+                  </p>
+                </template>
+              </v-checkbox>
             </div>
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -131,7 +134,7 @@ const page = ref(1)
 
         </div>
         <div class="card_actions">
-          <v-btn class="v-btn" :height="heightFuncInCarousel()">MORE</v-btn>
+          <v-btn tag="a" class="v-btn" :height="heightFuncInCarousel()">MORE</v-btn>
         </div>
       </div>
     </div>
@@ -157,11 +160,12 @@ const page = ref(1)
 .title_absolute {
   width: 100vw;
   font-size: 5rem;
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   justify-content: center;
   text-align: center;
-  color: $textSpan;
+  letter-spacing: 7px;
+  color: $primaryText;
 }
 
 // Filter
@@ -178,16 +182,23 @@ const page = ref(1)
 .filter_menu_title {
 
   font-size: 5rem;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
-  color: $textSpan;
+  letter-spacing: 7px;
+  //color: $text;
+  color: $primaryText;
 }
 
 .v-expansion-panels {
   margin-top: 50px;
 }
 
+.v-expansion-panel {
+  background-color: $text;
+}
+
 .v-expansion-panel-title {
+  letter-spacing: 4px;
   padding: 35px;
 }
 
@@ -198,6 +209,7 @@ const page = ref(1)
 }
 
 .v-expansion-panel-text {
+  background-color: #979797;
 }
 
 .v-expansion-panel-text-div {
@@ -206,8 +218,26 @@ const page = ref(1)
   flex-wrap: wrap;
 }
 
+.v-expansion-panel-text-div-action {
+  width: 100%;
+}
+
+.checkboxValue {
+  font-size: 5rem;
+}
+
+.checkboxValueLabel {
+  font-size: 1.5rem;
+}
+
 .v-checkbox {
   width: 50%;
+  font-size: 1.3rem;
+  //color: blue;
+}
+
+.v_checkbox_label {
+  font-size: 1.5rem;
 }
 
 
@@ -231,11 +261,10 @@ const page = ref(1)
   padding: 35px;
   display: flex;
   flex-direction: column;
-  //border-radius: 10px;
   transition: all 0.3s ease-in-out;
   -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
   -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-  box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+  box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
   background-color: #ffffff;
 }
 
@@ -304,22 +333,26 @@ const page = ref(1)
   border-radius: 0;
   font-family: "Segoe UI", sans-serif;
   transition: all 0.3s ease-in-out;
-  color: $textSpan;
+  color: #ffffff;
   background-color: $primary;
 
 }
 
 .v-btn:hover {
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: 1px solid $primary;
+  box-shadow: 0 0 0 0;
   color: $primary;
   background-color: #ffffff;
 }
 
 .card_block:hover {
   transition: all 0.3s ease-in-out;
+  transform: translateY(-10px);
   -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
   -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
-  box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+  box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
 
   .card_title {
 

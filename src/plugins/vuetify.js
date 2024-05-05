@@ -7,7 +7,8 @@ import * as directives from 'vuetify/directives'
 
 // - Icon
 import '@fortawesome/fontawesome-free/css/all.css'
-import { aliases, fa } from 'vuetify/iconsets/fa'
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
+
 
 // - MyTheme
 
@@ -16,7 +17,8 @@ const myCustomTheme = {
     colors: {
         background: '#626461',
         surface: '#10100F',
-        primary: '#fc4c04',
+        primary: '#4f80ea',
+        primaryText: '#cacaca',
         text: '#666666',
         secondary: '#03DAC6',
         textSpan: '#1a1a1a',
@@ -31,10 +33,10 @@ export const vuetify = createVuetify({
     components,
     directives,
     icons: {
-        defaultSet: 'fa',
+        defaultSet: 'mdi',
         aliases,
         sets: {
-            fa,
+            mdi,
         },
     },
     theme: {
