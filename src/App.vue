@@ -1,11 +1,30 @@
 <script setup="">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {useDisplay} from 'vuetify'
+
+
 // Page's
 import HomePage from './views/HomePage.vue'
 import Catalog from './views/ProductsPage.vue'
 // Components
 import Menu from './components/Menu.vue'
-
+//
+const {name} = useDisplay()
+const widthValue = () => {
+  if (name.value === 'xs') {
+    return true
+  } else if (name.value === 'sm') {
+    return true
+  } else if (name.value === 'md') {
+    return true
+  } else if (name.value === 'lg') {
+    return false
+  } else if (name.value === 'xl') {
+    return false
+  } else if (name.value === 'xxl') {
+    return false
+  }
+}
 
 const link = ref([
   {
@@ -30,10 +49,11 @@ const link = ref([
   },
 
 ])
+onMounted(() => {})
 </script>
 
 <template>
-  <div class="wrap">
+  <div class="wrap" :style="{ overflowX: widthValue() ? 'hidden' : 'auto' }">
     <!--    Menu-->
     <div class="menu">
       <Menu></Menu>
@@ -96,12 +116,15 @@ const link = ref([
   padding: 15px 5px 15px 5px;
   display: flex;
   align-items: center;
-  background-color: $textSpan;
+  //background-color: $textSpan;
+  //background-color: $background;
+  background-color: #8a8a8a;
 }
 
 .footer_title, .footer_title_second {
   width: 25%;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
   font-weight: 600;
   color: $primary;
 }
@@ -118,12 +141,14 @@ const link = ref([
 .footer_block {
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .footer_link {
   min-width: 7%;
   height: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
   font-size: 1rem;
   display: flex;
   justify-content: center;
@@ -135,9 +160,9 @@ const link = ref([
 
 .footer_link:hover {
   transition: all 0.3s ease-in-out;
-  color: $textSpan;
-  border: 1px solid $textSpan;
-  background-color: $primary;
+  color: #c6c6c6;
+  border: 1px solid #c6c6c6;
+  background-color: transparent;
 }
 
 </style>

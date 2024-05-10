@@ -9,37 +9,37 @@ import photoProducts from '../assets/photo/photo380x250.jpg'
 const productsList = ref([
   {
     url: '#',
-    photo: photoProducts,
+    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'Compressed oxygen self-contained closed-circuit breathing apparatus DEZEGA P-70',
     text: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus.'
   },
   {
     url: '#',
-    photo: photoProducts,
+    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'DEZEGA self-contained self-rescuer CARBO 30',
     text: 'CARBO 30 self-rescuer is a personal respiratory protective device on chemically bound oxygen with a closed breathing circuit…'
   },
   {
     url: '#',
-    photo: photoProducts,
+    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'DEZEGA OXYGEN GAS BOOSTER SYSTEM HIHPG2',
     text: 'HIHPG2 is necessary equipment for closed-circuit SCBAs of P-30EX, P-70 type and other self-contained breathing apparatuses…'
   },
   {
     url: '#',
-    photo: photoProducts,
+    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'Emergency escape hood DEZEGA EmSCAPE',
     text: 'DEZEGA EmSCAPE Emergency Escape Hood is a chemical oxygen personal respiratory protective device with a closed breathing…'
   },
   {
     url: '#',
-    photo: photoProducts,
+    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'DEZEGA self-contained self-rescuer CARBO 60',
     text: 'A personal respiratory protective device on chemically bound oxygen with a closed breathing circuit, used for escape from…'
   },
   {
     url: '#',
-    photo: photoProducts,
+    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'Breathing equipment test set DEZEGA CheckUp',
     text: 'The test set will test the parameters of any self-contained breathing apparatus, self-contained panoramic masks and…'
   },
@@ -142,7 +142,9 @@ const page = ref(1)
       <v-pagination
           v-model="page"
           rounded="circle"
-          :length="4"></v-pagination>
+          size="x-large"
+          :total-visible="3"
+          :length="5"></v-pagination>
     </div>
   </v-container>
 </template>
@@ -194,7 +196,8 @@ const page = ref(1)
 }
 
 .v-expansion-panel {
-  background-color: $text;
+  //background-color: $text;
+  background-color: #807f7f;
 }
 
 .v-expansion-panel-title {
@@ -209,7 +212,7 @@ const page = ref(1)
 }
 
 .v-expansion-panel-text {
-  background-color: #979797;
+  background-color: #ECECEC;
 }
 
 .v-expansion-panel-text-div {
@@ -232,12 +235,14 @@ const page = ref(1)
 
 .v-checkbox {
   width: 50%;
-  font-size: 1.3rem;
-  //color: blue;
+  font-size: 1.5rem;
+  color: $primary;
 }
 
 .v_checkbox_label {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: $primary;
 }
 
 
@@ -368,13 +373,15 @@ const page = ref(1)
 .paginator {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   margin-bottom: 50px;
 }
 
 .v-pagination {
+  //width: 100%;
+  //font-size: 5rem;
   color: $primary;
-  background-color: $textSpan;
+  background-color: transparent;
 }
 
 </style>

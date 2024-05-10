@@ -224,8 +224,9 @@ watch(currentIndex, () => {
   left: -10vw;
   transform: rotate(-90deg);
   font-size: 4rem;
-  font-weight: 550;
-  color: $text;
+  font-weight: 500;
+  letter-spacing: 7px;
+  color: $primaryText;
 }
 
 // Content About Us
@@ -246,8 +247,10 @@ watch(currentIndex, () => {
   width: 100%;
   text-align: center;
   font-size: 4rem;
-  font-weight: 600;
-  color: $text;
+  font-weight: 500;
+  letter-spacing: 7px;
+  color: $primaryText;
+
 }
 
 .content_about_us {
@@ -301,11 +304,13 @@ watch(currentIndex, () => {
   display: flex;
   align-items: center;
   margin-bottom: 5%;
-  background-color: $textSpan;
+  //background-color: $textSpan;
+  //background-color: $background;
+  background-color: #b8b8b8;
 }
 
 .block_icon {
-  width: 120px;
+  width: 110px;
   height: 100%;
   padding: 15px;
   display: flex;
@@ -397,7 +402,7 @@ ion-icon {
 .v-carousel-item-title-span {
   font-size: 4rem;
   font-weight: 600;
-
+  letter-spacing: 4px;
   z-index: 0;
   transition: opacity 1s;
   color: #ffffff;
