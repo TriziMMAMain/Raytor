@@ -65,24 +65,24 @@ const widthValueYouTube = () => {
   } else if (name.value === 'lg') {
     return '100%'
   } else if (name.value === 'xl') {
-    return '100%'
+    return '80%'
   } else if (name.value === 'xxl') {
-    return '100%'
+    return '80%'
   }
 }
 const heightValueYouTube = () => {
   if (name.value === 'xs') {
     return '550'
   } else if (name.value === 'sm') {
-    return '100%'
+    return null
   } else if (name.value === 'md') {
-    return 'auto'
+    return null
   } else if (name.value === 'lg') {
-    return 'auto'
+    return null
   } else if (name.value === 'xl') {
-    return 'auto'
+    return null
   } else if (name.value === 'xxl') {
-    return 'auto'
+    return null
   }
 }
 console.log(name.value);
