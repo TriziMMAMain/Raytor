@@ -63,7 +63,7 @@ const widthValueYouTube = () => {
   } else if (name.value === 'md') {
     return '100%'
   } else if (name.value === 'lg') {
-    return '100%'
+    return '70%'
   } else if (name.value === 'xl') {
     return '80%'
   } else if (name.value === 'xxl') {
@@ -78,7 +78,7 @@ const heightValueYouTube = () => {
   } else if (name.value === 'md') {
     return null
   } else if (name.value === 'lg') {
-    return null
+    return '350'
   } else if (name.value === 'xl') {
     return null
   } else if (name.value === 'xxl') {
@@ -402,14 +402,15 @@ watch(currentIndex, () => {
     top: 0;
     left: 0;
     display: flex;
+    overflow: hidden;
   }
 
   .image {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     transition: opacity 1s;
     z-index: 0;
   }
@@ -469,6 +470,7 @@ watch(currentIndex, () => {
     //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
     //background-size: cover;
     background-color: $text;
+    overflow: hidden;
   }
 
 
@@ -646,14 +648,15 @@ watch(currentIndex, () => {
     top: 0;
     left: 0;
     display: flex;
+    overflow: hidden;
   }
 
   .image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    width: 100%;
+    height: 100%;
     transition: opacity 1s;
     z-index: 0;
   }
@@ -661,6 +664,7 @@ watch(currentIndex, () => {
   .active {
     z-index: 1;
     opacity: 1;
+    overflow: hidden;
   }
 
   .image:not(.active) {
@@ -890,6 +894,8 @@ watch(currentIndex, () => {
     top: 0;
     left: 0;
     display: flex;
+    overflow: hidden;
+
   }
 
   .image {
@@ -1028,7 +1034,7 @@ watch(currentIndex, () => {
   // Photo
 
   .block_img {
-    width: 55%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1057,7 +1063,7 @@ watch(currentIndex, () => {
   // About Us Main
 
   .about_us_block_main {
-    width: 45%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1069,8 +1075,8 @@ watch(currentIndex, () => {
     min-height: 100px;
     display: flex;
     align-items: center;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     //background-color: $textSpan;
     //background-color: $background;
     background-color: #b8b8b8;
@@ -1117,9 +1123,9 @@ watch(currentIndex, () => {
 
   .v-carousel-item-title {
     position: absolute;
-    top: 30%;
-    left: 10%;
-    font-size: 2rem;
+    top: 25%;
+    left: 7%;
+    font-size: 3rem;
     font-weight: 600;
     z-index: 0;
     transition: opacity 1s;
@@ -1167,7 +1173,7 @@ watch(currentIndex, () => {
   }
 
   .v-carousel-item-title-span {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
     letter-spacing: 5px;
     z-index: 0;
@@ -1208,11 +1214,9 @@ watch(currentIndex, () => {
 
   .content_introduction {
     width: 100%;
-    min-height: 100vh;
-    margin-top: 10vh;
+    min-height: 50vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
     //background-size: cover;
     //background-color: $surface;
@@ -1229,8 +1233,9 @@ watch(currentIndex, () => {
   }
 
   .introduction_youtube_title {
-    margin-bottom: 10vh;
-    font-size: 4rem;
+    margin-top: 7vh;
+    margin-bottom: 7vh;
+    font-size: 2.5rem;
     font-weight: 500;
     letter-spacing: 7px;
     color: $primaryText;
@@ -1240,11 +1245,11 @@ watch(currentIndex, () => {
 
   .content_about_us_main {
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+    margin-bottom: 10vh;
     //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
     //background-size: cover;
   }
@@ -1252,9 +1257,10 @@ watch(currentIndex, () => {
 
   .block_main_title {
     width: 100%;
-    margin-top: 10vh;
+    margin-top: 7vh;
+    margin-bottom: 7vh;
     text-align: center;
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 500;
     letter-spacing: 7px;
     color: $primaryText;
@@ -1264,7 +1270,6 @@ watch(currentIndex, () => {
   .content_about_us {
     width: 100%;
     height: 100%;
-    margin-top: 10vh;
     display: flex;
     justify-content: center;
   }
@@ -1272,17 +1277,18 @@ watch(currentIndex, () => {
   // Photo
 
   .block_img {
-    width: 55%;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     //transform: translateY(50%, -50%);
   }
 
 
   .map {
     z-index: 2;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 500px;
+
     background-color: #ffffff;
   }
 
@@ -1298,7 +1304,7 @@ watch(currentIndex, () => {
   // About Us Main
 
   .about_us_block_main {
-    width: 45%;
+    width: 55%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1307,7 +1313,7 @@ watch(currentIndex, () => {
 
   .about_us_block {
     width: 90%;
-    min-height: 120px;
+    min-height: 100px;
     display: flex;
     align-items: center;
     margin-top: 1%;
@@ -1338,7 +1344,7 @@ watch(currentIndex, () => {
   }
 
   .content_title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1.5;
     font-weight: 500;
     font-family: "Segoe UI", sans-serif;
@@ -1360,7 +1366,7 @@ watch(currentIndex, () => {
     position: absolute;
     top: 25%;
     left: 10%;
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 600;
     z-index: 0;
     transition: opacity 1s;
@@ -1408,7 +1414,7 @@ watch(currentIndex, () => {
   }
 
   .v-carousel-item-title-span {
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 600;
     letter-spacing: 4px;
     z-index: 0;
@@ -1513,7 +1519,7 @@ watch(currentIndex, () => {
   // Photo
 
   .block_img {
-    width: 55%;
+    width: 50%;
     transform: translateY(50%, -50%);
   }
 
@@ -1529,7 +1535,7 @@ watch(currentIndex, () => {
   }
 
   .img_map {
-    width: 85%;
+    height: 100%;
   }
 
   .leaflet-control-container {
@@ -1540,7 +1546,7 @@ watch(currentIndex, () => {
   // About Us Main
 
   .about_us_block_main {
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1549,7 +1555,7 @@ watch(currentIndex, () => {
 
   .about_us_block {
     width: 70%;
-    min-height: 120px;
+    min-height: 140px;
     display: flex;
     align-items: center;
     margin-bottom: 5%;
@@ -1761,7 +1767,7 @@ watch(currentIndex, () => {
 
   .map {
     z-index: 2;
-    height: 800px;
+    height: 1200px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -1770,7 +1776,7 @@ watch(currentIndex, () => {
   }
 
   .img_map {
-    width: 85%;
+    height: 100%;
   }
 
   .leaflet-control-container {
@@ -1790,10 +1796,11 @@ watch(currentIndex, () => {
 
   .about_us_block {
     width: 70%;
-    min-height: 120px;
+    min-height: 160px;
     display: flex;
     align-items: center;
-    margin-bottom: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     //background-color: $textSpan;
     //background-color: $background;
     background-color: #b8b8b8;

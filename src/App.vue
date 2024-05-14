@@ -120,7 +120,7 @@ onMounted(() => {})
 
   .footer_title, .footer_title_second {
     width: 25%;
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
     color: $primary;
@@ -204,7 +204,7 @@ onMounted(() => {})
 
   .footer_title, .footer_title_second {
     width: 25%;
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
     color: $primary;
@@ -358,12 +358,12 @@ onMounted(() => {})
 
   .footer {
     width: 100%;
-    min-height: 100px;
+    min-height: 60px;
   }
 
   .footer_main {
     width: 100%;
-    height: 160px;
+    height: 100px;
     padding: 15px 5px 15px 5px;
     display: flex;
     align-items: center;
@@ -372,7 +372,7 @@ onMounted(() => {})
 
   .footer_title, .footer_title_second {
     width: 20%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     letter-spacing: 1.5px;
     font-weight: 600;
     color: $primary;
@@ -394,11 +394,11 @@ onMounted(() => {})
   }
 
   .footer_link {
-    min-width: 14%;
-    height: 70px;
+    min-width: 10%;
+    height: 50px;
     margin-left: 15px;
     margin-right: 15px;
-    font-size: 1.3rem;
+    font-size: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -442,12 +442,12 @@ onMounted(() => {})
 
   .footer {
     width: 100%;
-    min-height: 100px;
+    min-height: 60px;
   }
 
   .footer_main {
     width: 100%;
-    height: 110px;
+    height: 80px;
     padding: 15px 5px 15px 5px;
     display: flex;
     align-items: center;
@@ -456,7 +456,7 @@ onMounted(() => {})
 
   .footer_title, .footer_title_second {
     width: 30%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
     color: $primary;
@@ -478,11 +478,11 @@ onMounted(() => {})
   }
 
   .footer_link {
-    min-width: 15%;
-    height: 50px;
+    min-width: 10%;
+    height: 40px;
     margin-left: 15px;
     margin-right: 15px;
-    font-size: 1rem;
+    font-size: 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
