@@ -82,6 +82,21 @@ const heightFuncInCarousel = () => {
     return '60'
   }
 }
+const sizeFuncPaginator = () => {
+  if (name.value === 'xs') {
+    return 'small'
+  } else if (name.value === 'sm') {
+    return 'large'
+  } else if (name.value === 'md') {
+    return 'x-large'
+  } else if (name.value === 'lg') {
+    return 'x-large'
+  } else if (name.value === 'xl') {
+    return 'x-large'
+  } else if (name.value === 'xxl') {
+    return 'x-large'
+  }
+}
 const page = ref(1)
 </script>
 
@@ -142,7 +157,7 @@ const page = ref(1)
       <v-pagination
           v-model="page"
           rounded="circle"
-          size="x-large"
+          :size="sizeFuncPaginator()"
           :total-visible="3"
           :length="5"></v-pagination>
     </div>
@@ -152,236 +167,1578 @@ const page = ref(1)
 <style lang="scss" scoped>
 @import '../assets/mixins.scss';
 
-.wrap_main {
-  min-height: 100vh;
-  margin-top: 100px;
-  position: relative;
-  background-color: #FFFFFF;
-}
+@media screen and (max-width: 376px) {
+  .wrap_main {
+    min-height: 100vh;
+    margin-top: 100px;
+    position: relative;
+    background-color: #FFFFFF;
+  }
 
-.title_absolute {
-  width: 100vw;
-  font-size: 5rem;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  letter-spacing: 7px;
-  color: $primaryText;
-}
+  .title_absolute {
+    width: 100vw;
+    font-size: 3rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 7px;
+    color: $primaryText;
+  }
 
-// Filter
+  // Filter
 
-.filter_menu {
-  width: 100%;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-}
+  .filter_menu {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 
-.filter_menu_title {
+  .filter_menu_title {
 
-  font-size: 5rem;
-  font-weight: 500;
-  text-align: center;
-  letter-spacing: 7px;
-  //color: $text;
-  color: $primaryText;
-}
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 7px;
+    //color: $text;
+    color: $primaryText;
+  }
 
-.v-expansion-panels {
-  margin-top: 50px;
-}
+  .v-expansion-panels {
+    margin-top: 50px;
+  }
 
-.v-expansion-panel {
-  //background-color: $text;
-  background-color: #807f7f;
-}
+  .v-expansion-panel {
 
-.v-expansion-panel-title {
-  letter-spacing: 4px;
-  padding: 35px;
-}
+    //background-color: $text;
+    background-color: #807f7f;
+  }
 
-.v-expansion-panel-title-h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #ffffff;
-}
+  .v-expansion-panel-title {
+    padding: 35px;
+    height: 80px;
+  }
 
-.v-expansion-panel-text {
-  background-color: #ECECEC;
-}
+  .v-expansion-panel-title-h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #ffffff;
+  }
 
-.v-expansion-panel-text-div {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
+  .v-expansion-panel-text {
+    background-color: #ECECEC;
+  }
 
-.v-expansion-panel-text-div-action {
-  width: 100%;
-}
+  .v-expansion-panel-text-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.checkboxValue {
-  font-size: 5rem;
-}
+  .v-expansion-panel-text-div-action {
+    width: 100%;
+  }
 
-.checkboxValueLabel {
-  font-size: 1.5rem;
-}
+  .v-checkbox {
+    width: 50%;
+    font-size: 0.9rem;
+    color: $primary;
+  }
 
-.v-checkbox {
-  width: 50%;
-  font-size: 1.5rem;
-  color: $primary;
-}
-
-.v_checkbox_label {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: $primary;
-}
+  .v_checkbox_label {
+    font-size: 1rem;
+    font-weight: 800;
+    color: $primary;
+  }
 
 
-// Card
+  // Card
 
-.card_catalog {
-  width: 100%;
-  min-height: 100vh;
-  margin-top: 70px;
-  margin-bottom: 70px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
+  .card_catalog {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-.card_block {
-  width: 450px;
-  min-height: 650px;
-  margin-top: 70px;
-  margin-bottom: 70px;
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease-in-out;
-  -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-  -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
-  box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
-  background-color: #ffffff;
-}
+  .card_block {
+    width: 350px;
+    min-height: 400px;
+    margin: 30px 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
+    background-color: #ffffff;
+  }
 
-.photo_block {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+  .photo_block {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
 
-.block_img {
-  width: 100%;
-}
+  .block_img {
+    width: 60%;
+    height: 100%;
+  }
 
-.card_content {
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-}
+  .card_content {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
 
-.content_title {
-  width: 100%;
-  min-height: 200px;
-  padding-top: 30px;
-}
-
-.card_title {
-  font-size: 1.7rem;
-  font-weight: 700;
-  font-family: "Segoe UI", sans-serif;
-
-  color: $primary;
-}
-
-.card_title:hover {
-  cursor: pointer;
-  //text-decoration: $background underline;
-  text-underline-offset: 0.4rem;
-}
-
-.content_text {
-  min-height: 200px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.card_text {
-  font-size: 1.1rem;
-  font-weight: 700;
-  font-family: "Segoe UI", sans-serif;
-
-  color: $textSpan;
-}
-
-.card_actions {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: end;
-  justify-content: left;
-}
-
-.v-btn {
-  width: 150px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  border-radius: 0;
-  font-family: "Segoe UI", sans-serif;
-  transition: all 0.3s ease-in-out;
-  color: #ffffff;
-  background-color: $primary;
-
-}
-
-.v-btn:hover {
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  border: 1px solid $primary;
-  box-shadow: 0 0 0 0;
-  color: $primary;
-  background-color: #ffffff;
-}
-
-.card_block:hover {
-  transition: all 0.3s ease-in-out;
-  transform: translateY(-10px);
-  -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
-  -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
-  box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
+  .content_title {
+    width: 100%;
+    min-height: 150px;
+    padding-top: 20px;
+  }
 
   .card_title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    //font-family: "Segoe UI", sans-serif;
 
+    color: $primary;
+  }
+
+  .card_title:hover {
+    cursor: pointer;
+    //text-decoration: $background underline;
+    text-underline-offset: 0.4rem;
+  }
+
+  .content_text {
+    min-height: 200px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .card_text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
 
+    color: $textSpan;
+  }
+
+  .card_actions {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+  }
+
+  .v-btn {
+    width: 150px;
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0;
+    letter-spacing: 7px;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    background-color: $primary;
+
+  }
+
+  .v-btn:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid $primary;
+    box-shadow: 0 0 0 0;
+    color: $primary;
+    background-color: #ffffff;
+  }
+
+  .card_block:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
+  }
+
+  // Paginator
+
+  .paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .v-pagination {
+    //width: 100%;
+    //font-size: 5rem;
+    color: $primary;
+    background-color: transparent;
   }
 }
 
-// Paginator
+@media screen and (min-width: 376px) and (max-width: 600px) {
+  .wrap_main {
+    min-height: 100vh;
+    margin-top: 100px;
+    position: relative;
+    background-color: #FFFFFF;
+  }
 
-.paginator {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
+  .title_absolute {
+    width: 100vw;
+    font-size: 3rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 7px;
+    color: $primaryText;
+  }
+
+  // Filter
+
+  .filter_menu {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .filter_menu_title {
+
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 7px;
+    //color: $text;
+    color: $primaryText;
+  }
+
+  .v-expansion-panels {
+    margin-top: 50px;
+  }
+
+  .v-expansion-panel {
+
+    //background-color: $text;
+    background-color: #807f7f;
+  }
+
+  .v-expansion-panel-title {
+    padding: 35px;
+    height: 80px;
+  }
+
+  .v-expansion-panel-title-h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #ffffff;
+  }
+
+  .v-expansion-panel-text {
+    background-color: #ECECEC;
+  }
+
+  .v-expansion-panel-text-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .v-expansion-panel-text-div-action {
+    width: 100%;
+  }
+
+  .v-checkbox {
+    width: 50%;
+    font-size: 0.9rem;
+    color: $primary;
+  }
+
+  .v_checkbox_label {
+    font-size: 1rem;
+    font-weight: 800;
+    color: $primary;
+  }
+
+
+  // Card
+
+  .card_catalog {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card_block {
+    width: 350px;
+    min-height: 400px;
+    margin: 40px 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
+    background-color: #ffffff;
+  }
+
+  .photo_block {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .block_img {
+    width: 60%;
+    height: 100%;
+  }
+
+  .card_content {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content_title {
+    width: 100%;
+    min-height: 110px;
+    padding-top: 20px;
+  }
+
+  .card_title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    //font-family: "Segoe UI", sans-serif;
+
+    color: $primary;
+  }
+
+  .card_title:hover {
+    cursor: pointer;
+    //text-decoration: $background underline;
+    text-underline-offset: 0.4rem;
+  }
+
+  .content_text {
+    min-height: 170px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .card_text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
+
+    color: $textSpan;
+  }
+
+  .card_actions {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+  }
+
+  .v-btn {
+    width: 150px;
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0;
+    letter-spacing: 7px;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    background-color: $primary;
+
+  }
+
+  .v-btn:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid $primary;
+    box-shadow: 0 0 0 0;
+    color: $primary;
+    background-color: #ffffff;
+  }
+
+  .card_block:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
+  }
+
+  // Paginator
+
+  .paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .v-pagination {
+    //width: 100%;
+    //font-size: 5rem;
+    color: $primary;
+    background-color: transparent;
+  }
 }
 
-.v-pagination {
-  //width: 100%;
-  //font-size: 5rem;
-  color: $primary;
-  background-color: transparent;
+@media screen and (min-width: 600px) and (max-width: 960px) {
+  .wrap_main {
+    min-height: 100vh;
+    margin-top: 100px;
+    position: relative;
+    background-color: #FFFFFF;
+  }
+
+  .title_absolute {
+    width: 100vw;
+    font-size: 3rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 7px;
+    color: $primaryText;
+  }
+
+  // Filter
+
+  .filter_menu {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .filter_menu_title {
+
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 7px;
+    //color: $text;
+    color: $primaryText;
+  }
+
+  .v-expansion-panels {
+    margin-top: 50px;
+  }
+
+  .v-expansion-panel {
+
+    //background-color: $text;
+    background-color: #807f7f;
+  }
+
+  .v-expansion-panel-title {
+    padding: 35px;
+    height: 80px;
+  }
+
+  .v-expansion-panel-title-h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #ffffff;
+  }
+
+  .v-expansion-panel-text {
+    background-color: #ECECEC;
+  }
+
+  .v-expansion-panel-text-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .v-expansion-panel-text-div-action {
+    width: 100%;
+  }
+
+  .v-checkbox {
+    width: 50%;
+    font-size: 1.2rem;
+    color: $primary;
+  }
+
+  .v_checkbox_label {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: $primary;
+  }
+
+
+  // Card
+
+  .card_catalog {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card_block {
+    width: 350px;
+    min-height: 350px;
+    margin: 40px 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
+    background-color: #ffffff;
+  }
+
+  .photo_block {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .block_img {
+    width: 60%;
+    height: 100%;
+  }
+
+  .card_content {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content_title {
+    width: 100%;
+    min-height: 110px;
+    padding-top: 20px;
+  }
+
+  .card_title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    //font-family: "Segoe UI", sans-serif;
+
+    color: $primary;
+  }
+
+  .card_title:hover {
+    cursor: pointer;
+    //text-decoration: $background underline;
+    text-underline-offset: 0.4rem;
+  }
+
+  .content_text {
+    min-height: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .card_text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
+
+    color: $textSpan;
+  }
+
+  .card_actions {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+  }
+
+  .v-btn {
+    width: 150px;
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0;
+    letter-spacing: 7px;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    background-color: $primary;
+
+  }
+
+  .v-btn:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid $primary;
+    box-shadow: 0 0 0 0;
+    color: $primary;
+    background-color: #ffffff;
+  }
+
+  .card_block:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
+  }
+
+  // Paginator
+
+  .paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .v-pagination {
+    //width: 100%;
+    //font-size: 5rem;
+    color: $primary;
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1280px) {
+  .wrap_main {
+    min-height: 100vh;
+    margin-top: 100px;
+    position: relative;
+    background-color: #FFFFFF;
+  }
+
+  .title_absolute {
+    width: 100vw;
+    font-size: 3rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 7px;
+    color: $primaryText;
+  }
+
+  // Filter
+
+  .filter_menu {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .filter_menu_title {
+
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 7px;
+    //color: $text;
+    color: $primaryText;
+  }
+
+  .v-expansion-panels {
+    margin-top: 50px;
+  }
+
+  .v-expansion-panel {
+
+    //background-color: $text;
+    background-color: #807f7f;
+  }
+
+  .v-expansion-panel-title {
+    padding: 35px;
+    height: 80px;
+  }
+
+  .v-expansion-panel-title-h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #ffffff;
+  }
+
+  .v-expansion-panel-text {
+    background-color: #ECECEC;
+  }
+
+  .v-expansion-panel-text-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .v-expansion-panel-text-div-action {
+    width: 100%;
+  }
+
+  .v-checkbox {
+    width: 50%;
+    font-size: 1.2rem;
+    color: $primary;
+  }
+
+  .v_checkbox_label {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: $primary;
+  }
+
+
+  // Card
+
+  .card_catalog {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card_block {
+    width: 350px;
+    min-height: 350px;
+    margin: 40px 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
+    background-color: #ffffff;
+  }
+
+  .photo_block {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .block_img {
+    width: 60%;
+    height: 100%;
+  }
+
+  .card_content {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content_title {
+    width: 100%;
+    min-height: 110px;
+    padding-top: 20px;
+  }
+
+  .card_title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    //font-family: "Segoe UI", sans-serif;
+
+    color: $primary;
+  }
+
+  .card_title:hover {
+    cursor: pointer;
+    //text-decoration: $background underline;
+    text-underline-offset: 0.4rem;
+  }
+
+  .content_text {
+    min-height: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .card_text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
+
+    color: $textSpan;
+  }
+
+  .card_actions {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+  }
+
+  .v-btn {
+    width: 150px;
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0;
+    letter-spacing: 7px;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    background-color: $primary;
+
+  }
+
+  .v-btn:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid $primary;
+    box-shadow: 0 0 0 0;
+    color: $primary;
+    background-color: #ffffff;
+  }
+
+  .card_block:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
+  }
+
+  // Paginator
+
+  .paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .v-pagination {
+    //width: 100%;
+    //font-size: 5rem;
+    color: $primary;
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  .wrap_main {
+    min-height: 100vh;
+    margin-top: 100px;
+    position: relative;
+    background-color: #FFFFFF;
+  }
+
+  .title_absolute {
+    width: 100vw;
+    font-size: 3rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 7px;
+    color: $primaryText;
+  }
+
+  // Filter
+
+  .filter_menu {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .filter_menu_title {
+
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 7px;
+    //color: $text;
+    color: $primaryText;
+  }
+
+  .v-expansion-panels {
+    margin-top: 50px;
+  }
+
+  .v-expansion-panel {
+
+    //background-color: $text;
+    background-color: #807f7f;
+  }
+
+  .v-expansion-panel-title {
+    padding: 35px;
+    height: 80px;
+  }
+
+  .v-expansion-panel-title-h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #ffffff;
+  }
+
+  .v-expansion-panel-text {
+    background-color: #ECECEC;
+  }
+
+  .v-expansion-panel-text-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .v-expansion-panel-text-div-action {
+    width: 100%;
+  }
+
+  .v-checkbox {
+    width: 50%;
+    font-size: 1.2rem;
+    color: $primary;
+  }
+
+  .v_checkbox_label {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: $primary;
+  }
+
+
+  // Card
+
+  .card_catalog {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card_block {
+    width: 400px;
+    min-height: 350px;
+    margin: 50px 40px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
+    background-color: #ffffff;
+  }
+
+  .photo_block {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .block_img {
+    width: 60%;
+    height: 100%;
+  }
+
+  .card_content {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content_title {
+    width: 100%;
+    min-height: 110px;
+    padding-top: 20px;
+  }
+
+  .card_title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    //font-family: "Segoe UI", sans-serif;
+
+    color: $primary;
+  }
+
+  .card_title:hover {
+    cursor: pointer;
+    //text-decoration: $background underline;
+    text-underline-offset: 0.4rem;
+  }
+
+  .content_text {
+    min-height: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .card_text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
+
+    color: $textSpan;
+  }
+
+  .card_actions {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+  }
+
+  .v-btn {
+    width: 150px;
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0;
+    letter-spacing: 7px;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    background-color: $primary;
+
+  }
+
+  .v-btn:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid $primary;
+    box-shadow: 0 0 0 0;
+    color: $primary;
+    background-color: #ffffff;
+  }
+
+  .card_block:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
+  }
+
+  // Paginator
+
+  .paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .v-pagination {
+    //width: 100%;
+    //font-size: 5rem;
+    color: $primary;
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 1920px) and (max-width: 2560px) {
+  .wrap_main {
+    min-height: 100vh;
+    margin-top: 100px;
+    position: relative;
+    background-color: #FFFFFF;
+  }
+
+  .title_absolute {
+    width: 100vw;
+    font-size: 5rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 7px;
+    color: $primaryText;
+  }
+
+  // Filter
+
+  .filter_menu {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .filter_menu_title {
+
+    font-size: 5rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 7px;
+    //color: $text;
+    color: $primaryText;
+  }
+
+  .v-expansion-panels {
+    margin-top: 50px;
+  }
+
+  .v-expansion-panel {
+
+    //background-color: $text;
+    background-color: #807f7f;
+  }
+
+  .v-expansion-panel-title {
+    letter-spacing: 4px;
+    padding: 35px;
+    height: 100px;
+  }
+
+  .v-expansion-panel-title-h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .v-expansion-panel-text {
+    background-color: #ECECEC;
+  }
+
+  .v-expansion-panel-text-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .v-expansion-panel-text-div-action {
+    width: 100%;
+  }
+
+  .checkboxValue {
+    font-size: 5rem;
+  }
+
+  .checkboxValueLabel {
+    font-size: 1.5rem;
+  }
+
+  .v-checkbox {
+    width: 50%;
+    font-size: 1.5rem;
+    color: $primary;
+  }
+
+  .v_checkbox_label {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: $primary;
+  }
+
+
+  // Card
+
+  .card_catalog {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card_block {
+    width: 450px;
+    min-height: 650px;
+    margin: 70px 50px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
+    background-color: #ffffff;
+  }
+
+  .photo_block {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .block_img {
+    width: 70%;
+    height: 100%;
+  }
+
+  .card_content {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content_title {
+    width: 100%;
+    min-height: 200px;
+    padding-top: 30px;
+  }
+
+  .card_title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    //font-family: "Segoe UI", sans-serif;
+
+    color: $primary;
+  }
+
+  .card_title:hover {
+    cursor: pointer;
+    //text-decoration: $background underline;
+    text-underline-offset: 0.4rem;
+  }
+
+  .content_text {
+    min-height: 200px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .card_text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
+
+    color: $textSpan;
+  }
+
+  .card_actions {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+  }
+
+  .v-btn {
+    width: 150px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 0;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    background-color: $primary;
+
+  }
+
+  .v-btn:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid $primary;
+    box-shadow: 0 0 0 0;
+    color: $primary;
+    background-color: #ffffff;
+  }
+
+  .card_block:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
+
+  }
+
+  // Paginator
+
+  .paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .v-pagination {
+    //width: 100%;
+    //font-size: 5rem;
+    color: $primary;
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .wrap_main {
+    min-height: 100vh;
+    margin-top: 100px;
+    position: relative;
+    background-color: #FFFFFF;
+  }
+
+  .title_absolute {
+    width: 100vw;
+    font-size: 5rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 7px;
+    color: $primaryText;
+  }
+
+  // Filter
+
+  .filter_menu {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .filter_menu_title {
+
+    font-size: 5rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 7px;
+    //color: $text;
+    color: $primaryText;
+  }
+
+  .v-expansion-panels {
+    margin-top: 50px;
+  }
+
+  .v-expansion-panel {
+
+    //background-color: $text;
+    background-color: #807f7f;
+  }
+
+  .v-expansion-panel-title {
+    letter-spacing: 4px;
+    padding: 35px;
+    height: 130px;
+  }
+
+  .v-expansion-panel-title-h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .v-expansion-panel-text {
+    background-color: #ECECEC;
+  }
+
+  .v-expansion-panel-text-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .v-expansion-panel-text-div-action {
+    width: 100%;
+  }
+
+  .checkboxValue {
+    font-size: 5rem;
+  }
+
+  .checkboxValueLabel {
+    font-size: 1.5rem;
+  }
+
+  .v-checkbox {
+    width: 50%;
+    font-size: 1.5rem;
+    color: $primary;
+  }
+
+  .v_checkbox_label {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: $primary;
+  }
+
+
+  // Card
+
+  .card_catalog {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card_block {
+    width: 450px;
+    min-height: 650px;
+    margin: 70px 50px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 13px 4px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 0 5px 0 rgba(190, 192, 194, 0.6);
+    background-color: #ffffff;
+  }
+
+  .photo_block {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .block_img {
+    width: 70%;
+    height: 100%;
+  }
+
+  .card_content {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content_title {
+    width: 100%;
+    min-height: 200px;
+    padding-top: 30px;
+  }
+
+  .card_title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    //font-family: "Segoe UI", sans-serif;
+
+    color: $primary;
+  }
+
+  .card_title:hover {
+    cursor: pointer;
+    //text-decoration: $background underline;
+    text-underline-offset: 0.4rem;
+  }
+
+  .content_text {
+    min-height: 200px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .card_text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
+
+    color: $textSpan;
+  }
+
+  .card_actions {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+  }
+
+  .v-btn {
+    width: 150px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 0;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    background-color: $primary;
+
+  }
+
+  .v-btn:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid $primary;
+    box-shadow: 0 0 0 0;
+    color: $primary;
+    background-color: #ffffff;
+  }
+
+  .card_block:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    -moz-box-shadow: 0 5px 20px 10px rgba(136, 143, 148, 0.6);
+    box-shadow: 0 8px 12px 0 rgba(136, 143, 148, 0.6);
+  }
+
+  // Paginator
+
+  .paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .v-pagination {
+    //width: 100%;
+    //font-size: 5rem;
+    color: $primary;
+    background-color: transparent;
+  }
 }
 
 </style>
