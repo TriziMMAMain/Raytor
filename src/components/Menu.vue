@@ -408,10 +408,11 @@ onMounted(async () => {
     display: flex;
     align-content: center;
     text-decoration: none;
-    color: #d8d8d8;
-    background-color: $background;
+    //color: #d8d8d8;
+    color: #FFFFFF;
+    //background-color: $background;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 1px 1px #ffffff;
+    //box-shadow: 0 0 1px 1px #ffffff;
   }
 
   .wrap_drawer_tab:hover {
@@ -686,10 +687,11 @@ onMounted(async () => {
     display: flex;
     align-content: center;
     text-decoration: none;
-    color: #d8d8d8;
-    background-color: $background;
+    //color: #d8d8d8;
+    color: #FFFFFF;
+    //background-color: $background;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 1px 1px #ffffff;
+    //box-shadow: 0 0 1px 1px #ffffff;
   }
 
   .wrap_drawer_tab:hover {
@@ -964,10 +966,11 @@ onMounted(async () => {
     display: flex;
     align-content: center;
     text-decoration: none;
-    color: #d8d8d8;
-    background-color: $background;
+    //color: #d8d8d8;
+    color: #FFFFFF;
+    //background-color: $background;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 1px 1px #ffffff;
+    //box-shadow: 0 0 1px 1px #ffffff;
   }
 
   .wrap_drawer_tab:hover {

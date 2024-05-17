@@ -83,6 +83,8 @@ onMounted(() => {})
 
   .wrap {
     width: 100%;
+    background-color: #FFFFFF;
+
   }
 
   // Menu
@@ -167,6 +169,8 @@ onMounted(() => {})
 
   .wrap {
     width: 100%;
+    background-color: #FFFFFF;
+
   }
 
   // Menu
@@ -251,6 +255,7 @@ onMounted(() => {})
 
   .wrap {
     width: 100%;
+    background-color: #FFFFFF;
   }
 
   // Menu
@@ -335,6 +340,8 @@ onMounted(() => {})
 
   .wrap {
     width: 100%;
+    background-color: #FFFFFF;
+
   }
 
   // Menu
@@ -419,6 +426,8 @@ onMounted(() => {})
 
   .wrap {
     width: 100%;
+    background-color: #FFFFFF;
+
   }
 
   // Menu
@@ -503,6 +512,8 @@ onMounted(() => {})
 
   .wrap {
     width: 100%;
+    background-color: #FFFFFF;
+
   }
 
   // Menu
@@ -588,6 +599,8 @@ onMounted(() => {})
 @media screen and (min-width: 2560px) {
   .wrap {
     width: 100%;
+    background-color: #FFFFFF;
+
   }
 
   // Menu
