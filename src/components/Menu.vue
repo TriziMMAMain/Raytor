@@ -368,7 +368,7 @@ onMounted(async () => {
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 5vh;
+    padding-top: 15vh;
   }
 
   .wrap_drawer_close {
@@ -396,13 +396,13 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab {
-    width: 65%;
+    width: 100%;
     height: 60px;
     font-size: 1.4rem;
     font-weight: 600;
     letter-spacing: 4px;
     margin-top: 3%;
-    margin-left: 5%;
+    //margin-left: 5%;
     margin-bottom: 3%;
     padding: 10px 15px;
     display: flex;
@@ -416,8 +416,7 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-
+    box-shadow: 0 10px 10px 0.1px #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
@@ -647,7 +646,7 @@ onMounted(async () => {
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 5vh;
+    padding-top: 15vh;
   }
 
   .wrap_drawer_close {
@@ -675,13 +674,13 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab {
-    width: 65%;
+    width: 100%;
     height: 60px;
     font-size: 1.4rem;
     font-weight: 600;
     letter-spacing: 4px;
     margin-top: 3%;
-    margin-left: 5%;
+    //margin-left: 5%;
     margin-bottom: 3%;
     padding: 10px 15px;
     display: flex;
@@ -695,8 +694,7 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-
+    box-shadow: 0 10px 10px 0.1px #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
@@ -926,7 +924,7 @@ onMounted(async () => {
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 5vh;
+    padding-top: 15vh;
   }
 
   .wrap_drawer_close {
@@ -954,15 +952,15 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab {
-    width: 70%;
+    width: 100%;
     height: 70px;
     font-size: 1.7rem;
     font-weight: 600;
     letter-spacing: 3px;
-    margin-top: 1.5%;
-    margin-left: 5%;
-    margin-bottom: 1.5%;
-    padding: 10px 15px;
+    margin-top: 2%;
+    //margin-left: 5%;
+    margin-bottom: 2%;
+    padding: 10px 35px;
     display: flex;
     align-content: center;
     text-decoration: none;
@@ -974,8 +972,7 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-
+    box-shadow: 0 10px 10px 0.1px #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
