@@ -1,43 +1,60 @@
 <script setup="">
 import {ref} from 'vue'
-import {useDisplay} from 'vuetify'
 
+// lodash
+import _ from 'lodash'
+
+// display
+import {useDisplay} from 'vuetify'
 const {name} = useDisplay()
+
+// router
+import {useRouter} from 'vue-router'
+const router = useRouter()
+
+// notification
+import {ProcessingError} from "../notification/toasting.js";
 
 import photoProducts from '../assets/photo/photo380x250.jpg'
 
 const productsList = ref([
   {
+    id: 12554124,
     url: '#',
     photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'Compressed oxygen self-contained closed-circuit breathing apparatus DEZEGA P-70',
     text: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus.'
   },
   {
+    id: 513424,
     url: '#',
     photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'DEZEGA self-contained self-rescuer CARBO 30',
     text: 'CARBO 30 self-rescuer is a personal respiratory protective device on chemically bound oxygen with a closed breathing circuit…'
   },
   {
+    id: 87891239,
     url: '#',
     photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'DEZEGA OXYGEN GAS BOOSTER SYSTEM HIHPG2',
     text: 'HIHPG2 is necessary equipment for closed-circuit SCBAs of P-30EX, P-70 type and other self-contained breathing apparatuses…'
   },
   {
+    id: 128730912,
     url: '#',
     photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'Emergency escape hood DEZEGA EmSCAPE',
     text: 'DEZEGA EmSCAPE Emergency Escape Hood is a chemical oxygen personal respiratory protective device with a closed breathing…'
   },
   {
+    id: 876567234,
     url: '#',
     photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'DEZEGA self-contained self-rescuer CARBO 60',
     text: 'A personal respiratory protective device on chemically bound oxygen with a closed breathing circuit, used for escape from…'
   },
   {
+    id: 91254872,
     url: '#',
     photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
     title: 'Breathing equipment test set DEZEGA CheckUp',
@@ -98,6 +115,24 @@ const sizeFuncPaginator = () => {
   }
 }
 const page = ref(1)
+
+//
+const filteredId = ref([])
+const transitionToHref = async (id) => {
+  filteredId.value = _.filter(productsList.value, {id: id})
+  console.log(filteredId.value.length);
+  if (filteredId.value.length >= 1) {
+    const filterId = filteredId.value[0].id
+    console.log(filterId);
+    localStorage.setItem("filter_id", JSON.stringify(filterId))
+    await router.push(`/product/id/${id}`)
+
+  } else {
+    ProcessingError('Error')
+  }
+
+}
+
 </script>
 
 <template>
@@ -133,6 +168,7 @@ const page = ref(1)
 
 
     </div>
+
     <div class="card_catalog">
       <h1 class="title_absolute">CATALOGUE</h1>
       <div class="card_block" v-for="i in productsList">
@@ -149,10 +185,11 @@ const page = ref(1)
 
         </div>
         <div class="card_actions">
-          <v-btn tag="a" class="v-btn" :height="heightFuncInCarousel()">MORE</v-btn>
+          <v-btn tag="a" class="v-btn" :height="heightFuncInCarousel()" @click="transitionToHref(i.id)">MORE</v-btn>
         </div>
       </div>
     </div>
+
     <div class="paginator">
       <v-pagination
           v-model="page"

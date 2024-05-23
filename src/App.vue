@@ -56,8 +56,12 @@ onMounted(() => {})
       <Menu></Menu>
     </div>
     <div class="content">
-      <router-view name="Home page"></router-view>
-      <router-view name="Catalog"></router-view>
+      <router-view name="HomePage"></router-view>
+      <router-view name="Products"></router-view>
+      <router-view name="Product"></router-view>
+      <router-view name="ProductCatalog"></router-view>
+      <router-view name="ProductId"></router-view>
+      <router-view name="NotFoundPage404"></router-view>
 
       <router-view></router-view>
     </div>
