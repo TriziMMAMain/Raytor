@@ -411,7 +411,12 @@ const tab = ref('one')
 }
 
 .v-window {
+  transition: none !important;
   padding: 30px;
+}
+
+.v-window-item, .v-window-item--active {
+  transition: none !important;
 }
 
 .descriptionDiv {
