@@ -61,6 +61,7 @@ onMounted(() => {})
       <router-view name="Product"></router-view>
       <router-view name="ProductCatalog"></router-view>
       <router-view name="ProductId"></router-view>
+      <router-view name="AboutUs"></router-view>
       <router-view name="NotFoundPage404"></router-view>
 
       <router-view></router-view>
@@ -117,42 +118,35 @@ onMounted(() => {})
 
   .footer_main {
     width: 100%;
-    height: 200px;
+    height: 160px;
     padding: 15px 5px 15px 5px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: #8a8a8a;
   }
 
   .footer_title, .footer_title_second {
-    width: 25%;
+    width: 100%;
     font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
+    padding-left: 10px;
     color: $primary;
   }
 
-  .footer_title {
-    padding-left: 10px;
-  }
-
-  .footer_title_second {
-    padding-right: 10px;
-    text-align: right;
-  }
-
   .footer_block {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    margin: 10px 0 10px 0;
   }
 
   .footer_link {
-    min-width: 25%;
-    height: 35px;
+    min-width: 12%;
+    height: 40px;
     margin: 10px;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,42 +197,35 @@ onMounted(() => {})
 
   .footer_main {
     width: 100%;
-    height: 200px;
+    height: 160px;
     padding: 15px 5px 15px 5px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: #8a8a8a;
   }
 
   .footer_title, .footer_title_second {
-    width: 25%;
+    width: 100%;
     font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
+    padding-left: 10px;
     color: $primary;
   }
 
-  .footer_title {
-    padding-left: 10px;
-  }
-
-  .footer_title_second {
-    padding-right: 10px;
-    text-align: right;
-  }
-
   .footer_block {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    margin: 10px 0 10px 0;
   }
 
   .footer_link {
-    min-width: 25%;
-    height: 35px;
+    min-width: 12%;
+    height: 40px;
     margin: 10px;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -288,42 +275,35 @@ onMounted(() => {})
 
   .footer_main {
     width: 100%;
-    height: 150px;
+    height: 160px;
     padding: 15px 5px 15px 5px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: #8a8a8a;
   }
 
   .footer_title, .footer_title_second {
-    width: 20%;
+    width: 100%;
     font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
+    padding-left: 10px;
     color: $primary;
   }
 
-  .footer_title {
-    padding-left: 15px;
-  }
-
-  .footer_title_second {
-    padding-right: 15px;
-    text-align: right;
-  }
-
   .footer_block {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    margin: 10px 0 10px 0;
   }
 
   .footer_link {
-    min-width: 15%;
-    height: 40px;
-    margin: 10px 20px;
-    font-size: 0.8rem;
+    min-width: 7%;
+    height: 35px;
+    margin: 10px;
+    font-size: 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -524,9 +504,14 @@ onMounted(() => {})
 
   .menu {
     width: 100%;
-    height: 50px;
+    height: 80px;
     position: fixed;
     top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    background-color: rgba(104, 102, 102, 0.56);
     z-index: 105;
   }
 
@@ -611,8 +596,13 @@ onMounted(() => {})
 
   .menu {
     width: 100%;
-    height: 50px;
+    height: 80px;
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    background-color: rgba(104, 102, 102, 0.56);
     top: 0;
     z-index: 105;
   }
@@ -622,6 +612,9 @@ onMounted(() => {})
   .content {
     width: 100%;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   // Footer

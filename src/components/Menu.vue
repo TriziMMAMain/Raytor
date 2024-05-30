@@ -68,7 +68,7 @@ const tabsCounter = async (currentUrl) => {
     tabs.value = 1
   } else if (await currentUrl === 'http://localhost:5173/products/' || await currentUrl === 'http://localhost:5173/products') {
     tabs.value = 2
-  } else if (await currentUrl === 'http://localhost:5173/news/' || await currentUrl === 'http://localhost:5173/news') {
+  } else if (await currentUrl === 'http://localhost:5173/about/' || await currentUrl === 'http://localhost:5173/about') {
     tabs.value = 3
   }
 }
@@ -107,13 +107,13 @@ onMounted(async () => {
       <div class="v-tabs" v-if="mobileDrawerValue">
         <a class="v-tab" href="/">HOME</a>
         <a class="v-tab" href="/products/">PRODUCTS</a>
-        <a class="v-tab" href="/news/">NEWS</a>
+        <a class="v-tab" href="/about/">ABOUT US</a>
         <h1 class="v-tab" @click="openAndCloseMenu()">EN
-          <ion-icon name="caret-down-outline"></ion-icon>
+          <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>
         </h1>
       </div>
       <div class="v-tabs" v-else>
-        <h1 @click="openNavigationDrawerFunc()" class="v-tab-open">MENU</h1>
+        <h1 @click="openNavigationDrawerFunc()" class="v-tab-open"><v-icon icon="fa-solid fa-bars"></v-icon></h1>
       </div>
     </div>
     <div v-if="valueOpenAndCloseLanguage" class="panel_menu_absolute">
@@ -124,12 +124,12 @@ onMounted(async () => {
       <v-navigation-drawer class="bg-transparent" v-model="drawerValue" width="100%" >
         <div class="wrap_drawer_main">
           <div class="wrap_drawer">
-            <h1 class="wrap_drawer_close" @click="drawerClose()">x</h1>
+            <h1 class="wrap_drawer_close" @click="drawerClose()"><v-icon icon="fa-solid fa-xmark"></v-icon></h1>
             <a class="wrap_drawer_tab" href="/">HOME</a>
             <a class="wrap_drawer_tab" href="/products/">PRODUCTS</a>
-            <a class="wrap_drawer_tab" href="/news/">NEWS</a>
+            <a class="wrap_drawer_tab" href="/about/">ABOUT US</a>
             <h1 class="wrap_drawer_tab">EN
-              <ion-icon name="caret-down-outline"></ion-icon>
+              <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>
             </h1>
           </div>
         </div>
@@ -152,13 +152,15 @@ onMounted(async () => {
     width: 100%;
     height: 50px;
     display: flex;
+    z-index: 107;
+    overflow: hidden;
     //background-color: $textSpan;
   }
 
   // Header
 
   .header {
-    width: 300px;
+    width: 85%;
     height: 100%;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
@@ -185,7 +187,7 @@ onMounted(async () => {
   // Expansions
 
   .panel_buttons_actions {
-    width: 100%;
+    width: 15%;
     height: 100%;
     display: flex;
     justify-content: right;
@@ -375,14 +377,14 @@ onMounted(async () => {
     width: 45px;
     height: 45px;
     color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    //border: 1px solid #FFFFFF;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-content: center;
     text-align: center;
     position: absolute;
-    border-radius: 15px;
+    //border-radius: 15px;
     right: 6%;
     top: 5%;
     transition: all 0.3s ease-in-out;
@@ -391,7 +393,7 @@ onMounted(async () => {
   .wrap_drawer_close:hover {
     cursor: pointer;
     color: $primary;
-    border: 1px solid $primary;
+    //border: 1px solid $primary;
     transition: all 0.3s ease-in-out;
   }
 
@@ -406,7 +408,8 @@ onMounted(async () => {
     margin-bottom: 3%;
     padding: 10px 15px;
     display: flex;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     //color: #d8d8d8;
     color: #FFFFFF;
@@ -416,9 +419,13 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab:hover {
-    box-shadow: 0 10px 10px 0.1px #FFFFFF;
+    color: $primary;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+  }
+
+  .faArrowDownVIcon {
+    font-size: 1rem;
   }
 
 }
@@ -430,13 +437,15 @@ onMounted(async () => {
     width: 100%;
     height: 50px;
     display: flex;
+    z-index: 107;
+    overflow: hidden;
     //background-color: $textSpan;
   }
 
   // Header
 
   .header {
-    width: 300px;
+    width: 85%;
     height: 100%;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
@@ -463,7 +472,7 @@ onMounted(async () => {
   // Expansions
 
   .panel_buttons_actions {
-    width: 100%;
+    width: 15%;
     height: 100%;
     display: flex;
     justify-content: right;
@@ -653,14 +662,14 @@ onMounted(async () => {
     width: 45px;
     height: 45px;
     color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    //border: 1px solid #FFFFFF;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-content: center;
     text-align: center;
     position: absolute;
-    border-radius: 15px;
+    //border-radius: 15px;
     right: 6%;
     top: 5%;
     transition: all 0.3s ease-in-out;
@@ -669,7 +678,7 @@ onMounted(async () => {
   .wrap_drawer_close:hover {
     cursor: pointer;
     color: $primary;
-    border: 1px solid $primary;
+    //border: 1px solid $primary;
     transition: all 0.3s ease-in-out;
   }
 
@@ -684,7 +693,8 @@ onMounted(async () => {
     margin-bottom: 3%;
     padding: 10px 15px;
     display: flex;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     //color: #d8d8d8;
     color: #FFFFFF;
@@ -694,9 +704,14 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab:hover {
-    box-shadow: 0 10px 10px 0.1px #FFFFFF;
+    color: $primary;
+    //box-shadow: 0 10px 10px 0.1px #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+  }
+
+  .faArrowDownVIcon {
+    font-size: 1rem;
   }
 
 }
@@ -708,13 +723,15 @@ onMounted(async () => {
     width: 100%;
     height: 50px;
     display: flex;
+    z-index: 107;
+    overflow: hidden;
     //background-color: $textSpan;
   }
 
   // Header
 
   .header {
-    width: 300px;
+    width: 85%;
     height: 100%;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
@@ -741,7 +758,7 @@ onMounted(async () => {
   // Expansions
 
   .panel_buttons_actions {
-    width: 100%;
+    width: 15%;
     height: 100%;
     display: flex;
     justify-content: right;
@@ -931,14 +948,14 @@ onMounted(async () => {
     width: 45px;
     height: 45px;
     color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    //border: 1px solid #FFFFFF;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-content: center;
     text-align: center;
     position: absolute;
-    border-radius: 15px;
+    //border-radius: 15px;
     right: 6%;
     top: 5%;
     transition: all 0.3s ease-in-out;
@@ -947,7 +964,7 @@ onMounted(async () => {
   .wrap_drawer_close:hover {
     cursor: pointer;
     color: $primary;
-    border: 1px solid $primary;
+    //border: 1px solid $primary;
     transition: all 0.3s ease-in-out;
   }
 
@@ -962,7 +979,8 @@ onMounted(async () => {
     margin-bottom: 2%;
     padding: 10px 35px;
     display: flex;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     //color: #d8d8d8;
     color: #FFFFFF;
@@ -972,9 +990,14 @@ onMounted(async () => {
   }
 
   .wrap_drawer_tab:hover {
-    box-shadow: 0 10px 10px 0.1px #FFFFFF;
+    color: $primary;
+    //box-shadow: 0 10px 10px 0.1px #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+  }
+
+  .faArrowDownVIcon {
+    font-size: 1.5rem;
   }
 
 }
@@ -1146,6 +1169,11 @@ onMounted(async () => {
     height: 80px;
 
   }
+
+  .faArrowDownVIcon {
+    margin-left: 5px;
+    font-size: 1rem;
+  }
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
@@ -1315,13 +1343,18 @@ onMounted(async () => {
     height: 80px;
 
   }
+
+  .faArrowDownVIcon {
+    margin-left: 5px;
+    font-size: 1rem;
+  }
 }
 
 @media screen and (min-width: 1920px) and (max-width: 2560px) {
   // Menu
 
   .wrap_menu {
-    width: 100%;
+    width: 1920px;
     height: 80px;
     display: flex;
     //background-color: $textSpan;
@@ -1332,8 +1365,8 @@ onMounted(async () => {
   .header {
     width: 30%;
     height: 100%;
-    backdrop-filter: blur(4px);
-    background-color: rgba(104, 102, 102, 0.56);
+    //backdrop-filter: blur(4px);
+    //background-color: rgba(104, 102, 102, 0.56);
   }
 
   .title_main {
@@ -1362,12 +1395,8 @@ onMounted(async () => {
     display: flex;
     justify-content: right;
     align-items: center;
-    backdrop-filter: blur(4px);
-    background-color: rgba(104, 102, 102, 0.56);
-  }
-
-  .panel_menu {
-
+    //backdrop-filter: blur(4px);
+    //background-color: rgba(104, 102, 102, 0.56);
   }
 
   .menu_title {
@@ -1486,6 +1515,11 @@ onMounted(async () => {
     width: 200px;
     height: 80px;
 
+  }
+
+  .faArrowDownVIcon {
+    margin-left: 5px;
+    font-size: 1.6rem;
   }
 }
 
@@ -1493,7 +1527,7 @@ onMounted(async () => {
   // Menu
 
   .wrap_menu {
-    width: 100%;
+    width: 1920px;
     height: 80px;
     display: flex;
     //background-color: $textSpan;
@@ -1504,8 +1538,8 @@ onMounted(async () => {
   .header {
     width: 30%;
     height: 100%;
-    backdrop-filter: blur(4px);
-    background-color: rgba(104, 102, 102, 0.56);
+    //backdrop-filter: blur(4px);
+    //background-color: rgba(104, 102, 102, 0.56);
   }
 
   .title_main {
@@ -1534,12 +1568,8 @@ onMounted(async () => {
     display: flex;
     justify-content: right;
     align-items: center;
-    backdrop-filter: blur(4px);
-    background-color: rgba(104, 102, 102, 0.56);
-  }
-
-  .panel_menu {
-
+    //backdrop-filter: blur(4px);
+    //background-color: rgba(104, 102, 102, 0.56);
   }
 
   .menu_title {
@@ -1658,6 +1688,11 @@ onMounted(async () => {
     width: 200px;
     height: 80px;
 
+  }
+
+  .faArrowDownVIcon {
+    margin-left: 5px;
+    font-size: 1.8rem;
   }
 }
 

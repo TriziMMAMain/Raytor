@@ -7,6 +7,7 @@ import 'animate.css';
 import mainImage from '../assets/photo/backgroundPhotoInCarousel1.png'
 import secondaryImage1 from '../assets/photo/backgroundPhotoInCarousel2.png'
 import secondaryImage2 from '../assets/photo/backgroundPhotoInCarousel3.png'
+
 const slides = ref([
   {
     title: 'KEEP SAFE',
@@ -53,7 +54,6 @@ onMounted(() => {
 });
 
 
-
 const {name} = useDisplay()
 const widthValueYouTube = () => {
   if (name.value === 'xs') {
@@ -72,7 +72,7 @@ const widthValueYouTube = () => {
 }
 const heightValueYouTube = () => {
   if (name.value === 'xs') {
-    return '550'
+    return '400'
   } else if (name.value === 'sm') {
     return null
   } else if (name.value === 'md') {
@@ -83,6 +83,21 @@ const heightValueYouTube = () => {
     return null
   } else if (name.value === 'xxl') {
     return null
+  }
+}
+const visibleCarousel = () => {
+  if (name.value === 'xs') {
+    return false
+  } else if (name.value === 'sm') {
+    return false
+  } else if (name.value === 'md') {
+    return true
+  } else if (name.value === 'lg') {
+    return true
+  } else if (name.value === 'xl') {
+    return true
+  } else if (name.value === 'xxl') {
+    return true
   }
 }
 console.log(name.value);
@@ -134,73 +149,49 @@ watch(currentIndex, () => {
 
 <template>
   <div class="wrap_content">
-    <div class="content_carousel">
+    <div class="content_carousel" v-if="visibleCarousel()">
 
       <div class="carousel" v-for="(slide, index) in slides" :key="index">
-        <img alt="" :src="slide.src" :class="{ active: index === currentIndex }" class="image" />
-        <h1 class="v-carousel-item-title" :class="{ active: index === currentIndex }">
-          <span class="v-carousel-item-title-span">{{ printedText }}</span><span class="cursor">|</span>
-        </h1>
+        <img alt="" :src="slide.src" :class="{ active: index === currentIndex }" class="image"/>
+        <div class="carouselH1Div">
+          <h1 class="v-carousel-item-title" :class="{ active: index === currentIndex }">
+            <span class="v-carousel-item-title-span">{{ printedText }}</span><span class="cursor">|</span>
+          </h1>
+        </div>
       </div>
-
-
-
-      <!--        <div class="carousel-wrapper">-->
-<!--          <v-carousel-->
-<!--              cycle-->
-<!--              height="100vh"-->
-<!--              hide-delimiters-->
-<!--              interval="1000"-->
-<!--              :show-arrows="false"-->
-<!--              direction="vertical"-->
-<!--              continuous-->
-<!--              :center-align="true"-->
-<!--              class="carousela"-->
-<!--          >-->
-<!--            <v-carousel-item-->
-<!--                v-for="(item, i) in slides"-->
-<!--                :key="i"-->
-<!--                :src="item.src"-->
-<!--                cover-->
-<!--            >-->
-<!--              <h1 class="v-carousel-item-title animate__animated animate__fadeInRightBig">{{ item.title }}</h1>-->
-<!--            </v-carousel-item>-->
-<!--          </v-carousel>-->
-
-<!--        </div>-->
 
 
     </div>
 
-    <v-container>
+    <div class="content_introduction_wrap">
       <div class="content_introduction">
         <div class="introduction_youtube">
           <h1 class="introduction_youtube_title">INTRODUCTION</h1>
           <youtube-iframe :width="widthValueYouTube()" :height="heightValueYouTube()" video-id="PllzEKkfw5I"/>
         </div>
       </div>
-      <div class="content_about_us_main">
-        <h1 class="block_main_title">ABOUT US</h1>
-        <div class="content_about_us">
-          <div class="block_img">
-            <!--         карта Киева-->
-            <div class="map">
-              <img class="img_map" src="../assets/photo/mapEN.jpeg" alt="">
-            </div>
-          </div>
-          <div class="about_us_block_main">
-            <div class="about_us_block" v-for="i in content">
-              <div class="block_icon">
-                <ion-icon :name="i.icon"></ion-icon>
-              </div>
-              <div class="block_content">
-                <h1 class="content_title">{{ i.title }}</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </v-container>
+      <!--      <div class="content_about_us_main">-->
+      <!--        <h1 class="block_main_title">ABOUT US</h1>-->
+      <!--        <div class="content_about_us">-->
+      <!--          <div class="block_img">-->
+      <!--            &lt;!&ndash;         карта Киева&ndash;&gt;-->
+      <!--            <div class="map">-->
+      <!--              <img class="img_map" src="../assets/photo/mapEN.jpeg" alt="">-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--          <div class="about_us_block_main">-->
+      <!--            <div class="about_us_block" v-for="i in content">-->
+      <!--              <div class="block_icon">-->
+      <!--                <ion-icon :name="i.icon"></ion-icon>-->
+      <!--              </div>-->
+      <!--              <div class="block_content">-->
+      <!--                <h1 class="content_title">{{ i.title }}</h1>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+    </div>
 
 
   </div>
@@ -479,7 +470,6 @@ watch(currentIndex, () => {
   .content_introduction {
     width: 100%;
     min-height: 100vh;
-    margin-top: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1120,6 +1110,10 @@ watch(currentIndex, () => {
     flex-direction: column;
   }
 
+  .carouselH1Div {
+    width: 100%;
+    height: 100%;
+  }
 
   .v-carousel-item-title {
     position: absolute;
@@ -1206,15 +1200,14 @@ watch(currentIndex, () => {
     height: 100vh;
     //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
     //background-size: cover;
-    background-color: $text;
+    //background-color: $text;
   }
-
 
   // YouTube
 
   .content_introduction {
     width: 100%;
-    min-height: 50vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     //background-image: url('../assets/photo/backgroundPhotoInHomePage.jpg');
@@ -1361,6 +1354,10 @@ watch(currentIndex, () => {
     flex-direction: column;
   }
 
+  .carouselH1Div {
+    width: 100%;
+    height: 100%;
+  }
 
   .v-carousel-item-title {
     position: absolute;
@@ -1453,10 +1450,17 @@ watch(currentIndex, () => {
 
   // YouTube
 
-  .content_introduction {
+  .content_introduction_wrap {
     width: 100%;
     min-height: 100vh;
-    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content_introduction {
+    width: 1920px;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1602,6 +1606,11 @@ watch(currentIndex, () => {
     flex-direction: column;
   }
 
+  .carouselH1Div {
+    width: 1920px;
+    height: 100%;
+  }
+
 
   .v-carousel-item-title {
     position: absolute;
@@ -1622,6 +1631,8 @@ watch(currentIndex, () => {
     top: 0;
     left: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .image {
@@ -1694,10 +1705,16 @@ watch(currentIndex, () => {
 
   // YouTube
 
-  .content_introduction {
+  .content_introduction_wrap {
     width: 100%;
     min-height: 100vh;
-    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content_introduction {
+    width: 1920px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1844,6 +1861,10 @@ watch(currentIndex, () => {
     flex-direction: column;
   }
 
+  .carouselH1Div {
+    width: 1920px;
+    height: 100%;
+  }
 
   .v-carousel-item-title {
     position: absolute;
@@ -1864,6 +1885,8 @@ watch(currentIndex, () => {
     top: 0;
     left: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .image {

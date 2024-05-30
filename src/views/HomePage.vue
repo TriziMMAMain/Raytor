@@ -3,7 +3,7 @@ import {ref} from 'vue'
 
 import Menu from '../components/Menu.vue'
 import Content from '../components/ContentInPage.vue'
-import News from '../components/NewsComponent.vue'
+import News from '../components/AboutUsComponent.vue'
 
 </script>
 
@@ -27,7 +27,7 @@ import News from '../components/NewsComponent.vue'
 
 .wrap {
   width: 100%;
-  min-height: 300vh;
+  min-height: 100vh;
   position: relative;
   background-color: #FFFFFF;
   //background-color: $surface;

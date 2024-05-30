@@ -21,45 +21,718 @@ const productsList = ref([
   {
     id: 12554124,
     url: '#',
-    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
-    title: 'Compressed oxygen self-contained closed-circuit breathing apparatus DEZEGA P-70',
-    text: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus.'
-  },
-  {
-    id: 513424,
-    url: '#',
-    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
+    mainPhoto: 'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/6/9/b/69b60312361e0e07e9425a06c583cdf80208b700/dezega_slide_5.jpg',
+    photo: [
+      'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/6/9/b/69b60312361e0e07e9425a06c583cdf80208b700/dezega_slide_5.jpg',
+      'https://static.wixstatic.com/media/c26854_e78c04ecc3cd449e9e07ae82369f2787~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg',
+      'https://ru.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/8/2/b/82bc56c4408e72961efe8a222a64a1b8ebf181c0/dezega_slide_7.jpg'
+    ],
     title: 'DEZEGA self-contained self-rescuer CARBO 30',
-    text: 'CARBO 30 self-rescuer is a personal respiratory protective device on chemically bound oxygen with a closed breathing circuit…'
+    text: 'This self-rescuer is particularly suitable for short evacuation routes and has the lightest weight among the 30-minute...',
+    textDescription: 'This self-rescuer is particularly suitable for short evacuation routes and has the lightest weight among the 30-minute self-rescuers by DEZEGA. It can be worn either on the waist belt or on the shoulder straps, providing comfortable breathing during evacuation. The activation procedure is identical to the CARBO 60, which has already established itself in the market. The starting device activates immediately upon lid removal, allowing the user to start breathing within the first few seconds after activation.',
+    textDescripitonLi: [
+      {
+        textUl: 'Ergonomics during everyday carrying:',
+        textLi: [
+          'large area of contact with the user',
+          'balanced weight distribution',
+          'comfortable shoulder belt',
+          'suitable for use with most types of waist belts',
+        ],
+      },
+      {
+        textUl: 'Comfortable breathing:',
+        textLi: [
+          'low heat capacity of the inhaled gas', 'low breathing resistance', 'low temperature of the inhaled gas'
+        ],
+      }
+    ],
+    textDescriptionP: [
+      'An automatic starter that activates during lid removal',
+      'The training unit is available for practicing donning and breathing techniques',
+      'Elimination of initial loss of oxygen volume',
+      'The layout method keeps the breathing system from being damaged or stuck together',
+      'Starter operates in wide temperature ranges',
+      'The relief valve is located in a protected place',
+      'Elimination of leakage due to spring-loaded tensioning coupling straps',
+      'Possibility to perform minor repairs directly at the mine (belt loops and bumpers replacement)',
+      'There is a lightweight version available for use with a pouch.'
+    ],
+    feature: [
+      {
+        featureText: 'Rated duration in accordance with EN 13794:2002, IS 15803:2008 and AS/NZS 1716:2012 at lung ventilation, not less:',
+        featureValue: '',
+      },
+      {
+        featureText: '- 10 l/min',
+        featureValue: '90 min',
+      },
+      {
+        featureText: '- 35 l/min',
+        featureValue: '30 min',
+      },
+      {
+        featureText: 'Breathing resistance (at inhalation or exhalation) during operation, max',
+        featureValue: '1,0 kPa',
+      },
+      {
+        featureText: 'The temperature of the inhaled gas, °C, not more',
+        featureValue: '50 °С',
+      },
+      {
+        featureText: 'The volume of oxygen in the inhaled gas during the rated duration, not less',
+        featureValue: '21%',
+      },
+      {
+        featureText: 'The maximum volume fraction of carbon dioxide in the inhaled gas, not more',
+        featureValue: '3%',
+      },
+      {
+        featureText: 'The average volume fraction of carbon dioxide in the inhaled gas during the rated duration, not more',
+        featureValue: '1,5%',
+      },
+      {
+        featureText: 'The volume of the breathing bag, not less',
+        featureValue: '6 L',
+      },
+      {
+        featureText: 'Overall dimensions (without waist and shoulder straps or bag), standard configuration:',
+        featureValue: '',
+      },
+    ],
+    order: [
+      {
+        orderText: 'CARBO 30',
+        orderValue: 'S-30MP1-ISG-EUENEU-WK(O)',
+      },
+      {
+        orderText: 'CARBO-30T',
+        orderValue: 'T-0MP0-ISG-EUENEU-WK',
+      },
+      {
+        orderText: 'Shoulder belt',
+        orderValue: 'SKTB.02.KPP.00.00.000-07',
+      },
+      {
+        orderText: 'Waist belt',
+        orderValue: 'DWB.45.00.000',
+      },
+      {
+        orderText: 'Front bumper',
+        orderValue: 'SKTB.02.CK5.00.00.006',
+      },
+      {
+        orderText: 'Rear bumper',
+        orderValue: 'SKTB.02.CK5.00.00.003',
+      },
+      {
+        orderText: 'Belt loops',
+        orderValue: 'SKTB.02.CK5.00.00.004',
+      },
+      {
+        orderText: 'Belt loops fixators set',
+        orderValue: 'SKTB.02.CK5.00.00.005, SKTB.02.CK5.00.00.005-01',
+      }
+    ],
   },
   {
-    id: 87891239,
+    id: 91253672,
     url: '#',
-    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
-    title: 'DEZEGA OXYGEN GAS BOOSTER SYSTEM HIHPG2',
-    text: 'HIHPG2 is necessary equipment for closed-circuit SCBAs of P-30EX, P-70 type and other self-contained breathing apparatuses…'
+    mainPhoto: 'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/5/3/3/53320b5c13d998c00c7de653d3f1d9c9888bb770/dezega_slide_6.jpg',
+    photo: [
+      'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/5/3/3/53320b5c13d998c00c7de653d3f1d9c9888bb770/dezega_slide_6.jpg',
+      'https://static.wixstatic.com/media/c26854_e78c04ecc3cd449e9e07ae82369f2787~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg',
+      'https://ru.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/8/2/b/82bc56c4408e72961efe8a222a64a1b8ebf181c0/dezega_slide_7.jpg'
+    ],
+    title: 'Compressed oxygen self-contained closed-circuit breathing apparatus DEZEGA P-70',
+    text: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus...',
+    textDescription: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus. P-70 is the next-generation positive pressure breathing apparatus designed based on new safety and production principles. With new materials and high-tech design solutions, DEZEGA has significantly improved the technical characteristics and reliability of the breathing apparatus.',
+    textDescripitonLi: [
+      {
+        textUl: 'Ergonomics during everyday carrying:',
+        textLi: [
+          'Nominal working duration of 4 hours.',
+          'Positive pressure in the breathing circuit',
+          'Lightest and smallest on the market',
+          'Robust casing',
+          'Simple and reliable mechanical structure based on 37 years of experience',
+          'Possible to change cooling elements without doffing the breathing apparatus',
+          'Automatic control and alarm system',
+          'Estimated duration time calculation',
+          'Personal ID card, data collection and sharing',
+          'Ergonomic harness system',
+          'Does not require special tools for assembling and daily maintenance',
+          'Low total cost of ownership'
+        ],
+      },
+    ],
+    textDescriptionP: [
+      'Compressed oxygen self-contained closed-circuit breathing apparatus P-70 is enhanced by smart onboard electronics,',
+      'which provides a self-checks, warnings and alarms when there is a risk for the user,',
+      'monitors the team status via special RFID tags with unique code of the user,',
+      'and also calculate the estimate working duration.',
+      'With high contrast, full-color display, user data is visible even in the most difficult environments such as darkness,',
+      'bright sunlight, or smoke.',
+      'Design of breathing apparatus allows user to assemble,',
+      'disassemble and maintain the unit without any tools.',
+      'A special fireproof and comfortable harness system with lumbar rotation allows the user to choose the height of the waist belt,',
+      'and rotate the belt to not shift the center of gravity and facilitate the work to the user.'
+    ],
+    feature: [
+      {
+        featureText: 'Rated duration in accordance with EN 13794:2002, IS 15803:2008 and AS/NZS 1716:2012 at lung ventilation, not less:',
+        featureValue: '',
+      },
+      {
+        featureText: '- 10 l/min',
+        featureValue: '90 min',
+      },
+      {
+        featureText: '- 35 l/min',
+        featureValue: '30 min',
+      },
+      {
+        featureText: 'Breathing resistance (at inhalation or exhalation) during operation, max',
+        featureValue: '1,0 kPa',
+      },
+      {
+        featureText: 'The temperature of the inhaled gas, °C, not more',
+        featureValue: '50 °С',
+      },
+      {
+        featureText: 'The volume of oxygen in the inhaled gas during the rated duration, not less',
+        featureValue: '21%',
+      },
+      {
+        featureText: 'The maximum volume fraction of carbon dioxide in the inhaled gas, not more',
+        featureValue: '3%',
+      },
+      {
+        featureText: 'The average volume fraction of carbon dioxide in the inhaled gas during the rated duration, not more',
+        featureValue: '1,5%',
+      },
+      {
+        featureText: 'The volume of the breathing bag, not less',
+        featureValue: '6 L',
+      },
+      {
+        featureText: 'Overall dimensions (without waist and shoulder straps or bag), standard configuration:',
+        featureValue: '',
+      },
+    ],
+    order: [
+      {
+        orderText: 'CARBO 30',
+        orderValue: 'S-30MP1-ISG-EUENEU-WK(O)',
+      },
+      {
+        orderText: 'CARBO-30T',
+        orderValue: 'T-0MP0-ISG-EUENEU-WK',
+      },
+      {
+        orderText: 'Shoulder belt',
+        orderValue: 'SKTB.02.KPP.00.00.000-07',
+      },
+      {
+        orderText: 'Waist belt',
+        orderValue: 'DWB.45.00.000',
+      },
+      {
+        orderText: 'Front bumper',
+        orderValue: 'SKTB.02.CK5.00.00.006',
+      },
+      {
+        orderText: 'Rear bumper',
+        orderValue: 'SKTB.02.CK5.00.00.003',
+      },
+      {
+        orderText: 'Belt loops',
+        orderValue: 'SKTB.02.CK5.00.00.004',
+      },
+      {
+        orderText: 'Belt loops fixators set',
+        orderValue: 'SKTB.02.CK5.00.00.005, SKTB.02.CK5.00.00.005-01',
+      }
+    ],
   },
   {
-    id: 128730912,
+    id: 53246346,
     url: '#',
-    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
-    title: 'Emergency escape hood DEZEGA EmSCAPE',
-    text: 'DEZEGA EmSCAPE Emergency Escape Hood is a chemical oxygen personal respiratory protective device with a closed breathing…'
+    mainPhoto: 'https://image.ec21.com/image/dezega/oimg_GC09983402_CA09983414/DEZEGA-Compressed-Oxygen-Self-contained-Closed-circuit-Breathing-Apparatus--P-30EX.jpg',
+    photo: [
+      'https://image.ec21.com/image/dezega/oimg_GC09983402_CA09983414/DEZEGA-Compressed-Oxygen-Self-contained-Closed-circuit-Breathing-Apparatus--P-30EX.jpg',
+      'https://ru.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/8/2/b/82bc56c4408e72961efe8a222a64a1b8ebf181c0/dezega_slide_7.jpg',
+      'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/5/3/3/53320b5c13d998c00c7de653d3f1d9c9888bb770/dezega_slide_6.jpg',
+    ],
+    title: 'Compressed oxygen self-contained closed-circuit breathing apparatus DEZEGA CARBO-60',
+    text: 'The CARBO-60 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus...',
+    textDescription: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus. P-70 is the next-generation positive pressure breathing apparatus designed based on new safety and production principles. With new materials and high-tech design solutions, DEZEGA has significantly improved the technical characteristics and reliability of the breathing apparatus.',
+    textDescripitonLi: [
+      {
+        textUl: 'Ergonomics during everyday carrying:',
+        textLi: [
+          'Nominal working duration of 4 hours.',
+          'Positive pressure in the breathing circuit',
+          'Lightest and smallest on the market',
+          'Robust casing',
+          'Simple and reliable mechanical structure based on 37 years of experience',
+          'Possible to change cooling elements without doffing the breathing apparatus',
+          'Automatic control and alarm system',
+          'Estimated duration time calculation',
+          'Personal ID card, data collection and sharing',
+          'Ergonomic harness system',
+          'Does not require special tools for assembling and daily maintenance',
+          'Low total cost of ownership'
+        ],
+      },
+    ],
+    textDescriptionP: [
+      'Compressed oxygen self-contained closed-circuit breathing apparatus P-70 is enhanced by smart onboard electronics,',
+      'which provides a self-checks, warnings and alarms when there is a risk for the user,',
+      'monitors the team status via special RFID tags with unique code of the user,',
+      'and also calculate the estimate working duration.',
+      'With high contrast, full-color display, user data is visible even in the most difficult environments such as darkness,',
+      'bright sunlight, or smoke.',
+      'Design of breathing apparatus allows user to assemble,',
+      'disassemble and maintain the unit without any tools.',
+      'A special fireproof and comfortable harness system with lumbar rotation allows the user to choose the height of the waist belt,',
+      'and rotate the belt to not shift the center of gravity and facilitate the work to the user.'
+    ],
+    feature: [
+      {
+        featureText: 'Rated duration in accordance with EN 13794:2002, IS 15803:2008 and AS/NZS 1716:2012 at lung ventilation, not less:',
+        featureValue: '',
+      },
+      {
+        featureText: '- 10 l/min',
+        featureValue: '90 min',
+      },
+      {
+        featureText: '- 35 l/min',
+        featureValue: '30 min',
+      },
+      {
+        featureText: 'Breathing resistance (at inhalation or exhalation) during operation, max',
+        featureValue: '1,0 kPa',
+      },
+      {
+        featureText: 'The temperature of the inhaled gas, °C, not more',
+        featureValue: '50 °С',
+      },
+      {
+        featureText: 'The volume of oxygen in the inhaled gas during the rated duration, not less',
+        featureValue: '21%',
+      },
+      {
+        featureText: 'The maximum volume fraction of carbon dioxide in the inhaled gas, not more',
+        featureValue: '3%',
+      },
+      {
+        featureText: 'The average volume fraction of carbon dioxide in the inhaled gas during the rated duration, not more',
+        featureValue: '1,5%',
+      },
+      {
+        featureText: 'The volume of the breathing bag, not less',
+        featureValue: '6 L',
+      },
+      {
+        featureText: 'Overall dimensions (without waist and shoulder straps or bag), standard configuration:',
+        featureValue: '',
+      },
+    ],
+    order: [
+      {
+        orderText: 'CARBO 30',
+        orderValue: 'S-30MP1-ISG-EUENEU-WK(O)',
+      },
+      {
+        orderText: 'CARBO-30T',
+        orderValue: 'T-0MP0-ISG-EUENEU-WK',
+      },
+      {
+        orderText: 'Shoulder belt',
+        orderValue: 'SKTB.02.KPP.00.00.000-07',
+      },
+      {
+        orderText: 'Waist belt',
+        orderValue: 'DWB.45.00.000',
+      },
+      {
+        orderText: 'Front bumper',
+        orderValue: 'SKTB.02.CK5.00.00.006',
+      },
+      {
+        orderText: 'Rear bumper',
+        orderValue: 'SKTB.02.CK5.00.00.003',
+      },
+      {
+        orderText: 'Belt loops',
+        orderValue: 'SKTB.02.CK5.00.00.004',
+      },
+      {
+        orderText: 'Belt loops fixators set',
+        orderValue: 'SKTB.02.CK5.00.00.005, SKTB.02.CK5.00.00.005-01',
+      }
+    ],
   },
   {
-    id: 876567234,
+    id: 12554125,
     url: '#',
-    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
-    title: 'DEZEGA self-contained self-rescuer CARBO 60',
-    text: 'A personal respiratory protective device on chemically bound oxygen with a closed breathing circuit, used for escape from…'
+    mainPhoto: 'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/6/9/b/69b60312361e0e07e9425a06c583cdf80208b700/dezega_slide_5.jpg',
+    photo: [
+      'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/6/9/b/69b60312361e0e07e9425a06c583cdf80208b700/dezega_slide_5.jpg',
+      'https://static.wixstatic.com/media/c26854_e78c04ecc3cd449e9e07ae82369f2787~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg',
+      'https://ru.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/8/2/b/82bc56c4408e72961efe8a222a64a1b8ebf181c0/dezega_slide_7.jpg'
+    ],
+    title: 'DEZEGA self-contained self-rescuer CARBO 30',
+    text: 'This self-rescuer is particularly suitable for short evacuation routes and has the lightest weight among the 30-minute...',
+    textDescription: 'This self-rescuer is particularly suitable for short evacuation routes and has the lightest weight among the 30-minute self-rescuers by DEZEGA. It can be worn either on the waist belt or on the shoulder straps, providing comfortable breathing during evacuation. The activation procedure is identical to the CARBO 60, which has already established itself in the market. The starting device activates immediately upon lid removal, allowing the user to start breathing within the first few seconds after activation.',
+    textDescripitonLi: [
+      {
+        textUl: 'Ergonomics during everyday carrying:',
+        textLi: [
+          'large area of contact with the user',
+          'balanced weight distribution',
+          'comfortable shoulder belt',
+          'suitable for use with most types of waist belts',
+        ],
+      },
+      {
+        textUl: 'Comfortable breathing:',
+        textLi: [
+          'low heat capacity of the inhaled gas', 'low breathing resistance', 'low temperature of the inhaled gas'
+        ],
+      }
+    ],
+    textDescriptionP: [
+      'An automatic starter that activates during lid removal',
+      'The training unit is available for practicing donning and breathing techniques',
+      'Elimination of initial loss of oxygen volume',
+      'The layout method keeps the breathing system from being damaged or stuck together',
+      'Starter operates in wide temperature ranges',
+      'The relief valve is located in a protected place',
+      'Elimination of leakage due to spring-loaded tensioning coupling straps',
+      'Possibility to perform minor repairs directly at the mine (belt loops and bumpers replacement)',
+      'There is a lightweight version available for use with a pouch.'
+    ],
+    feature: [
+      {
+        featureText: 'Rated duration in accordance with EN 13794:2002, IS 15803:2008 and AS/NZS 1716:2012 at lung ventilation, not less:',
+        featureValue: '',
+      },
+      {
+        featureText: '- 10 l/min',
+        featureValue: '90 min',
+      },
+      {
+        featureText: '- 35 l/min',
+        featureValue: '30 min',
+      },
+      {
+        featureText: 'Breathing resistance (at inhalation or exhalation) during operation, max',
+        featureValue: '1,0 kPa',
+      },
+      {
+        featureText: 'The temperature of the inhaled gas, °C, not more',
+        featureValue: '50 °С',
+      },
+      {
+        featureText: 'The volume of oxygen in the inhaled gas during the rated duration, not less',
+        featureValue: '21%',
+      },
+      {
+        featureText: 'The maximum volume fraction of carbon dioxide in the inhaled gas, not more',
+        featureValue: '3%',
+      },
+      {
+        featureText: 'The average volume fraction of carbon dioxide in the inhaled gas during the rated duration, not more',
+        featureValue: '1,5%',
+      },
+      {
+        featureText: 'The volume of the breathing bag, not less',
+        featureValue: '6 L',
+      },
+      {
+        featureText: 'Overall dimensions (without waist and shoulder straps or bag), standard configuration:',
+        featureValue: '',
+      },
+    ],
+    order: [
+      {
+        orderText: 'CARBO 30',
+        orderValue: 'S-30MP1-ISG-EUENEU-WK(O)',
+      },
+      {
+        orderText: 'CARBO-30T',
+        orderValue: 'T-0MP0-ISG-EUENEU-WK',
+      },
+      {
+        orderText: 'Shoulder belt',
+        orderValue: 'SKTB.02.KPP.00.00.000-07',
+      },
+      {
+        orderText: 'Waist belt',
+        orderValue: 'DWB.45.00.000',
+      },
+      {
+        orderText: 'Front bumper',
+        orderValue: 'SKTB.02.CK5.00.00.006',
+      },
+      {
+        orderText: 'Rear bumper',
+        orderValue: 'SKTB.02.CK5.00.00.003',
+      },
+      {
+        orderText: 'Belt loops',
+        orderValue: 'SKTB.02.CK5.00.00.004',
+      },
+      {
+        orderText: 'Belt loops fixators set',
+        orderValue: 'SKTB.02.CK5.00.00.005, SKTB.02.CK5.00.00.005-01',
+      }
+    ],
   },
   {
-    id: 91254872,
+    id: 91253673,
     url: '#',
-    photo: 'https://sensorika-tm.ru/wp-content/uploads/2023/10/gornospasatel-gs-10-427.jpg',
-    title: 'Breathing equipment test set DEZEGA CheckUp',
-    text: 'The test set will test the parameters of any self-contained breathing apparatus, self-contained panoramic masks and…'
+    mainPhoto: 'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/5/3/3/53320b5c13d998c00c7de653d3f1d9c9888bb770/dezega_slide_6.jpg',
+    photo: [
+      'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/5/3/3/53320b5c13d998c00c7de653d3f1d9c9888bb770/dezega_slide_6.jpg',
+      'https://static.wixstatic.com/media/c26854_e78c04ecc3cd449e9e07ae82369f2787~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg',
+      'https://ru.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/8/2/b/82bc56c4408e72961efe8a222a64a1b8ebf181c0/dezega_slide_7.jpg'
+    ],
+    title: 'Compressed oxygen self-contained closed-circuit breathing apparatus DEZEGA P-70',
+    text: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus...',
+    textDescription: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus. P-70 is the next-generation positive pressure breathing apparatus designed based on new safety and production principles. With new materials and high-tech design solutions, DEZEGA has significantly improved the technical characteristics and reliability of the breathing apparatus.',
+    textDescripitonLi: [
+      {
+        textUl: 'Ergonomics during everyday carrying:',
+        textLi: [
+          'Nominal working duration of 4 hours.',
+          'Positive pressure in the breathing circuit',
+          'Lightest and smallest on the market',
+          'Robust casing',
+          'Simple and reliable mechanical structure based on 37 years of experience',
+          'Possible to change cooling elements without doffing the breathing apparatus',
+          'Automatic control and alarm system',
+          'Estimated duration time calculation',
+          'Personal ID card, data collection and sharing',
+          'Ergonomic harness system',
+          'Does not require special tools for assembling and daily maintenance',
+          'Low total cost of ownership'
+        ],
+      },
+    ],
+    textDescriptionP: [
+      'Compressed oxygen self-contained closed-circuit breathing apparatus P-70 is enhanced by smart onboard electronics,',
+      'which provides a self-checks, warnings and alarms when there is a risk for the user,',
+      'monitors the team status via special RFID tags with unique code of the user,',
+      'and also calculate the estimate working duration.',
+      'With high contrast, full-color display, user data is visible even in the most difficult environments such as darkness,',
+      'bright sunlight, or smoke.',
+      'Design of breathing apparatus allows user to assemble,',
+      'disassemble and maintain the unit without any tools.',
+      'A special fireproof and comfortable harness system with lumbar rotation allows the user to choose the height of the waist belt,',
+      'and rotate the belt to not shift the center of gravity and facilitate the work to the user.'
+    ],
+    feature: [
+      {
+        featureText: 'Rated duration in accordance with EN 13794:2002, IS 15803:2008 and AS/NZS 1716:2012 at lung ventilation, not less:',
+        featureValue: '',
+      },
+      {
+        featureText: '- 10 l/min',
+        featureValue: '90 min',
+      },
+      {
+        featureText: '- 35 l/min',
+        featureValue: '30 min',
+      },
+      {
+        featureText: 'Breathing resistance (at inhalation or exhalation) during operation, max',
+        featureValue: '1,0 kPa',
+      },
+      {
+        featureText: 'The temperature of the inhaled gas, °C, not more',
+        featureValue: '50 °С',
+      },
+      {
+        featureText: 'The volume of oxygen in the inhaled gas during the rated duration, not less',
+        featureValue: '21%',
+      },
+      {
+        featureText: 'The maximum volume fraction of carbon dioxide in the inhaled gas, not more',
+        featureValue: '3%',
+      },
+      {
+        featureText: 'The average volume fraction of carbon dioxide in the inhaled gas during the rated duration, not more',
+        featureValue: '1,5%',
+      },
+      {
+        featureText: 'The volume of the breathing bag, not less',
+        featureValue: '6 L',
+      },
+      {
+        featureText: 'Overall dimensions (without waist and shoulder straps or bag), standard configuration:',
+        featureValue: '',
+      },
+    ],
+    order: [
+      {
+        orderText: 'CARBO 30',
+        orderValue: 'S-30MP1-ISG-EUENEU-WK(O)',
+      },
+      {
+        orderText: 'CARBO-30T',
+        orderValue: 'T-0MP0-ISG-EUENEU-WK',
+      },
+      {
+        orderText: 'Shoulder belt',
+        orderValue: 'SKTB.02.KPP.00.00.000-07',
+      },
+      {
+        orderText: 'Waist belt',
+        orderValue: 'DWB.45.00.000',
+      },
+      {
+        orderText: 'Front bumper',
+        orderValue: 'SKTB.02.CK5.00.00.006',
+      },
+      {
+        orderText: 'Rear bumper',
+        orderValue: 'SKTB.02.CK5.00.00.003',
+      },
+      {
+        orderText: 'Belt loops',
+        orderValue: 'SKTB.02.CK5.00.00.004',
+      },
+      {
+        orderText: 'Belt loops fixators set',
+        orderValue: 'SKTB.02.CK5.00.00.005, SKTB.02.CK5.00.00.005-01',
+      }
+    ],
   },
+  {
+    id: 53246347,
+    url: '#',
+    mainPhoto: 'https://image.ec21.com/image/dezega/oimg_GC09983402_CA09983414/DEZEGA-Compressed-Oxygen-Self-contained-Closed-circuit-Breathing-Apparatus--P-30EX.jpg',
+    photo: [
+      'https://image.ec21.com/image/dezega/oimg_GC09983402_CA09983414/DEZEGA-Compressed-Oxygen-Self-contained-Closed-circuit-Breathing-Apparatus--P-30EX.jpg',
+      'https://ru.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/8/2/b/82bc56c4408e72961efe8a222a64a1b8ebf181c0/dezega_slide_7.jpg',
+      'https://en.tdspasatel.ru/htimg/display/item-attach-big/?relativePath=/upload/gaufrette/5/3/3/53320b5c13d998c00c7de653d3f1d9c9888bb770/dezega_slide_6.jpg',
+    ],
+    title: 'Compressed oxygen self-contained closed-circuit breathing apparatus DEZEGA CARBO-60',
+    text: 'The CARBO-60 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus...',
+    textDescription: 'The P-70 is a respiratory protection device - compressed oxygen self-contained closed-circuit breathing apparatus. P-70 is the next-generation positive pressure breathing apparatus designed based on new safety and production principles. With new materials and high-tech design solutions, DEZEGA has significantly improved the technical characteristics and reliability of the breathing apparatus.',
+    textDescripitonLi: [
+      {
+        textUl: 'Ergonomics during everyday carrying:',
+        textLi: [
+          'Nominal working duration of 4 hours.',
+          'Positive pressure in the breathing circuit',
+          'Lightest and smallest on the market',
+          'Robust casing',
+          'Simple and reliable mechanical structure based on 37 years of experience',
+          'Possible to change cooling elements without doffing the breathing apparatus',
+          'Automatic control and alarm system',
+          'Estimated duration time calculation',
+          'Personal ID card, data collection and sharing',
+          'Ergonomic harness system',
+          'Does not require special tools for assembling and daily maintenance',
+          'Low total cost of ownership'
+        ],
+      },
+    ],
+    textDescriptionP: [
+      'Compressed oxygen self-contained closed-circuit breathing apparatus P-70 is enhanced by smart onboard electronics,',
+      'which provides a self-checks, warnings and alarms when there is a risk for the user,',
+      'monitors the team status via special RFID tags with unique code of the user,',
+      'and also calculate the estimate working duration.',
+      'With high contrast, full-color display, user data is visible even in the most difficult environments such as darkness,',
+      'bright sunlight, or smoke.',
+      'Design of breathing apparatus allows user to assemble,',
+      'disassemble and maintain the unit without any tools.',
+      'A special fireproof and comfortable harness system with lumbar rotation allows the user to choose the height of the waist belt,',
+      'and rotate the belt to not shift the center of gravity and facilitate the work to the user.'
+    ],
+    feature: [
+      {
+        featureText: 'Rated duration in accordance with EN 13794:2002, IS 15803:2008 and AS/NZS 1716:2012 at lung ventilation, not less:',
+        featureValue: '',
+      },
+      {
+        featureText: '- 10 l/min',
+        featureValue: '90 min',
+      },
+      {
+        featureText: '- 35 l/min',
+        featureValue: '30 min',
+      },
+      {
+        featureText: 'Breathing resistance (at inhalation or exhalation) during operation, max',
+        featureValue: '1,0 kPa',
+      },
+      {
+        featureText: 'The temperature of the inhaled gas, °C, not more',
+        featureValue: '50 °С',
+      },
+      {
+        featureText: 'The volume of oxygen in the inhaled gas during the rated duration, not less',
+        featureValue: '21%',
+      },
+      {
+        featureText: 'The maximum volume fraction of carbon dioxide in the inhaled gas, not more',
+        featureValue: '3%',
+      },
+      {
+        featureText: 'The average volume fraction of carbon dioxide in the inhaled gas during the rated duration, not more',
+        featureValue: '1,5%',
+      },
+      {
+        featureText: 'The volume of the breathing bag, not less',
+        featureValue: '6 L',
+      },
+      {
+        featureText: 'Overall dimensions (without waist and shoulder straps or bag), standard configuration:',
+        featureValue: '',
+      },
+    ],
+    order: [
+      {
+        orderText: 'CARBO 30',
+        orderValue: 'S-30MP1-ISG-EUENEU-WK(O)',
+      },
+      {
+        orderText: 'CARBO-30T',
+        orderValue: 'T-0MP0-ISG-EUENEU-WK',
+      },
+      {
+        orderText: 'Shoulder belt',
+        orderValue: 'SKTB.02.KPP.00.00.000-07',
+      },
+      {
+        orderText: 'Waist belt',
+        orderValue: 'DWB.45.00.000',
+      },
+      {
+        orderText: 'Front bumper',
+        orderValue: 'SKTB.02.CK5.00.00.006',
+      },
+      {
+        orderText: 'Rear bumper',
+        orderValue: 'SKTB.02.CK5.00.00.003',
+      },
+      {
+        orderText: 'Belt loops',
+        orderValue: 'SKTB.02.CK5.00.00.004',
+      },
+      {
+        orderText: 'Belt loops fixators set',
+        orderValue: 'SKTB.02.CK5.00.00.005, SKTB.02.CK5.00.00.005-01',
+      }
+    ],
+  },
+
 ])
 const productsFilter = ref([
   {
@@ -136,7 +809,7 @@ const transitionToHref = async (id) => {
 </script>
 
 <template>
-  <v-container class="wrap_main">
+  <div class="wrap_main">
     <div class="filter_menu">
 
       <h1 class="filter_menu_title">FILTER</h1>
@@ -173,7 +846,7 @@ const transitionToHref = async (id) => {
       <h1 class="title_absolute">CATALOGUE</h1>
       <div class="card_block" v-for="i in productsList">
         <div class="photo_block">
-          <img class="block_img" alt="" :src="i.photo">
+          <img class="block_img" alt="" :src="i.mainPhoto">
         </div>
         <div class="card_content">
           <div class="content_title">
@@ -198,7 +871,7 @@ const transitionToHref = async (id) => {
           :total-visible="3"
           :length="5"></v-pagination>
     </div>
-  </v-container>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -875,6 +1548,7 @@ const transitionToHref = async (id) => {
 
 @media screen and (min-width: 960px) and (max-width: 1280px) {
   .wrap_main {
+    width: 80%;
     min-height: 100vh;
     margin-top: 100px;
     position: relative;
@@ -970,14 +1644,14 @@ const transitionToHref = async (id) => {
     margin-top: 70px;
     margin-bottom: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
   }
 
   .card_block {
     width: 350px;
     min-height: 350px;
-    margin: 40px 30px;
+    margin: 40px 25px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -1098,6 +1772,7 @@ const transitionToHref = async (id) => {
 
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
   .wrap_main {
+    width: 80%;
     min-height: 100vh;
     margin-top: 100px;
     position: relative;
@@ -1251,8 +1926,8 @@ const transitionToHref = async (id) => {
 
   .content_text {
     min-height: 150px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .card_text {
@@ -1265,7 +1940,7 @@ const transitionToHref = async (id) => {
 
   .card_actions {
     width: 100%;
-    height: 50px;
+    height: 70px;
     display: flex;
     align-items: end;
     justify-content: left;
@@ -1321,8 +1996,9 @@ const transitionToHref = async (id) => {
 
 @media screen and (min-width: 1920px) and (max-width: 2560px) {
   .wrap_main {
+    width: 85%;
     min-height: 100vh;
-    margin-top: 100px;
+    margin: 100px auto;
     position: relative;
     background-color: #FFFFFF;
   }
@@ -1424,14 +2100,14 @@ const transitionToHref = async (id) => {
     margin-top: 70px;
     margin-bottom: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
   }
 
   .card_block {
     width: 450px;
     min-height: 650px;
-    margin: 70px 50px;
+    margin: 70px 30px;
     padding: 35px;
     display: flex;
     flex-direction: column;
@@ -1551,6 +2227,7 @@ const transitionToHref = async (id) => {
 
 @media screen and (min-width: 2560px) {
   .wrap_main {
+    width: 1920px;
     min-height: 100vh;
     margin-top: 100px;
     position: relative;
@@ -1654,14 +2331,14 @@ const transitionToHref = async (id) => {
     margin-top: 70px;
     margin-bottom: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
   }
 
   .card_block {
     width: 450px;
     min-height: 650px;
-    margin: 70px 50px;
+    margin: 70px 80px;
     padding: 35px;
     display: flex;
     flex-direction: column;

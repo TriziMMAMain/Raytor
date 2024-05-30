@@ -13,6 +13,9 @@ import CatalogComponent from '../components/ProductsComponent.vue'
 
 .wrap {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   background-color: #FFFFFF;
 }
