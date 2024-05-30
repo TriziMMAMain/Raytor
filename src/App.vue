@@ -122,12 +122,14 @@ onMounted(() => {})
     padding: 15px 5px 15px 5px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: #8a8a8a;
   }
 
   .footer_title, .footer_title_second {
     width: 100%;
+    text-align: center;
     font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
@@ -138,6 +140,7 @@ onMounted(() => {})
   .footer_block {
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 10px 0 10px 0;
   }
@@ -200,6 +203,7 @@ onMounted(() => {})
     height: 160px;
     padding: 15px 5px 15px 5px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     background-color: #8a8a8a;
@@ -207,6 +211,7 @@ onMounted(() => {})
 
   .footer_title, .footer_title_second {
     width: 100%;
+    text-align: center;
     font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
@@ -217,6 +222,7 @@ onMounted(() => {})
   .footer_block {
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 10px 0 10px 0;
   }
@@ -278,6 +284,7 @@ onMounted(() => {})
     height: 160px;
     padding: 15px 5px 15px 5px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     background-color: #8a8a8a;
@@ -285,6 +292,7 @@ onMounted(() => {})
 
   .footer_title, .footer_title_second {
     width: 100%;
+    text-align: center;
     font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: 600;
@@ -295,6 +303,7 @@ onMounted(() => {})
   .footer_block {
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 10px 0 10px 0;
   }
