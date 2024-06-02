@@ -850,7 +850,7 @@ const transitionToHref = async (id) => {
         </div>
         <div class="card_content">
           <div class="content_title">
-            <h1 @click="titleLink" class="card_title">{{ i.title }}</h1>
+            <h1 @click="transitionToHref(i.id)" class="card_title">{{ i.title }}</h1>
           </div>
           <div class="content_text">
             <p class="card_text">{{ i.text }}</p>
