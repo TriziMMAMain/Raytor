@@ -533,20 +533,24 @@ onMounted(() => {})
 
   // Footer
 
+
   .footer {
     width: 100%;
     min-height: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #8a8a8a;
+
   }
 
   .footer_main {
-    width: 100%;
+    width: 1920px;
     height: 100%;
     padding: 15px 5px 15px 5px;
     display: flex;
     align-items: center;
     //background-color: $textSpan;
     //background-color: $background;
-    background-color: #8a8a8a;
   }
 
   .footer_title, .footer_title_second {
@@ -631,17 +635,20 @@ onMounted(() => {})
   .footer {
     width: 100%;
     min-height: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #8a8a8a;
+
   }
 
   .footer_main {
-    width: 100%;
+    width: 1920px;
     height: 100%;
     padding: 15px 5px 15px 5px;
     display: flex;
     align-items: center;
     //background-color: $textSpan;
     //background-color: $background;
-    background-color: #8a8a8a;
   }
 
   .footer_title, .footer_title_second {

@@ -63,15 +63,15 @@ const drawerValue = ref(false)
 // currentUrl
 
 const currentUrl = ref(null)
-const tabsCounter = async (currentUrl) => {
-  if (await currentUrl === 'http://localhost:5173/') {
-    tabs.value = 1
-  } else if (await currentUrl === 'http://localhost:5173/products/' || await currentUrl === 'http://localhost:5173/products') {
-    tabs.value = 2
-  } else if (await currentUrl === 'http://localhost:5173/about/' || await currentUrl === 'http://localhost:5173/about') {
-    tabs.value = 3
-  }
-}
+// const tabsCounter = async (currentUrl) => {
+//   if (await currentUrl === 'http://localhost:5173/') {
+//     tabs.value = 1
+//   } else if (await currentUrl === 'http://localhost:5173/products/' || await currentUrl === 'http://localhost:5173/products') {
+//     tabs.value = 2
+//   } else if (await currentUrl === 'http://localhost:5173/about/' || await currentUrl === 'http://localhost:5173/about') {
+//     tabs.value = 3
+//   }
+// }
 
 //
 
@@ -105,10 +105,10 @@ onMounted(async () => {
     </div>
     <div class="panel_buttons_actions">
       <div class="v-tabs" v-if="mobileDrawerValue">
-        <a class="v-tab" href="/">HOME</a>
-        <a class="v-tab" href="/products/">PRODUCTS</a>
-        <a class="v-tab" href="/about/">ABOUT US</a>
-        <h1 class="v-tab" @click="openAndCloseMenu()">EN
+        <router-link class="v-tab" to="/">HOME</router-link>
+        <router-link class="v-tab" to="/products/">PRODUCTS</router-link>
+        <router-link class="v-tab" to="/about/">ABOUT US</router-link>
+        <h1 class="v-tab" @click="">EN
           <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>
         </h1>
       </div>
@@ -125,9 +125,9 @@ onMounted(async () => {
         <div class="wrap_drawer_main">
           <div class="wrap_drawer">
             <h1 class="wrap_drawer_close" @click="drawerClose()"><v-icon icon="fa-solid fa-xmark"></v-icon></h1>
-            <a class="wrap_drawer_tab" href="/">HOME</a>
-            <a class="wrap_drawer_tab" href="/products/">PRODUCTS</a>
-            <a class="wrap_drawer_tab" href="/about/">ABOUT US</a>
+            <router-link class="wrap_drawer_tab" to="/">HOME</router-link>
+            <router-link class="wrap_drawer_tab" to="/products/">PRODUCTS</router-link>
+            <router-link class="wrap_drawer_tab" to="/about/">ABOUT US</router-link>
             <h1 class="wrap_drawer_tab">EN
               <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>
             </h1>
