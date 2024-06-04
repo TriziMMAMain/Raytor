@@ -94,7 +94,6 @@ watch(isHovered, (newValue) => {
 
 onMounted(async () => {
   currentUrl.value = window.location.href;
-  await tabsCounter(currentUrl.value)
 })
 </script>
 

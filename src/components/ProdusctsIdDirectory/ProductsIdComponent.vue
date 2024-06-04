@@ -1564,6 +1564,8 @@ const heightFuncInCarousel = () => {
     min-height: 50vh;
     margin-top: 10vh;
     display: flex;
+    align-items: center;
+
     justify-content: space-between;
 
 
@@ -1790,6 +1792,7 @@ const heightFuncInCarousel = () => {
     min-height: 60vh;
     margin-top: 10vh;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
 
@@ -2016,6 +2019,8 @@ const heightFuncInCarousel = () => {
     min-height: 65vh;
     margin-top: 10vh;
     display: flex;
+    align-items: center;
+
     justify-content: space-between;
 
 
@@ -2244,6 +2249,7 @@ const heightFuncInCarousel = () => {
     min-height: 45vh;
     margin-top: 15vh;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
 

@@ -134,6 +134,7 @@ const productsList = ref([
         orderValue: 'SKTB.02.CK5.00.00.005, SKTB.02.CK5.00.00.005-01',
       }
     ],
+    available: null,
   },
   {
     id: 91253672,
