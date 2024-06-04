@@ -1,7 +1,12 @@
 <script setup="">
 import {onMounted, ref} from "vue";
 import {useDisplay} from 'vuetify'
-
+import {useStore} from './stores/index.js'
+import {storeToRefs} from 'pinia'
+// Store
+const {products} = storeToRefs(useStore())
+// Action
+const {fetchAllProducts} = useStore()
 
 // Components
 import Menu from './components/Menu.vue'
@@ -46,7 +51,16 @@ const link = ref([
   },
 
 ])
-onMounted(() => {})
+onMounted(async () => {
+  await fetchAllProducts()
+      .then(() => {
+        console.log('Fetching')
+      })
+      .catch((error) => {
+        ProcessingError("Ошибка на сервере! Перезагрузите страницу!")
+        console.log(error)
+      })
+})
 </script>
 
 <template>
@@ -71,13 +85,15 @@ onMounted(() => {})
       <div class="footer_main">
         <h1 class="footer_title">(с) 2014-2023 REYTOR LTD</h1>
         <div class="footer_block">
-          <a v-for="i in link" :href="i.href" class="footer_link"><v-icon :icon="i.icon"></v-icon></a>
+          <a v-for="i in link" :href="i.href" class="footer_link">
+            <v-icon :icon="i.icon"></v-icon>
+          </a>
         </div>
         <h1 class="footer_title_second">LIFELONG SAFETY EXPERIENCE</h1>
       </div>
     </div>
-<!--    <HomePage></HomePage>-->
-<!--    <Catalog></Catalog>-->
+    <!--    <HomePage></HomePage>-->
+    <!--    <Catalog></Catalog>-->
   </div>
 </template>
 

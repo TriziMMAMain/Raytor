@@ -1,9 +1,17 @@
 <script setup="">
-import {ref} from 'vue'
+import {onMounted, ref} from 'vue'
 
 // lodash
 import _ from 'lodash'
 
+// Pinia
+import {storeToRefs} from 'pinia'
+import {useStore} from '../../stores/index.js'
+
+// Pinia.state
+const {productId} = storeToRefs(useStore())
+// Pinia.action
+const {fetchIdProduct} = useStore()
 // display
 import {useDisplay} from 'vuetify'
 
@@ -732,10 +740,7 @@ const productsList = ref([
   },
 
 ])
-const filterId = ref(JSON.parse(localStorage.getItem("filter_id")))
-const filterProduct = ref(_.filter(productsList.value, {id: filterId.value}))
-console.log(filterId.value);
-console.log(filterProduct.value[0]);
+const filterProduct = ref(null)
 
 //
 
@@ -769,6 +774,17 @@ const heightFuncInCarousel = () => {
   }
 }
 
+onMounted(async () => {
+  const currentUrl = ref(router.currentRoute.value.params);
+  await fetchIdProduct(currentUrl.value.id)
+      .then(() => {
+        filterProduct.value = JSON.parse(localStorage.getItem('productId'))
+      })
+      .catch((error) => {
+        ProcessingError("Ошибка на сервере! Перезагрузите страницу!")
+        console.log(error)
+      })
+})
 </script>
 
 <template>
