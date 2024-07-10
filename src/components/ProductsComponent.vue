@@ -1,5 +1,5 @@
 <script setup="">
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 
 // lodash
 import _ from 'lodash'
@@ -23,7 +23,7 @@ const router = useRouter()
 // notification
 import {ProcessingError} from "../notification/toasting.js";
 
-const productsList = ref(products.value)
+const productsList = ref(products)
 const productsFilter = ref([
   {
     title: 'STANDARD',
@@ -40,12 +40,12 @@ const productsFilter = ref([
 ])
 
 
-const matches = ref(false)
+const matches = ref(true)
 const resetMatches = () => {
   vCheckboxStandardValue.value = ''
   vCheckboxManufacturerValue.value = ''
   vCheckboxFieldValue.value = ''
-  productsList.value = products.value
+  productsList.value = products
   matches.value = true
 }
 const checkboxChange = () => {
@@ -212,7 +212,7 @@ const transitionToHref = async (id) => {
             <h1 @click="transitionToHref(i.id)" class="card_title">{{ i.title }}</h1>
           </div>
           <div class="content_text">
-            <p class="card_text">{{ i.text }}</p>
+            <p class="card_text">{{ i.description }}</p>
           </div>
 
         </div>

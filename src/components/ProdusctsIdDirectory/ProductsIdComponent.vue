@@ -8,8 +8,9 @@ import _ from 'lodash'
 import {storeToRefs} from 'pinia'
 import {useStore} from '../../stores/index.js'
 
-// Pinia.state
-const {productId} = storeToRefs(useStore())
+// Pinia.store
+const {products, productId} = storeToRefs(useStore())
+
 // Pinia.action
 const {fetchIdProduct} = useStore()
 // display
@@ -22,6 +23,12 @@ import {useRouter} from 'vue-router'
 
 const router = useRouter()
 
+const currentUrl = ref(router.currentRoute.value.params);
+const filteredId = (id) => {
+  const idNumber = ref(Number(id))
+  filterProduct.value = _.find(products.value, {id: idNumber})
+
+}
 //product
 const productsList = ref([
   {
@@ -740,7 +747,7 @@ const productsList = ref([
   },
 
 ])
-const filterProduct = ref(null)
+const filterProduct = ref([])
 
 //
 
@@ -774,17 +781,11 @@ const heightFuncInCarousel = () => {
   }
 }
 
-onMounted(async () => {
-  const currentUrl = ref(router.currentRoute.value.params);
-  await fetchIdProduct(currentUrl.value.id)
-      .then(() => {
-        filterProduct.value = JSON.parse(localStorage.getItem('productId'))
-      })
-      .catch((error) => {
-        ProcessingError("Ошибка на сервере! Перезагрузите страницу!")
-        console.log(error)
-      })
-})
+
+filteredId(currentUrl.value)
+
+
+
 </script>
 
 <template>

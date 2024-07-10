@@ -57,7 +57,7 @@ onMounted(async () => {
         console.log('Fetching')
       })
       .catch((error) => {
-        ProcessingError("Ошибка на сервере! Перезагрузите страницу!")
+        // ProcessingError("Ошибка на сервере! Перезагрузите страницу!")
         console.log(error)
       })
 })
