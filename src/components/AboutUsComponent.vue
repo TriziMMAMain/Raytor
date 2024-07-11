@@ -1,28 +1,29 @@
 <script setup="">
-import {ref} from 'vue'
+import {ref, onMounted} from "vue"
+import {useStore} from "../stores/index.js";
 
-const aboutUsArray = ref([{
-  title: 'Raytor LTD',
-  photo: '',
-  phone: '+380999254512',
-  email: 'raytor@gmail.com'
-}])
+const {fetchAddress} = useStore()
+import {storeToRefs} from 'pinia'
+// Pinia.store
+const {address} = storeToRefs(useStore())
+// Address
+
+const addressArray = ref(null)
+
+onMounted(async () => {
+  await fetchAddress()
+  addressArray.value = JSON.parse(localStorage.getItem('address'))
+})
+
 </script>
 
 <template>
-  <div class="wrap-about-us">
-    <h1 class="about-us-title">ABOUT US</h1>
-    <div class="about-us-block">
-      <div class="about-us" v-for="info in aboutUsArray">
-        <div class="us-description">
-          <h1 class="us-description-title">{{ info.title }}</h1>
-          <h1 class="us-description-phone">{{ info.phone }}</h1>
-          <h1 class="us-description-email">{{ info.email }}</h1>
-        </div>
-        <div class="us-photo">
-          <img class="us-photo-img" :src="info.photo" alt="">
-        </div>
-      </div>
+  <div class="wrap-address">
+    <div class="address" v-for="item in addressArray">
+      <h1 class="address-title">{{ item.address }}</h1>
+      <h1 class="address-phone">{{ item.phone }}</h1>
+      <h1 class="address-email">{{ item.email }}</h1>
+      <br>
     </div>
   </div>
 </template>
@@ -30,46 +31,10 @@ const aboutUsArray = ref([{
 <style scoped lang="scss">
 @import '../assets/mixins.scss';
 
-// Wrap
-.wrap-about-us {
-  width: 90%;
-  height: 100vh;
-  margin: 70px auto;
+.address-title, .address-phone, .address-email {
+  font-size: 2rem;
+  font-weight: 600;
+  color: $textSpan;
 }
-// Title
-.about-us-title {
-  font-size: 3rem;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  letter-spacing: 7px;
-  color: $primaryText;
-}
-// Block
-.about-us-block {
-  width: 100%;
-  height: 100%;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  background-color: red;
-}
-// Block v-for
-.about-us {
-
-}
-// Description
-.us-description {}
-
-.us-description-title {}
-
-.us-description-phone {}
-
-.us-description-email {}
-// Photo
-.us-photo {}
-
-.us-photo-img {}
 
 </style>

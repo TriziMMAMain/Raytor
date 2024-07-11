@@ -7,6 +7,7 @@ export const useStore = defineStore('store', () => {
     // state
     const products = ref(null)
     const productId = ref(null)
+    const address = ref(null)
 
     // action
 
@@ -15,7 +16,6 @@ export const useStore = defineStore('store', () => {
         products.value = await response.data
         console.log(products.value);
     }
-
     async function fetchIdProduct(id) {
         try {
             console.log(productId.value);
@@ -27,9 +27,22 @@ export const useStore = defineStore('store', () => {
             console.log(error)
         }
     }
+    async function fetchAddress() {
+        try {
+            const response = await interceptors.get('/api/addresses')
+            address.value = response.data
+            console.log(address.value);
+            localStorage.setItem('address', JSON.stringify(address.value))
+
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
 
     // getters
-    return {products, productId, fetchAllProducts, fetchIdProduct}
+    return {products, productId, fetchAllProducts, fetchIdProduct, fetchAddress}
 })
 
 
