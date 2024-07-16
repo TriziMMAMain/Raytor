@@ -6,25 +6,54 @@ import _ from "lodash";
 export const useStore = defineStore('store', () => {
     // state
     const products = ref(null)
+    const productsPage = ref(null)
     const productId = ref(null)
     const address = ref(null)
 
     // action
 
     async function fetchAllProducts() {
-        const response = await interceptors.get('/api/posts/')
-        products.value = await response.data
-        console.log(products.value);
+        try {
+            const response = await interceptors.get('/posts/')
+            products.value = await response.data
+            localStorage.setItem("products", JSON.stringify(products.value))
+            console.log(products.value);
+        } catch (e) {
+            console.log(e);
+        }
     }
     async function fetchIdProduct(id) {
         try {
-            console.log(productId.value);
-            const idNumber = ref(Number(id))
-            productId.value = await _.find(products.value, {id: idNumber.value})
-            console.log(await productId.value);
-            // localStorage.setItem('productId', JSON.stringify(productId.value))
+            console.log(id.id);
+            const idNumber = ref(Number(id.id))
+            const productsCopy2 = ref(null)
+            const response = await interceptors.get(`/posts/${idNumber.value}`)
+            productsCopy2.value = [response.data]
+            localStorage.setItem('productId', JSON.stringify(productsCopy2.value))
         } catch (error) {
             console.log(error)
+        }
+    }
+    async function fetchPageProduct(page) {
+        try {
+            const pageCopy = ref(0)
+            if (page === 1) {
+                pageCopy.value = 0
+            } else if (page === 2) {
+                pageCopy.value = 6
+            } else if (page === 3) {
+                pageCopy.value = 12
+            } else if (page === 4) {
+                pageCopy.value = 18
+            } else if (page === 5) {
+                pageCopy.value = 24
+            }
+            const response = await interceptors.get(`/paginated?limit=6&offset=${pageCopy.value}`)
+            productsPage.value = await response.data
+            localStorage.setItem("products-page", JSON.stringify(productsPage.value))
+            console.log(productsPage.value);
+        } catch (e) {
+            console.log(e);
         }
     }
     async function fetchAddress() {
@@ -42,7 +71,7 @@ export const useStore = defineStore('store', () => {
     }
 
     // getters
-    return {products, productId, fetchAllProducts, fetchIdProduct, fetchAddress}
+    return {products, productId, productsPage, fetchAllProducts, fetchIdProduct, fetchAddress, fetchPageProduct}
 })
 
 

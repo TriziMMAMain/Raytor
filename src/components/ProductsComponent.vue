@@ -1,5 +1,5 @@
 <script setup="">
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, watch} from 'vue'
 
 // lodash
 import _ from 'lodash'
@@ -8,7 +8,8 @@ import _ from 'lodash'
 import {useStore} from '../stores/index.js'
 import {storeToRefs} from 'pinia'
 // Pinia.store
-const {products} = storeToRefs(useStore())
+const {fetchPageProduct} = useStore()
+const {products, productsPage} = storeToRefs(useStore())
 
 // display
 import {useDisplay} from 'vuetify'
@@ -23,7 +24,7 @@ const router = useRouter()
 // notification
 import {ProcessingError} from "../notification/toasting.js";
 
-const productsList = ref(products)
+const productsList = ref(productsPage)
 const productsFilter = ref([
   {
     title: 'STANDARD',
@@ -41,15 +42,20 @@ const productsFilter = ref([
 
 
 const matches = ref(true)
-const resetMatches = () => {
-  vCheckboxStandardValue.value = ''
-  vCheckboxManufacturerValue.value = ''
-  vCheckboxFieldValue.value = ''
-  productsList.value = products
-  matches.value = true
+const resetMatches = async () => {
+  await fetchPageProduct(page.value)
+      .then(() => {
+        vCheckboxStandardValue.value = ''
+        vCheckboxManufacturerValue.value = ''
+        vCheckboxFieldValue.value = ''
+        matches.value = true
+      })
+      .catch((e) => {
+        console.log(e);
+      })
 }
 const checkboxChange = () => {
-  productsList.value = products.value
+  productsList.value = productsPage.value
   matches.value = true
 
   if (!vCheckboxStandardValue.value === false) {
@@ -111,6 +117,14 @@ const sizeFuncPaginator = () => {
 }
 const page = ref(1)
 
+
+watch(page, async (newVal, oldVal) => {
+  await fetchPageProduct(page.value)
+})
+
+onMounted(async () => {
+  await fetchPageProduct(1)
+})
 //
 const loadingVBtn = ref(false)
 const filteredId = ref([])

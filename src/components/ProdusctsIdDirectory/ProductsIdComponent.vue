@@ -9,7 +9,7 @@ import {storeToRefs} from 'pinia'
 import {useStore} from '../../stores/index.js'
 
 // Pinia.store
-const {products, productId} = storeToRefs(useStore())
+const {productId} = storeToRefs(useStore())
 
 // Pinia.action
 const {fetchIdProduct} = useStore()
@@ -23,12 +23,7 @@ import {useRouter} from 'vue-router'
 
 const router = useRouter()
 
-const currentUrl = ref(router.currentRoute.value.params);
-const filteredId = (id) => {
-  const idNumber = ref(Number(id))
-  filterProduct.value = _.find(products.value, {id: idNumber})
 
-}
 //product
 const productsList = ref([
   {
@@ -782,8 +777,12 @@ const heightFuncInCarousel = () => {
 }
 
 
-filteredId(currentUrl.value)
-
+onMounted(async () => {
+  const currentUrl = ref(router.currentRoute.value.params);
+  const idNumber = ref(Number(currentUrl.value))
+  await fetchIdProduct(currentUrl.value)
+  filterProduct.value = JSON.parse(localStorage.getItem('productId'))
+})
 
 
 </script>
