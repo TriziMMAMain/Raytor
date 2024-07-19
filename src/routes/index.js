@@ -16,7 +16,14 @@ const routes = [
     {
         path: '/products/',
         name: 'Products',
-        component: Products
+        component: Products,
+        children: [
+            {
+                path: ':page/',
+                name: 'ProductsPage',
+                component: Products
+            },
+        ]
     },
     {
         path: '/product/',

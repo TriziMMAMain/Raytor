@@ -72,6 +72,7 @@ onMounted(async () => {
     <div class="content">
       <router-view name="HomePage"></router-view>
       <router-view name="Products"></router-view>
+      <router-view name="ProductsPage"></router-view>
       <router-view name="Product"></router-view>
       <router-view name="ProductCatalog"></router-view>
       <router-view name="ProductId"></router-view>

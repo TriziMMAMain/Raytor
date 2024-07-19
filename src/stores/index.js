@@ -2,6 +2,7 @@ import {defineStore} from 'pinia'
 import {ref} from 'vue'
 import interceptors from "../api.js";
 import _ from "lodash";
+import {ProcessingError} from "../notification/toasting.js";
 
 export const useStore = defineStore('store', () => {
     // state
@@ -15,7 +16,13 @@ export const useStore = defineStore('store', () => {
     async function fetchAllProducts() {
         try {
             const response = await interceptors.get('/posts/')
-            products.value = await response.data
+                .then((response) => {
+                    products.value = response.data
+                })
+                .catch((e) => {
+                    console.log(e);
+                    ProcessingError('Error ' + e)
+                })
             localStorage.setItem("products", JSON.stringify(products.value))
             console.log(products.value);
         } catch (e) {
@@ -28,7 +35,12 @@ export const useStore = defineStore('store', () => {
             const idNumber = ref(Number(id.id))
             const productsCopy2 = ref(null)
             const response = await interceptors.get(`/posts/${idNumber.value}`)
-            productsCopy2.value = [response.data]
+                .then((response) => {
+                    productsCopy2.value = [response.data]
+                })
+                .catch((e) => {
+                    ProcessingError('Error ' + e)
+                })
             localStorage.setItem('productId', JSON.stringify(productsCopy2.value))
         } catch (error) {
             console.log(error)
@@ -36,6 +48,8 @@ export const useStore = defineStore('store', () => {
     }
     async function fetchPageProduct(page) {
         try {
+
+
             const pageCopy = ref(0)
             if (page === 1) {
                 pageCopy.value = 0
@@ -47,9 +61,25 @@ export const useStore = defineStore('store', () => {
                 pageCopy.value = 18
             } else if (page === 5) {
                 pageCopy.value = 24
+            } else if (page === 6) {
+                pageCopy.value = 30
+            } else if (page === 7) {
+                pageCopy.value = 36
+            } else if (page === 8) {
+                pageCopy.value = 42
+            } else if (page === 9) {
+                pageCopy.value = 48
+            } else if (page === 10) {
+                pageCopy.value = 54
             }
+
             const response = await interceptors.get(`/paginated?limit=6&offset=${pageCopy.value}`)
-            productsPage.value = await response.data
+                .then((response) => {
+                    productsPage.value = response.data
+                })
+                .catch((e) => {
+                    ProcessingError('Error ' + e)
+                })
             localStorage.setItem("products-page", JSON.stringify(productsPage.value))
             console.log(productsPage.value);
         } catch (e) {
@@ -58,7 +88,11 @@ export const useStore = defineStore('store', () => {
     }
     async function fetchAddress() {
         try {
-            const response = await interceptors.get('/api/addresses')
+            const response = await interceptors.get('/addresses')
+                .then(() => {})
+                .catch((e) => {
+                    ProcessingError('Error ' + e)
+                })
             address.value = response.data
             console.log(address.value);
             localStorage.setItem('address', JSON.stringify(address.value))

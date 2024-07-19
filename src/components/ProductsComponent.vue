@@ -116,14 +116,28 @@ const sizeFuncPaginator = () => {
   }
 }
 const page = ref(1)
-
+const lengthVPagination = () => {
+  const productsCopy = ref(JSON.parse(localStorage.getItem("products")))
+  const lengthPagination = ref(6)
+  const lengthReturn = productsCopy.value.length / lengthPagination.value
+  return Math.ceil(lengthReturn)
+}
 
 watch(page, async (newVal, oldVal) => {
   await fetchPageProduct(page.value)
+      .then(async () => {
+        await router.push({ name: 'ProductsPage', params: { page: page.value } })
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+
 })
 
 onMounted(async () => {
-  await fetchPageProduct(1)
+  const currentUrl = ref(router.currentRoute.value.params);
+  page.value = Number(currentUrl.value.page)
+  await fetchPageProduct(currentUrl.value)
 })
 //
 const loadingVBtn = ref(false)
@@ -249,9 +263,10 @@ const transitionToHref = async (id) => {
       <v-pagination
           v-model="page"
           rounded="circle"
+
           :size="sizeFuncPaginator()"
-          :total-visible="3"
-          :length="5"></v-pagination>
+          :total-visible="5"
+          :length="lengthVPagination()"></v-pagination>
     </div>
   </div>
 </template>
@@ -1926,7 +1941,7 @@ const transitionToHref = async (id) => {
 
   .card_catalog {
     width: 100%;
-    min-height: 100vh;
+    min-height: 650px;
     margin-top: 70px;
     margin-bottom: 70px;
     display: flex;

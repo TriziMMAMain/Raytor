@@ -20,9 +20,9 @@ onMounted(async () => {
 <template>
   <div class="wrap-address">
     <div class="address" v-for="item in addressArray">
-      <h1 class="address-title">{{ item.address }}</h1>
-      <h1 class="address-phone">{{ item.phone }}</h1>
-      <h1 class="address-email">{{ item.email }}</h1>
+      <h1 class="address-title"><v-icon icon="fa-solid fa-location-dot" />Address: {{ item.address }}</h1>
+      <h1 class="address-phone"><v-icon icon="fa-solid fa-phone" />Phone: {{ item.phone }}</h1>
+      <h1 class="address-email"><v-icon icon="fa-solid fa-envelope" />Email: {{ item.email }}</h1>
       <br>
     </div>
   </div>
@@ -31,10 +31,34 @@ onMounted(async () => {
 <style scoped lang="scss">
 @import '../assets/mixins.scss';
 
-.address-title, .address-phone, .address-email {
-  font-size: 2rem;
-  font-weight: 600;
-  color: $textSpan;
+@media screen and (max-width: 376px) {}
+
+@media screen and (min-width: 376px) and (max-width: 600px) {}
+
+@media screen and (min-width: 600px) and (max-width: 960px) {}
+
+@media screen and (min-width: 960px) and (max-width: 1280px) {}
+
+@media screen and (min-width: 1280px) and (max-width: 1920px) {}
+
+@media screen and (min-width: 1920px) and (max-width: 2560px) {}
+
+@media screen and (min-width: 2560px) {
+
+  .wrap-address {}
+
+  .address {
+
+  }
+
+  .address-title, .address-phone, .address-email {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $textSpan;
+  }
+
 }
+
+
 
 </style>
