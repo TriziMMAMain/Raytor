@@ -265,7 +265,7 @@ onMounted(async () => {
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 960px) {
+@media screen and (min-width: 600px) and (max-width: 961px) {
 
   .wrap {
     width: 100%;
@@ -346,7 +346,7 @@ onMounted(async () => {
   }
 }
 
-@media screen and (min-width: 960px) and (max-width: 1280px) {
+@media screen and (min-width: 961px) and (max-width: 1280px) {
 
   .wrap {
     width: 100%;

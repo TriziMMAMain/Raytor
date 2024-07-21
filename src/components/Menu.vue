@@ -150,21 +150,25 @@ watch(isHovered, (newValue) => {
   }
 
   .title_main {
-    width: 100%;
+    //width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    background-color: $surface;
+    padding-left: 5px;
+    //background-color: $surface;
 
   }
 
   .logoReytor {
     width: 100%;
-    height: 100%;
+    height: 80%;
     padding-top: 5px;
     padding-bottom: 5px;
-    display: none;
+    padding-left: 5px;
+
+    display: flex;
+    justify-content: start;
   }
 
   // Expansions
@@ -413,7 +417,7 @@ watch(isHovered, (newValue) => {
 
 }
 
-@media screen and (min-width: 376px) and (max-width: 600px) {
+@media screen and (min-width: 376px) and (max-width: 599px) {
   // Menu
 
   .wrap_menu {
@@ -430,26 +434,32 @@ watch(isHovered, (newValue) => {
   .header {
     width: 85%;
     height: 100%;
+    display:flex;
+    justify-content: start;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
   }
 
   .title_main {
-    width: 100%;
+    //width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    padding-left: 5px;
     //background-color: $surface;
 
   }
 
   .logoReytor {
     width: 100%;
-    height: 100%;
+    height: 80%;
     padding-top: 5px;
     padding-bottom: 5px;
-    //display: none;
+    padding-left: 5px;
+
+    display: flex;
+    justify-content: start;
   }
 
   // Expansions
@@ -699,7 +709,7 @@ watch(isHovered, (newValue) => {
 
 }
 
-@media screen and (min-width: 600px) and (max-width: 960px) {
+@media screen and (min-width: 600px) and (max-width: 959px) {
   // Menu
 
   .wrap_menu {
@@ -724,17 +734,18 @@ watch(isHovered, (newValue) => {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     //background-color: $surface;
 
   }
 
   .logoReytor {
-    width: 100%;
-    height: 100%;
+    //width: 100%;
+    height: 80%;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 5px;
     //display: none;
   }
 
@@ -985,7 +996,7 @@ watch(isHovered, (newValue) => {
 
 }
 
-@media screen and (min-width: 960px) and (max-width: 1280px) {
+@media screen and (min-width: 960px) and (max-width: 1279px) {
   // Menu
 
   .wrap_menu {
@@ -1008,17 +1019,18 @@ watch(isHovered, (newValue) => {
     width: 400px;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     //background-color: $surface;
 
   }
 
   .logoReytor {
-    width: 100%;
-    height: 100%;
+    //width: 100%;
+    height: 80%;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 5px;
     //display: none;
   }
 
@@ -1159,7 +1171,7 @@ watch(isHovered, (newValue) => {
   }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
   // Menu
 
   .wrap_menu {
@@ -1182,17 +1194,17 @@ watch(isHovered, (newValue) => {
     width: 400px;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     //background-color: $surface;
 
   }
 
   .logoReytor {
-    width: 100%;
-    height: 100%;
+    height: 80%;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 5px;
     //display: none;
   }
 
@@ -1356,17 +1368,18 @@ watch(isHovered, (newValue) => {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     //background-color: $surface;
 
   }
 
   .logoReytor {
-    width: 100%;
-    height: 100%;
+    //width: 100%;
+    height: 80%;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 5px;
     //display: none;
   }
 
@@ -1529,17 +1542,18 @@ watch(isHovered, (newValue) => {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     //background-color: $surface;
 
   }
 
   .logoReytor {
-    width: 100%;
-    height: 100%;
+    //width: 100%;
+    height: 80%;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 5px;
     //display: none;
   }
 

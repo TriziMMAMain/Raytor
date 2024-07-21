@@ -233,7 +233,7 @@ const transitionToHref = async (id) => {
       <h1 class="title_absolute">CATALOGUE</h1>
       <div class="card_block" v-for="i in productsList" v-if="matches">
         <div class="photo_block">
-          <img class="block_img" alt="" :src="i.mainPhoto">
+          <img class="block_img" alt="" :src="i.img[0]">
         </div>
         <div class="card_content">
           <div class="content_title">
@@ -918,7 +918,7 @@ const transitionToHref = async (id) => {
   }
 
   .card_block {
-    width: 350px;
+    width: 400px;
     min-height: 350px;
     margin: 40px 30px;
     padding: 20px;
@@ -1168,14 +1168,15 @@ const transitionToHref = async (id) => {
     margin-top: 70px;
     margin-bottom: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+
     flex-wrap: wrap;
   }
 
   .card_block {
     width: 350px;
     min-height: 350px;
-    margin: 40px 25px;
+    margin: 40px 15px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -1428,7 +1429,7 @@ const transitionToHref = async (id) => {
 
   .card_block {
     width: 400px;
-    min-height: 350px;
+    min-height: 500px;
     margin: 50px 40px;
     padding: 20px;
     display: flex;
@@ -1684,14 +1685,14 @@ const transitionToHref = async (id) => {
     margin-top: 70px;
     margin-bottom: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
   .card_block {
     width: 450px;
     min-height: 650px;
-    margin: 70px 30px;
+    margin: 70px 40px;
     padding: 35px;
     display: flex;
     flex-direction: column;
@@ -1945,7 +1946,7 @@ const transitionToHref = async (id) => {
     margin-top: 70px;
     margin-bottom: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
