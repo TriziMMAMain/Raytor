@@ -28,15 +28,15 @@ const productsList = ref(productsPage)
 const productsFilter = ref([
   {
     title: 'STANDARD',
-    text: ['EN', 'DSTU', 'IS', 'SANS', 'Others'],
+    text: ['Loading...'],
   },
   {
     title: 'MANUFACTURER',
-    text: ['DEZEGA SP', 'DONSORB'],
+    text: ['Loading...'],
   },
   {
     title: 'FIELD',
-    text: ['SCSR', 'Closed-circuit SCBA', 'Emergency escape hood', 'Auxiliary equipment'],
+    text: ['Loading...'],
   }
 ])
 
@@ -138,6 +138,9 @@ onMounted(async () => {
   const currentUrl = ref(router.currentRoute.value.params);
   page.value = Number(currentUrl.value.page)
   await fetchPageProduct(currentUrl.value)
+  productsFilter.value[0].text = _.map(productsList.value, 'standard')
+  productsFilter.value[1].text = _.map(productsList.value, 'manufacturer')
+  productsFilter.value[2].text = _.map(productsList.value, 'field')
 })
 //
 const loadingVBtn = ref(false)
@@ -233,14 +236,14 @@ const transitionToHref = async (id) => {
       <h1 class="title_absolute">CATALOGUE</h1>
       <div class="card_block" v-for="i in productsList" v-if="matches">
         <div class="photo_block">
-          <img class="block_img" alt="" :src="i.img[0]">
+          <img class="block_img" alt="" :src="i.photo[0]">
         </div>
         <div class="card_content">
           <div class="content_title">
             <h1 @click="transitionToHref(i.id)" class="card_title">{{ i.title }}</h1>
           </div>
           <div class="content_text">
-            <p class="card_text">{{ i.description }}</p>
+            <p class="card_text">{{ i.text }}</p>
           </div>
 
         </div>

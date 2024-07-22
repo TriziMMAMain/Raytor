@@ -802,7 +802,7 @@ onMounted(async () => {
         >
           <v-carousel-item
               class="topPhotoContentVCarouselItem"
-              v-for="(slide, i) in i.img"
+              v-for="(slide, i) in i.photo"
               :key="i"
           >
             <div class="imgCarouselDiv">
