@@ -776,10 +776,19 @@ const heightFuncInCarousel = () => {
   }
 }
 
+//
+
+const descriptionTitleSecond = (order) => {
+  if (order === undefined) {
+    return false
+  } else {
+    return true
+  }
+
+}
 
 onMounted(async () => {
   const currentUrl = ref(router.currentRoute.value.params);
-  const idNumber = ref(Number(currentUrl.value))
   await fetchIdProduct(currentUrl.value)
   filterProduct.value = JSON.parse(localStorage.getItem('productId'))
 })
@@ -831,7 +840,7 @@ onMounted(async () => {
                  class="middleContentVTabDescription" value="description">Description
           </v-tab>
           <v-tab hide-slider class="middleContentVTabFeature" value="feature">Feature</v-tab>
-          <v-tab hide-slider class="middleContentVTabFiles" value="files">Files</v-tab>
+<!--          <v-tab hide-slider class="middleContentVTabFiles" value="files">Files</v-tab>-->
         </v-tabs>
 
         <v-window v-model="tab">
@@ -839,7 +848,7 @@ onMounted(async () => {
 
             <div class="descriptionDiv">
               <h1 class="descriptionTitle">CHARACTERISTICS AND ADVANTAGES</h1>
-              <div class="descriptionUlLiDiv" v-for="text in i.textDescripitonLi">
+              <div class="descriptionUlLiDiv" v-for="text in i.textDescriptionLi">
                 <div class="descriptionLi" v-if="descriptionLi(text.textUl)">
                   <h1 class="descriptionUl">{{ text.textUl }}</h1>
                   <p class="descriptionLiText" v-for="textLi in text.textLi">
@@ -852,7 +861,7 @@ onMounted(async () => {
                 <p class="descriptionMiddleInfoP" v-for="textInfo in i.textDescriptionP">{{ textInfo }}</p>
               </div>
             </div>
-            <h1 class="descriptionTitleSecond">Available for order</h1>
+            <h1 class="descriptionTitleSecond" v-if="descriptionTitleSecond(i.order)">Available for order</h1>
             <v-table class="descriptionComponentVTable" density="compact">
               <tbody>
               <tr
@@ -881,9 +890,9 @@ onMounted(async () => {
               </v-table>
             </div>
           </v-window-item>
-          <v-window-item value="files">
-            <h1>None</h1>
-          </v-window-item>
+<!--          <v-window-item value="files">-->
+<!--            <h1>None</h1>-->
+<!--          </v-window-item>-->
         </v-window>
 
       </div>
@@ -902,7 +911,7 @@ onMounted(async () => {
 
   .wrapProductId {
     width: 95%;
-    min-height: 200vh;
+    min-height: 100vh;
     padding: 0;
     margin: 0 auto 50px;
   }
@@ -990,7 +999,7 @@ onMounted(async () => {
 
   .middleContent {
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
     margin-top: 35px;
     //background-color: red;
     background-color: rgba(236, 236, 236, 0.65);
@@ -1005,245 +1014,24 @@ onMounted(async () => {
   }
 
   .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
-    color: $surface;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 4px;
-  }
-
-  .middleContentVTabDescription {
-    width: 35%;
-  }
-
-  .middleContentVTabFeature {
-    width: 30%;
-  }
-
-  .middleContentVTabFiles {
-    width: 35%
-  }
-
-  .v-window {
-    transition: none !important;
-    padding: 15px;
-  }
-
-  .v-window-item, .v-window-item--active {
-    transition: none !important;
-  }
-
-  .descriptionDiv {
-    width: 100%;
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .descriptionTitle {
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-align: center;
-    color: $surface;
-  }
-
-  .descriptionUlLiDiv {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .descriptionLi {
-    width: 100%;
-  }
-
-  .descriptionUl {
-    font-size: 1.3rem;
-    font-weight: 550;
-    letter-spacing: 1px;
-    color: $primary;
-  }
-
-  .descriptionLiText {
-    margin-top: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    color: $background;
-  }
-
-  .descriptionIcon {
-    font-size: 1rem;
-    margin-right: 7px;
-    color: $primary;
-  }
-
-  .descriptionMiddleInfoDiv {
-    width: 100%;
-    margin-top: 30px;
-  }
-
-  .descriptionMiddleInfoP {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5;
-    color: $background;
-  }
-
-  //
-
-  .descriptionTitleSecond {
-    font-size: 1.3rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin: 40px 0 40px 0;
-    color: $surface;
-  }
-
-  .descriptionComponentVTableDiv {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .descriptionComponentVTable {
-    color: $primary;
-    background-color: rgba(223, 222, 222, 0.68);
-  }
-
-  .v-table > .v-table__wrapper > table > tbody > tr > td, .v-table > .v-table__wrapper > table > thead > tr > td, .v-table > .v-table__wrapper > table > tfoot > tr > td {
-    font-size: 1rem;
-  }
-
-  .v-table--density-compact > .v-table__wrapper > table > tbody > tr > td, .v-table--density-compact > .v-table__wrapper > table > thead > tr > td, .v-table--density-compact > .v-table__wrapper > table > tfoot > tr > td {
-    height: 50px;
-  }
-
-}
-
-@media screen and (min-width: 376px) and (max-width: 600px) {
-
-  .wrapProductId {
-    width: 95%;
-    min-height: 200vh;
-    padding: 0;
-    margin: 0 auto 50px;
-  }
-
-  // top
-
-  .topContent {
-    width: 100%;
-    min-height: 50vh;
-    margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
-    //background-color: rgba(182, 181, 181, 0.45);
-    background: transparent;
-  }
-
-
-  .topPhotoContent {
-    width: 100%;
-    min-height: 450px;
-    background-color: #FFFFFF;
-  }
-
-  .topPhotoContentVCarousel {
-    width: 100%;
-  }
-
-  .topPhotoContentVCarouselItem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .imgCarouselDiv {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .imgCarousel {
-    width: 60%;
-  }
-
-  // Top
-
-  .topTextContent {
-    width: 100%;
-    min-height: 350px;
-    background-color: #FFFFFF;
-
-  }
-
-  .topTextContentTitleDiv {
-    width: 100%;
-    min-height: 15%;
-    padding: 10px;
-    text-align: center;
-    //background-color: rgba(142, 142, 142, 0.47);
-  }
-
-  .topTextContentTitle {
-    font-size: 1.3rem;
-    font-weight: 580;
-    line-height: 1.3;
-    color: $primary;
-
-  }
-
-  .topTextContentSubtitleDiv {
-    width: 100%;
-    min-height: 45%;
-    padding: 10px;
-  }
-
-  .topTextContentSubtitle {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.6;
-    color: $primary;
-  }
-
-  // middle
-
-  .middleContent {
-    width: 100%;
-    min-height: 100vh;
-    margin-top: 35px;
-    //background-color: red;
-    background-color: rgba(236, 236, 236, 0.65);
-  }
-
-  .middleContentVTab {
-    width: 100%;
-  }
-
-  .v-tabs--density-default {
-    --v-tabs-height: 50px;
-  }
-
-  .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
+    width: 50%;
     color: $surface;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 4px;
   }
 
-  .middleContentVTabDescription {
-    width: 35%;
-  }
-
-  .middleContentVTabFeature {
-    width: 30%;
-  }
-
-  .middleContentVTabFiles {
-    width: 35%
-  }
+  //.middleContentVTabDescription {
+  //  width: 35%;
+  //}
+  //
+  //.middleContentVTabFeature {
+  //  width: 30%;
+  //}
+  //
+  //.middleContentVTabFiles {
+  //  width: 35%
+  //}
 
   .v-window {
     transition: none !important;
@@ -1256,7 +1044,7 @@ onMounted(async () => {
 
   .descriptionDiv {
     width: 100%;
-    min-height: 50vh;
+    min-height: 10vh;
     display: flex;
     flex-direction: column;
   }
@@ -1342,11 +1130,234 @@ onMounted(async () => {
 
 }
 
-@media screen and (min-width: 600px) and (max-width: 960px) {
+@media screen and (min-width: 376px) and (max-width: 599px) {
+
+  .wrapProductId {
+    width: 95%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0 auto 50px;
+  }
+
+  // top
+
+  .topContent {
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    //background-color: rgba(182, 181, 181, 0.45);
+    background: transparent;
+  }
+
+
+  .topPhotoContent {
+    width: 100%;
+    min-height: 450px;
+    background-color: #FFFFFF;
+  }
+
+  .topPhotoContentVCarousel {
+    width: 100%;
+  }
+
+  .topPhotoContentVCarouselItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgCarouselDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgCarousel {
+    width: 60%;
+  }
+
+  // Top
+
+  .topTextContent {
+    width: 100%;
+    min-height: 350px;
+    background-color: #FFFFFF;
+
+  }
+
+  .topTextContentTitleDiv {
+    width: 100%;
+    min-height: 15%;
+    padding: 10px;
+    text-align: center;
+    //background-color: rgba(142, 142, 142, 0.47);
+  }
+
+  .topTextContentTitle {
+    font-size: 1.3rem;
+    font-weight: 580;
+    line-height: 1.3;
+    color: $primary;
+
+  }
+
+  .topTextContentSubtitleDiv {
+    width: 100%;
+    min-height: 45%;
+    padding: 10px;
+  }
+
+  .topTextContentSubtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: $primary;
+  }
+
+  // middle
+
+  .middleContent {
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 35px;
+    //background-color: red;
+    background-color: rgba(236, 236, 236, 0.65);
+  }
+
+  .middleContentVTab {
+    width: 100%;
+  }
+
+  .v-tabs--density-default {
+    --v-tabs-height: 50px;
+  }
+
+  .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
+    width: 50%;
+    color: $surface;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+  }
+
+  //.middleContentVTabDescription {
+  //  width: 35%;
+  //}
+  //
+  //.middleContentVTabFeature {
+  //  width: 30%;
+  //}
+  //
+  //.middleContentVTabFiles {
+  //  width: 35%
+  //}
+
+  .v-window {
+    transition: none !important;
+    padding: 15px;
+  }
+
+  .v-window-item, .v-window-item--active {
+    transition: none !important;
+  }
+
+  .descriptionDiv {
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .descriptionTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-align: center;
+    color: $surface;
+  }
+
+  .descriptionUlLiDiv {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .descriptionLi {
+    width: 100%;
+  }
+
+  .descriptionUl {
+    font-size: 1.3rem;
+    font-weight: 550;
+    letter-spacing: 1px;
+    color: $primary;
+  }
+
+  .descriptionLiText {
+    margin-top: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    color: $background;
+  }
+
+  .descriptionIcon {
+    font-size: 1rem;
+    margin-right: 7px;
+    color: $primary;
+  }
+
+  .descriptionMiddleInfoDiv {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .descriptionMiddleInfoP {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $background;
+  }
+
+  //
+
+  .descriptionTitleSecond {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 40px 0 40px 0;
+    color: $surface;
+  }
+
+  .descriptionComponentVTableDiv {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .descriptionComponentVTable {
+    color: $primary;
+    background-color: rgba(223, 222, 222, 0.68);
+  }
+
+  .v-table > .v-table__wrapper > table > tbody > tr > td, .v-table > .v-table__wrapper > table > thead > tr > td, .v-table > .v-table__wrapper > table > tfoot > tr > td {
+    font-size: 1rem;
+  }
+
+  .v-table--density-compact > .v-table__wrapper > table > tbody > tr > td, .v-table--density-compact > .v-table__wrapper > table > thead > tr > td, .v-table--density-compact > .v-table__wrapper > table > tfoot > tr > td {
+    height: 50px;
+  }
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 959px) {
 
   .wrapProductId {
     width: 90%;
-    min-height: 200vh;
+    min-height: 100vh;
     padding: 0;
     margin: 0 auto 50px;
   }
@@ -1434,7 +1445,7 @@ onMounted(async () => {
 
   .middleContent {
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
     margin-top: 35px;
     //background-color: red;
     background-color: rgba(236, 236, 236, 0.65);
@@ -1449,23 +1460,24 @@ onMounted(async () => {
   }
 
   .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
+    width: 50%;
     color: $surface;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 4px;
   }
 
-  .middleContentVTabDescription {
-    width: 35%;
-  }
-
-  .middleContentVTabFeature {
-    width: 30%;
-  }
-
-  .middleContentVTabFiles {
-    width: 35%
-  }
+  //.middleContentVTabDescription {
+  //  width: 35%;
+  //}
+  //
+  //.middleContentVTabFeature {
+  //  width: 30%;
+  //}
+  //
+  //.middleContentVTabFiles {
+  //  width: 35%
+  //}
 
   .v-window {
     transition: none !important;
@@ -1478,7 +1490,7 @@ onMounted(async () => {
 
   .descriptionDiv {
     width: 100%;
-    min-height: 50vh;
+    min-height: 10vh;
     display: flex;
     flex-direction: column;
   }
@@ -1564,11 +1576,11 @@ onMounted(async () => {
 
 }
 
-@media screen and (min-width: 960px) and (max-width: 1280px) {
+@media screen and (min-width: 960px) and (max-width: 1279px) {
 
   .wrapProductId {
     width: 90%;
-    min-height: 200vh;
+    min-height: 100vh;
     padding: 0;
     margin: 0 auto 50px;
   }
@@ -1662,7 +1674,7 @@ onMounted(async () => {
 
   .middleContent {
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
     margin-top: 35px;
     //background-color: red;
     background-color: rgba(236, 236, 236, 0.65);
@@ -1677,23 +1689,24 @@ onMounted(async () => {
   }
 
   .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
+    width: 50%;
     color: $surface;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 4px;
   }
 
-  .middleContentVTabDescription {
-    width: 30%;
-  }
-
-  .middleContentVTabFeature {
-    width: 40%;
-  }
-
-  .middleContentVTabFiles {
-    width: 30%
-  }
+  //.middleContentVTabDescription {
+  //  width: 30%;
+  //}
+  //
+  //.middleContentVTabFeature {
+  //  width: 40%;
+  //}
+  //
+  //.middleContentVTabFiles {
+  //  width: 30%
+  //}
 
   .v-window {
     transition: none !important;
@@ -1706,7 +1719,7 @@ onMounted(async () => {
 
   .descriptionDiv {
     width: 100%;
-    min-height: 50vh;
+    min-height: 10vh;
     display: flex;
     flex-direction: column;
   }
@@ -1792,11 +1805,11 @@ onMounted(async () => {
 
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
+@media screen and (min-width: 1280px) and (max-width: 1439px) {
 
   .wrapProductId {
     width: 90%;
-    min-height: 200vh;
+    min-height: 100vh;
     padding: 0;
     margin: 0 auto 50px;
   }
@@ -1889,7 +1902,7 @@ onMounted(async () => {
 
   .middleContent {
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
     margin-top: 35px;
     //background-color: red;
     background-color: rgba(236, 236, 236, 0.65);
@@ -1904,23 +1917,24 @@ onMounted(async () => {
   }
 
   .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
+    width: 50%;
     color: $surface;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 4px;
   }
 
-  .middleContentVTabDescription {
-    width: 30%;
-  }
-
-  .middleContentVTabFeature {
-    width: 40%;
-  }
-
-  .middleContentVTabFiles {
-    width: 30%
-  }
+  //.middleContentVTabDescription {
+  //  width: 30%;
+  //}
+  //
+  //.middleContentVTabFeature {
+  //  width: 40%;
+  //}
+  //
+  //.middleContentVTabFiles {
+  //  width: 30%
+  //}
 
   .v-window {
     transition: none !important;
@@ -1933,7 +1947,7 @@ onMounted(async () => {
 
   .descriptionDiv {
     width: 100%;
-    min-height: 50vh;
+    min-height: 10vh;
     display: flex;
     flex-direction: column;
   }
@@ -2019,11 +2033,239 @@ onMounted(async () => {
 
 }
 
-@media screen and (min-width: 1920px) and (max-width: 2560px) {
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+
+  .wrapProductId {
+    width: 90%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0 auto 50px;
+  }
+
+  // top
+
+  .topContent {
+    width: 100%;
+    min-height: 60vh;
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    //background-color: rgba(182, 181, 181, 0.45);
+    background: transparent;
+  }
+
+
+  .topPhotoContent {
+    width: 50%;
+    min-height: 450px;
+    margin: 20px;
+    background-color: #FFFFFF;
+  }
+
+  .topPhotoContentVCarousel {
+    width: 100%;
+  }
+
+  .topPhotoContentVCarouselItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgCarouselDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgCarousel {
+    width: 60%;
+  }
+
+  // Top
+
+  .topTextContent {
+    width: 50%;
+    margin: 20px;
+    min-height: 350px;
+    background-color: #FFFFFF;
+
+  }
+
+  .topTextContentTitleDiv {
+    width: 100%;
+    min-height: 15%;
+    padding: 10px;
+    text-align: center;
+    //background-color: rgba(142, 142, 142, 0.47);
+  }
+
+  .topTextContentTitle {
+    font-size: 1.7rem;
+    font-weight: 580;
+    line-height: 1.3;
+    color: $primary;
+
+  }
+
+  .topTextContentSubtitleDiv {
+    width: 100%;
+    min-height: 45%;
+    padding: 10px;
+  }
+
+  .topTextContentSubtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $primary;
+  }
+
+  // middle
+
+  .middleContent {
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 35px;
+    //background-color: red;
+    background-color: rgba(236, 236, 236, 0.65);
+  }
+
+  .middleContentVTab {
+    width: 100%;
+  }
+
+  .v-tabs--density-default {
+    --v-tabs-height: 50px;
+  }
+
+  .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
+    width: 50%;
+    color: $surface;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+  }
+
+  //.middleContentVTabDescription {
+  //  width: 30%;
+  //}
+
+  //.middleContentVTabFeature {
+  //  width: 40%;
+  //}
+
+  //.middleContentVTabFiles {
+  //  width: 30%
+  //}
+
+  .v-window {
+    transition: none !important;
+    padding: 30px;
+  }
+
+  .v-window-item, .v-window-item--active {
+    transition: none !important;
+  }
+
+  .descriptionDiv {
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .descriptionTitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-align: center;
+    color: $surface;
+  }
+
+  .descriptionUlLiDiv {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .descriptionLi {
+    width: 100%;
+  }
+
+  .descriptionUl {
+    font-size: 1.5rem;
+    font-weight: 550;
+    letter-spacing: 1px;
+    color: $primary;
+  }
+
+  .descriptionLiText {
+    margin-top: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    color: $background;
+  }
+
+  .descriptionIcon {
+    font-size: 1rem;
+    margin-right: 7px;
+    color: $primary;
+  }
+
+  .descriptionMiddleInfoDiv {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .descriptionMiddleInfoP {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $background;
+  }
+
+  //
+
+  .descriptionTitleSecond {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 40px 0 40px 0;
+    color: $surface;
+  }
+
+  .descriptionComponentVTableDiv {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .descriptionComponentVTable {
+    color: $primary;
+    background-color: rgba(223, 222, 222, 0.68);
+  }
+
+  .v-table > .v-table__wrapper > table > tbody > tr > td, .v-table > .v-table__wrapper > table > thead > tr > td, .v-table > .v-table__wrapper > table > tfoot > tr > td {
+    font-size: 1rem;
+  }
+
+  .v-table--density-compact > .v-table__wrapper > table > tbody > tr > td, .v-table--density-compact > .v-table__wrapper > table > thead > tr > td, .v-table--density-compact > .v-table__wrapper > table > tfoot > tr > td {
+    height: 50px;
+  }
+
+}
+
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
 
   .wrapProductId {
     width: 1620px;
-    min-height: 200vh;
+    min-height: 100vh;
     padding: 0;
     margin: 0 auto 50px;
   }
@@ -2133,19 +2375,20 @@ onMounted(async () => {
   }
 
   .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
+    width: 50%;
     color: $surface;
     font-size: 1.7rem;
     font-weight: 600;
     letter-spacing: 4px;
   }
 
-  .middleContentVTabDescription {
-    width: 30%;
-  }
+  //.middleContentVTabDescription {
+  //  width: 30%;
+  //}
 
-  .middleContentVTabFeature {
-    width: 40%;
-  }
+  //.middleContentVTabFeature {
+  //  width: 40%;
+  //}
 
   .middleContentVTabFiles {
     width: 30%
@@ -2162,7 +2405,7 @@ onMounted(async () => {
 
   .descriptionDiv {
     width: 100%;
-    min-height: 50vh;
+    min-height: 10vh;
     display: flex;
     flex-direction: column;
   }
@@ -2252,7 +2495,7 @@ onMounted(async () => {
 
   .wrapProductId {
     width: 1920px;
-    min-height: 200vh;
+    min-height: 100vh;
     padding: 0;
     margin-bottom: 50px;
     //box-shadow: 0 15px 20px 1px rgba(46, 46, 46, 0.75);
@@ -2360,25 +2603,26 @@ onMounted(async () => {
   .v-tabs--density-default {
     --v-tabs-height: 80px;
   }
-
+//!
   .middleContentVTabDescription, .middleContentVTabFeature, .middleContentVTabFiles {
+    width: 50%;
     color: $surface;
     font-size: 1.7rem;
     font-weight: 600;
     letter-spacing: 4px;
   }
 
-  .middleContentVTabDescription {
-    width: 30%;
-  }
+  //.middleContentVTabDescription {
+  //  width: 30%;
+  //}
 
-  .middleContentVTabFeature {
-    width: 40%;
-  }
+  //.middleContentVTabFeature {
+  //  width: 40%;
+  //}
 
-  .middleContentVTabFiles {
-    width: 30%
-  }
+  //.middleContentVTabFiles {
+  //  width: 30%
+  //}
 
   .v-window {
     transition: none !important;
@@ -2391,7 +2635,7 @@ onMounted(async () => {
 
   .descriptionDiv {
     width: 100%;
-    min-height: 50vh;
+    min-height: 10vh;
     display: flex;
     flex-direction: column;
   }

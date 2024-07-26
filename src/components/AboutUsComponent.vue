@@ -13,6 +13,11 @@ const addressArray = ref(null)
 onMounted(async () => {
   await fetchAddress()
   addressArray.value = JSON.parse(localStorage.getItem('address'))
+  // addressArray.value = [{
+  //   address: 'sad',
+  //   phone: '34',
+  //   email: 'asd'
+  // },]
 })
 
 </script>
@@ -334,7 +339,7 @@ onMounted(async () => {
     align-items: center;
     text-align: center;
     font-size: 2rem;
-    line-height: 1.7;
+    line-height: 2;
     font-weight: 600;
     color: $textSpan;
   }

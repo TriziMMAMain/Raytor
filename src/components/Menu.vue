@@ -91,9 +91,9 @@ watch(isHovered, (newValue) => {
         <router-link class="v-tab" to="/">HOME</router-link>
         <router-link class="v-tab" to="/products/1">PRODUCTS</router-link>
         <router-link class="v-tab" to="/about/">ABOUT US</router-link>
-        <h1 class="v-tab" @click="">EN
-          <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>
-        </h1>
+<!--        <h1 class="v-tab" @click="">EN-->
+<!--          <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>-->
+<!--        </h1>-->
       </div>
       <div class="v-tabs" v-else>
         <h1 @click="openNavigationDrawerFunc()" class="v-tab-open"><v-icon icon="fa-solid fa-bars"></v-icon></h1>
@@ -111,9 +111,9 @@ watch(isHovered, (newValue) => {
             <router-link class="wrap_drawer_tab" to="/">HOME</router-link>
             <router-link class="wrap_drawer_tab" to="/products/1">PRODUCTS</router-link>
             <router-link class="wrap_drawer_tab" to="/about/">ABOUT US</router-link>
-            <h1 class="wrap_drawer_tab">EN
-              <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>
-            </h1>
+<!--            <h1 class="wrap_drawer_tab">EN-->
+<!--              <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>-->
+<!--            </h1>-->
           </div>
         </div>
       </v-navigation-drawer>

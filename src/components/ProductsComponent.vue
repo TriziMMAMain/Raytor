@@ -24,7 +24,8 @@ const router = useRouter()
 // notification
 import {ProcessingError} from "../notification/toasting.js";
 
-const productsList = ref(productsPage)
+const productPageCopy = ref(productsPage)
+const productsList = ref(productPageCopy)
 const productsFilter = ref([
   {
     title: 'STANDARD',
@@ -54,11 +55,14 @@ const resetMatches = async () => {
         console.log(e);
       })
 }
-const checkboxChange = () => {
+const checkboxChange = async () => {
+  await fetchPageProduct(page.value)
   productsList.value = productsPage.value
   matches.value = true
 
   if (!vCheckboxStandardValue.value === false) {
+    productsList.value = products.value
+
     productsList.value = _.filter(productsList.value, {standard: vCheckboxStandardValue.value})
     console.log(productsList.value);
     if (productsList.value.length === 0) {
@@ -66,6 +70,7 @@ const checkboxChange = () => {
     }
   }
   if (!vCheckboxManufacturerValue.value === false) {
+    productsList.value = products.value
     productsList.value = _.filter(productsList.value, {manufacturer: vCheckboxManufacturerValue.value})
     console.log(productsList.value);
     if (productsList.value.length === 0) {
@@ -79,6 +84,10 @@ const checkboxChange = () => {
       matches.value = false
     }
   }
+
+  // if (productsList.value.length >= 6) {
+
+  // }
 
 }
 
@@ -126,7 +135,7 @@ const lengthVPagination = () => {
 watch(page, async (newVal, oldVal) => {
   await fetchPageProduct(page.value)
       .then(async () => {
-        await router.push({ name: 'ProductsPage', params: { page: page.value } })
+        await router.push({name: 'ProductsPage', params: {page: page.value}})
       })
       .catch((e) => {
         console.log(e);
@@ -138,9 +147,9 @@ onMounted(async () => {
   const currentUrl = ref(router.currentRoute.value.params);
   page.value = Number(currentUrl.value.page)
   await fetchPageProduct(currentUrl.value)
-  productsFilter.value[0].text = _.map(productsList.value, 'standard')
-  productsFilter.value[1].text = _.map(productsList.value, 'manufacturer')
-  productsFilter.value[2].text = _.map(productsList.value, 'field')
+  productsFilter.value[0].text = _.uniq(productsList.value.map(item => item.standard))
+  productsFilter.value[1].text = _.uniq(productsList.value.map(item => item.manufacturer))
+  productsFilter.value[2].text = _.uniq(productsList.value.map(item => item.field))
 })
 //
 const loadingVBtn = ref(false)
@@ -397,7 +406,6 @@ const transitionToHref = async (id) => {
   }
 
 
-
   // Card
 
   .card_catalog {
@@ -413,7 +421,7 @@ const transitionToHref = async (id) => {
   .card_block {
     width: 350px;
     min-height: 400px;
-    margin: 30px 10px;
+    margin: 40px 30px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -444,8 +452,8 @@ const transitionToHref = async (id) => {
 
   .content_title {
     width: 100%;
-    min-height: 150px;
-    padding-top: 20px;
+    min-height: 110px;
+    margin-top: 20px;
   }
 
   .card_title {
@@ -463,12 +471,13 @@ const transitionToHref = async (id) => {
   }
 
   .content_text {
-    min-height: 200px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    min-height: 170px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .card_text {
+    width: 95%;
     font-size: 0.9rem;
     font-weight: 700;
     font-family: "Segoe UI", sans-serif;
@@ -532,7 +541,7 @@ const transitionToHref = async (id) => {
   }
 }
 
-@media screen and (min-width: 376px) and (max-width: 600px) {
+@media screen and (min-width: 376px) and (max-width: 599px) {
   .wrap_main {
     min-height: 100vh;
     margin-top: 100px;
@@ -652,7 +661,6 @@ const transitionToHref = async (id) => {
   }
 
 
-
   // Card
 
   .card_catalog {
@@ -700,7 +708,7 @@ const transitionToHref = async (id) => {
   .content_title {
     width: 100%;
     min-height: 110px;
-    padding-top: 20px;
+    margin-top: 20px;
   }
 
   .card_title {
@@ -719,11 +727,12 @@ const transitionToHref = async (id) => {
 
   .content_text {
     min-height: 170px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .card_text {
+    width: 95%;
     font-size: 0.9rem;
     font-weight: 700;
     font-family: "Segoe UI", sans-serif;
@@ -787,7 +796,7 @@ const transitionToHref = async (id) => {
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 960px) {
+@media screen and (min-width: 600px) and (max-width: 959px) {
   .wrap_main {
     min-height: 100vh;
     margin-top: 100px;
@@ -907,7 +916,6 @@ const transitionToHref = async (id) => {
   }
 
 
-
   // Card
 
   .card_catalog {
@@ -955,7 +963,7 @@ const transitionToHref = async (id) => {
   .content_title {
     width: 100%;
     min-height: 110px;
-    padding-top: 20px;
+    margin-top: 20px;
   }
 
   .card_title {
@@ -974,11 +982,12 @@ const transitionToHref = async (id) => {
 
   .content_text {
     min-height: 150px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .card_text {
+    width: 95%;
     font-size: 0.9rem;
     font-weight: 700;
     font-family: "Segoe UI", sans-serif;
@@ -1042,7 +1051,7 @@ const transitionToHref = async (id) => {
   }
 }
 
-@media screen and (min-width: 960px) and (max-width: 1280px) {
+@media screen and (min-width: 960px) and (max-width: 1279px) {
   .wrap_main {
     width: 80%;
     min-height: 100vh;
@@ -1178,7 +1187,7 @@ const transitionToHref = async (id) => {
 
   .card_block {
     width: 350px;
-    min-height: 350px;
+    min-height: 500px;
     margin: 40px 15px;
     padding: 20px;
     display: flex;
@@ -1211,7 +1220,7 @@ const transitionToHref = async (id) => {
   .content_title {
     width: 100%;
     min-height: 110px;
-    padding-top: 20px;
+    margin-top: 20px;
   }
 
   .card_title {
@@ -1230,11 +1239,12 @@ const transitionToHref = async (id) => {
 
   .content_text {
     min-height: 150px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .card_text {
+    width: 95%;
     font-size: 0.9rem;
     font-weight: 700;
     font-family: "Segoe UI", sans-serif;
@@ -1298,7 +1308,7 @@ const transitionToHref = async (id) => {
   }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
   .wrap_main {
     width: 80%;
     min-height: 100vh;
@@ -1432,7 +1442,7 @@ const transitionToHref = async (id) => {
 
   .card_block {
     width: 400px;
-    min-height: 500px;
+    min-height: 400px;
     margin: 50px 40px;
     padding: 20px;
     display: flex;
@@ -1465,7 +1475,7 @@ const transitionToHref = async (id) => {
   .content_title {
     width: 100%;
     min-height: 110px;
-    padding-top: 20px;
+    margin-top: 20px;
   }
 
   .card_title {
@@ -1484,11 +1494,11 @@ const transitionToHref = async (id) => {
 
   .content_text {
     min-height: 150px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin-top: 20px;
   }
 
   .card_text {
+    width: 95%;
     font-size: 0.9rem;
     font-weight: 700;
     font-family: "Segoe UI", sans-serif;
@@ -1505,9 +1515,9 @@ const transitionToHref = async (id) => {
   }
 
   .v-btn {
-    width: 150px;
+    width: 175px;
     height: 100%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     border-radius: 0;
     letter-spacing: 7px;
@@ -1552,7 +1562,7 @@ const transitionToHref = async (id) => {
   }
 }
 
-@media screen and (min-width: 1920px) and (max-width: 2560px) {
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
   .wrap_main {
     width: 85%;
     min-height: 100vh;
@@ -1727,7 +1737,7 @@ const transitionToHref = async (id) => {
   .content_title {
     width: 100%;
     min-height: 200px;
-    padding-top: 30px;
+    margin-top: 30px;
   }
 
   .card_title {
@@ -1746,11 +1756,11 @@ const transitionToHref = async (id) => {
 
   .content_text {
     min-height: 200px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
   }
 
   .card_text {
+    width: 95%;
     font-size: 1.1rem;
     font-weight: 700;
     font-family: "Segoe UI", sans-serif;
@@ -1980,15 +1990,15 @@ const transitionToHref = async (id) => {
   }
 
   .card_content {
-    min-height: 300px;
+    min-height: 130px;
     display: flex;
     flex-direction: column;
   }
 
   .content_title {
     width: 100%;
-    min-height: 200px;
-    padding-top: 30px;
+    min-height: 130px;
+    margin-top: 30px;
   }
 
   .card_title {
@@ -2007,11 +2017,12 @@ const transitionToHref = async (id) => {
 
   .content_text {
     min-height: 200px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .card_text {
+    width: 95%;
     font-size: 1.1rem;
     font-weight: 700;
     font-family: "Segoe UI", sans-serif;
@@ -2021,7 +2032,7 @@ const transitionToHref = async (id) => {
 
   .card_actions {
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     display: flex;
     align-items: end;
     justify-content: left;
