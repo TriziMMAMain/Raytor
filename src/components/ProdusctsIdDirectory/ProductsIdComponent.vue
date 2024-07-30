@@ -754,6 +754,14 @@ const descriptionLi = (text) => {
   }
 }
 
+const descriptionTitleSecond = (order) => {
+  if (order === undefined) {
+    return false
+  } else {
+    return true
+  }
+
+}
 // v-tab
 
 const tab = ref('one')
@@ -778,14 +786,6 @@ const heightFuncInCarousel = () => {
 
 //
 
-const descriptionTitleSecond = (order) => {
-  if (order === undefined) {
-    return false
-  } else {
-    return true
-  }
-
-}
 
 onMounted(async () => {
   const currentUrl = ref(router.currentRoute.value.params);

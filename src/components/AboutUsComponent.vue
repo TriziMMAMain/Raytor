@@ -57,9 +57,6 @@ onMounted(async () => {
 
   .address-title, .address-phone, .address-email {
     width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     font-size: 1.2rem;
     line-height: 1.7;
@@ -98,9 +95,6 @@ onMounted(async () => {
 
   .address-title, .address-phone, .address-email {
     width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     font-size: 1.2rem;
     line-height: 1.7;
@@ -139,18 +133,15 @@ onMounted(async () => {
 
   .address-title, .address-phone, .address-email {
     width: 85%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     font-size: 1.5rem;
-    line-height: 2;
+    line-height: 2.4;
     font-weight: 600;
     color: $textSpan;
   }
 
   .v-icon {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     margin-right: 10px;
     color: $primary;
   }

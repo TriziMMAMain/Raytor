@@ -1345,7 +1345,7 @@ watch(isHovered, (newValue) => {
   }
 }
 
-@media screen and (min-width: 1920px) and (max-width: 2560px) {
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
   // Menu
 
   .wrap_menu {
