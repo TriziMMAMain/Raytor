@@ -61,6 +61,12 @@ const drawerClose = () => {
 const mobileDrawerValue = mobileDrawerFunc()
 const drawerValue = ref(false)
 
+const checkAddress = (href) => {
+  const routerHref = ref(router.currentRoute.value.href)
+  if (href === routerHref.value) {
+    drawerValue.value = !drawerValue.value
+  }
+}
 //
 
 const isHovered = ref(false);
@@ -108,9 +114,9 @@ watch(isHovered, (newValue) => {
         <div class="wrap_drawer_main">
           <div class="wrap_drawer">
             <h1 class="wrap_drawer_close" @click="drawerClose()"><v-icon icon="fa-solid fa-xmark"></v-icon></h1>
-            <router-link class="wrap_drawer_tab" to="/">HOME</router-link>
-            <router-link class="wrap_drawer_tab" to="/products/1">PRODUCTS</router-link>
-            <router-link class="wrap_drawer_tab" to="/about/">ABOUT US</router-link>
+            <router-link @click="checkAddress('/')" class="wrap_drawer_tab" to="/">HOME</router-link>
+            <router-link @click="checkAddress('/products/1')" class="wrap_drawer_tab" to="/products/1">PRODUCTS</router-link>
+            <router-link @click="checkAddress('/about/')" class="wrap_drawer_tab" to="/about/">ABOUT US</router-link>
 <!--            <h1 class="wrap_drawer_tab">EN-->
 <!--              <v-icon class="faArrowDownVIcon" icon="fa-solid fa-arrow-down"></v-icon>-->
 <!--            </h1>-->
@@ -145,6 +151,8 @@ watch(isHovered, (newValue) => {
   .header {
     width: 85%;
     height: 100%;
+    display:flex;
+    justify-content: start;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
   }
@@ -407,6 +415,7 @@ watch(isHovered, (newValue) => {
 
   .wrap_drawer_tab:hover {
     color: $primary;
+    //box-shadow: 0 10px 10px 0.1px #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
