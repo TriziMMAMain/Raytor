@@ -124,6 +124,7 @@ onMounted(async () => {
   .content {
     width: 100%;
     min-height: 100vh;
+    z-index: 300;
   }
 
   // Footer
@@ -206,6 +207,7 @@ onMounted(async () => {
   .content {
     width: 100%;
     min-height: 100vh;
+    z-index: 300;
   }
 
   // Footer
@@ -287,6 +289,7 @@ onMounted(async () => {
   .content {
     width: 100%;
     min-height: 100vh;
+    z-index: 300;
   }
 
   // Footer
@@ -369,6 +372,7 @@ onMounted(async () => {
   .content {
     width: 100%;
     min-height: 100vh;
+    z-index: 300;
   }
 
   // Footer
@@ -455,6 +459,7 @@ onMounted(async () => {
   .content {
     width: 100%;
     min-height: 100vh;
+    z-index: 300;
   }
 
   // Footer
@@ -546,6 +551,7 @@ onMounted(async () => {
   .content {
     width: 100%;
     min-height: 100vh;
+    z-index: 300;
   }
 
   // Footer
@@ -642,6 +648,7 @@ onMounted(async () => {
   .content {
     width: 100%;
     min-height: 100vh;
+    z-index: 300;
     display: flex;
     justify-content: center;
     align-items: center;
