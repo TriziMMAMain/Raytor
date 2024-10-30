@@ -363,6 +363,7 @@ watch(isHovered, (newValue) => {
     justify-content: center;
     flex-direction: column;
     padding-top: 15vh;
+    background-color: black;
   }
 
   .wrap_drawer_close {
@@ -657,6 +658,7 @@ watch(isHovered, (newValue) => {
     justify-content: center;
     flex-direction: column;
     padding-top: 15vh;
+    background-color: black;
   }
 
   .wrap_drawer_close {
@@ -946,6 +948,7 @@ watch(isHovered, (newValue) => {
     justify-content: center;
     flex-direction: column;
     padding-top: 15vh;
+    background-color: black;
   }
 
   .wrap_drawer_close {
