@@ -105,7 +105,7 @@ watch(isHovered, (newValue) => {
       </div>
     </div>
     <v-layout full-height>
-      <v-navigation-drawer style="width: 100%; z-index: 875;" class="bg-transparent" v-model="drawerValue">
+      <v-navigation-drawer class="bg-transparent" v-model="drawerValue">
         <div class="wrap_drawer_main" >
           <div class="wrap_drawer">
             <h1 class="wrap_drawer_close" @click="drawerClose()"><v-icon icon="fa-solid fa-xmark"></v-icon></h1>
@@ -343,6 +343,8 @@ watch(isHovered, (newValue) => {
   }
 
   .v-navigation-drawer {
+    width: 100% !important;
+    z-index: 875 !important;
     background: transparent;
   }
 
@@ -636,6 +638,8 @@ watch(isHovered, (newValue) => {
   }
 
   .v-navigation-drawer {
+    width: 100% !important;
+    z-index: 875 !important;
     background: transparent;
   }
 
@@ -924,6 +928,8 @@ watch(isHovered, (newValue) => {
   }
 
   .v-navigation-drawer {
+    width: 100% !important;
+    z-index: 875 !important;
     background: transparent;
   }
 
