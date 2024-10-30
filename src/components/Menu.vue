@@ -642,6 +642,7 @@ watch(isHovered, (newValue) => {
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
+    z-index: 999;
     backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
@@ -929,6 +930,7 @@ watch(isHovered, (newValue) => {
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
+    z-index: 999;
     backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
