@@ -104,9 +104,9 @@ watch(isHovered, (newValue) => {
         <h1 @click="openNavigationDrawerFunc()" class="v-tab-open"><v-icon icon="fa-solid fa-bars"></v-icon></h1>
       </div>
     </div>
-    <v-layout style="width:100%" full-height>
-      <v-navigation-drawer style="width: 100%; z-index: 1000;" class="bg-transparent" v-model="drawerValue">
-        <div class="wrap_drawer_main">
+    <v-layout full-height>
+      <v-navigation-drawer style="width: 100%; z-index: 875;" class="bg-transparent" v-model="drawerValue">
+        <div class="wrap_drawer_main" >
           <div class="wrap_drawer">
             <h1 class="wrap_drawer_close" @click="drawerClose()"><v-icon icon="fa-solid fa-xmark"></v-icon></h1>
             <router-link @click="checkAddress('/')" class="wrap_drawer_tab" to="/">HOME</router-link>
@@ -349,6 +349,7 @@ watch(isHovered, (newValue) => {
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
+    z-index: 999;
     backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
