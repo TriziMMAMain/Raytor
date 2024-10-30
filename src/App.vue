@@ -84,7 +84,7 @@ onMounted(async () => {
     <!--      Footer-->
     <div class="footer">
       <div class="footer_main">
-        <h1 class="footer_title">(с) 2014-2023 REYTOR LTD</h1>
+        <h1 class="footer_title">(с) 2014-2023 REITOR LTD</h1>
         <div class="footer_block">
           <a v-for="i in link" :href="i.href" class="footer_link">
             <v-icon :icon="i.icon"></v-icon>

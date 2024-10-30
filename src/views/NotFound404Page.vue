@@ -4,8 +4,8 @@
 
 <template>
   <div class="main">
-    <h1 class="titlePage">Don't found 404)</h1>
-    <a href="/" class="titlePage">Home</a>
+    <h1 class="titlePage">Don't found 404</h1>
+    <router-link to="/" class="titlePage">Home</router-link>
   </div>
 
 </template>

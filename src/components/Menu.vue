@@ -19,7 +19,6 @@ const openAndCloseMenu = () => {
   valueOpenAndCloseLanguage.value = !valueOpenAndCloseLanguage.value
 }
 const tabs = ref(null)
-
 //
 
 const mobileDrawerFunc = () => {
@@ -105,12 +104,8 @@ watch(isHovered, (newValue) => {
         <h1 @click="openNavigationDrawerFunc()" class="v-tab-open"><v-icon icon="fa-solid fa-bars"></v-icon></h1>
       </div>
     </div>
-    <div v-if="valueOpenAndCloseLanguage" class="panel_menu_absolute">
-      <a @click="openAndCloseMenuLanguage('En')" href="#" class="menu_text">EN</a>
-      <a @click="openAndCloseMenuLanguage('Ua')" href="#" class="menu_text">UA</a>
-    </div>
-    <v-layout>
-      <v-navigation-drawer class="bg-transparent" v-model="drawerValue" width="100%" >
+    <v-layout style="width:100%" full-height>
+      <v-navigation-drawer style="width: 100%; z-index: 1000;" class="bg-transparent" v-model="drawerValue">
         <div class="wrap_drawer_main">
           <div class="wrap_drawer">
             <h1 class="wrap_drawer_close" @click="drawerClose()"><v-icon icon="fa-solid fa-xmark"></v-icon></h1>
