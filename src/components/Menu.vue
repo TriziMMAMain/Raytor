@@ -136,7 +136,7 @@ watch(isHovered, (newValue) => {
     width: 100%;
     height: 50px;
     display: flex;
-    z-index: 107;
+    z-index: 875;
     overflow: hidden;
     //background-color: $textSpan;
   }
@@ -356,7 +356,7 @@ watch(isHovered, (newValue) => {
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
-    z-index: 999;
+    z-index: 875;
     backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
@@ -436,7 +436,7 @@ watch(isHovered, (newValue) => {
     width: 100%;
     height: 50px;
     display: flex;
-    z-index: 107;
+    z-index: 875;
     overflow: hidden;
     //background-color: $textSpan;
   }
@@ -655,7 +655,7 @@ watch(isHovered, (newValue) => {
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
-    z-index: 999;
+    z-index: 875;
     backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
@@ -735,7 +735,7 @@ watch(isHovered, (newValue) => {
     width: 100%;
     height: 50px;
     display: flex;
-    z-index: 107;
+    z-index: 875;
     overflow: hidden;
     //background-color: $textSpan;
   }
@@ -949,7 +949,7 @@ watch(isHovered, (newValue) => {
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
-    z-index: 999;
+    z-index: 875;
     backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
