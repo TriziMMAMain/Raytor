@@ -104,7 +104,7 @@ watch(isHovered, (newValue) => {
         <h1 @click="openNavigationDrawerFunc()" class="v-tab-open"><v-icon icon="fa-solid fa-bars"></v-icon></h1>
       </div>
     </div>
-    <v-layout full-height>
+    <v-layout style="overflow-y: auto; -webkit-overflow-scrolling: touch; z-index: 875;" full-height>
       <v-navigation-drawer style="z-index: 875; width: 100%" class="bg-transparent" v-model="drawerValue">
         <div class="wrap_drawer_main">
           <div class="wrap_drawer">
@@ -343,15 +343,21 @@ watch(isHovered, (newValue) => {
   }
 
   .v-navigation-drawer {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 875 !important;
-    background: transparent;
+    //background: transparent;
+  }
+
+  .v-navigation-drawer__content {
+    z-index: 875 !important;
   }
 
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
     z-index: 999;
-    //backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
 
@@ -363,7 +369,6 @@ watch(isHovered, (newValue) => {
     justify-content: center;
     flex-direction: column;
     padding-top: 15vh;
-    background-color: black;
   }
 
   .wrap_drawer_close {
@@ -638,15 +643,20 @@ watch(isHovered, (newValue) => {
   }
 
   .v-navigation-drawer {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 875 !important;
-    background: transparent;
+  }
+
+  .v-navigation-drawer__content {
+    z-index: 875 !important;
   }
 
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
     z-index: 999;
-    //backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
 
@@ -658,7 +668,6 @@ watch(isHovered, (newValue) => {
     justify-content: center;
     flex-direction: column;
     padding-top: 15vh;
-    background-color: black;
   }
 
   .wrap_drawer_close {
@@ -928,15 +937,20 @@ watch(isHovered, (newValue) => {
   }
 
   .v-navigation-drawer {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 875 !important;
-    background: transparent;
+  }
+
+  .v-navigation-drawer__content {
+    z-index: 875 !important;
   }
 
   .wrap_drawer_main {
     width: 100vw;
     height: 100vh;
     z-index: 999;
-    //backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     background-color: rgba(161, 161, 161, 0.69);
   }
 
@@ -948,7 +962,6 @@ watch(isHovered, (newValue) => {
     justify-content: center;
     flex-direction: column;
     padding-top: 15vh;
-    background-color: black;
   }
 
   .wrap_drawer_close {
