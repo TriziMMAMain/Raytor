@@ -104,7 +104,7 @@ watch(isHovered, (newValue) => {
         <h1 @click="openNavigationDrawerFunc()" class="v-tab-open"><v-icon icon="fa-solid fa-bars"></v-icon></h1>
       </div>
     </div>
-    <v-layout style="overflow-y: auto; -webkit-overflow-scrolling: touch; z-index: 875;" full-height>
+    <v-layout style="" full-height>
       <v-navigation-drawer style="z-index: 875; width: 100%" class="bg-transparent" v-model="drawerValue">
         <div class="wrap_drawer_main">
           <div class="wrap_drawer">
