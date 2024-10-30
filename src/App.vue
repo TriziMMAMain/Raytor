@@ -116,7 +116,7 @@ onMounted(async () => {
     height: 50px;
     position: fixed;
     top: 0;
-    z-index: 105;
+    z-index: 301;
   }
 
   // Content
@@ -199,7 +199,7 @@ onMounted(async () => {
     height: 50px;
     position: fixed;
     top: 0;
-    z-index: 105;
+    z-index: 301;
   }
 
   // Content
@@ -281,7 +281,7 @@ onMounted(async () => {
     height: 50px;
     position: fixed;
     top: 0;
-    z-index: 105;
+    z-index: 301;
   }
 
   // Content
@@ -364,7 +364,7 @@ onMounted(async () => {
     height: 50px;
     position: fixed;
     top: 0;
-    z-index: 105;
+    z-index: 301;
   }
 
   // Content
@@ -451,7 +451,7 @@ onMounted(async () => {
     height: 50px;
     position: fixed;
     top: 0;
-    z-index: 105;
+    z-index: 301;
   }
 
   // Content
@@ -543,7 +543,7 @@ onMounted(async () => {
     align-items: center;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
-    z-index: 105;
+    z-index: 301;
   }
 
   // Content
@@ -640,7 +640,7 @@ onMounted(async () => {
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
     top: 0;
-    z-index: 105;
+    z-index: 301;
   }
 
   // Content
