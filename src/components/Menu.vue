@@ -150,7 +150,7 @@ watch(isHovered, (newValue) => {
     display: -webkit-flex;
     display: flex;
     flex: 1 0 auto;
-    justify-content: start;
+    justify-content: flex-start;
     -webkit-justify-content: flex-start;
 
     backdrop-filter: blur(4px);
@@ -164,7 +164,7 @@ watch(isHovered, (newValue) => {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding-left: 5px;
     //background-color: $surface;
@@ -449,7 +449,7 @@ watch(isHovered, (newValue) => {
     display: -webkit-flex;
     display: flex;
     flex: 1 0 auto;
-    justify-content: start;
+    justify-content: flex-start;
     -webkit-justify-content: flex-start;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
@@ -463,7 +463,7 @@ watch(isHovered, (newValue) => {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding-left: 5px;
     //background-color: $surface;
