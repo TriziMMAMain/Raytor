@@ -148,9 +148,9 @@ watch(isHovered, (newValue) => {
     //display: -moz-box;
     //display: -ms-flexbox;
     //display: -webkit-flex;
-    //display: flex;
+    display: flex;
     //flex: 1 0 auto;
-    //justify-content: flex-start;
+    justify-content: flex-start;
     //-webkit-justify-content: flex-start;
 
     backdrop-filter: blur(4px);
@@ -160,12 +160,13 @@ watch(isHovered, (newValue) => {
   .title_main {
     //width: 100%;
     height: 100%;
+    //display: -webkit-box;
     //display: -moz-box;
     //display: -ms-flexbox;
     //display: -webkit-flex;
-    //display: flex;
+    display: flex;
     //justify-content: flex-start;
-    //align-items: center;
+    align-items: center;
     padding-left: 5px;
     //background-color: $surface;
 
@@ -447,32 +448,33 @@ watch(isHovered, (newValue) => {
     //display: -moz-box;
     //display: -ms-flexbox;
     //display: -webkit-flex;
-    //display: flex;
+    display: flex;
     //flex: 1 0 auto;
-    //justify-content: flex-start;
+    justify-content: flex-start;
     //-webkit-justify-content: flex-start;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
   }
 
   .title_main {
-    //width: 100%;
+    width: 60%;
     height: 100%;
     //display: -webkit-box;
     //display: -moz-box;
     //display: -ms-flexbox;
     //display: -webkit-flex;
-    //display: flex;
+    display: flex;
     //justify-content: flex-start;
-    //align-items: center;
+    align-items: center;
     padding-left: 5px;
     //background-color: $surface;
 
   }
 
   .logoReytor {
-    width: 100%;
+    //width: 100%;
     height: 80%;
+    display: flex;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
