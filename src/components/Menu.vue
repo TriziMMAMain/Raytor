@@ -145,13 +145,13 @@ watch(isHovered, (newValue) => {
   .header {
     width: 85%;
     height: 100%;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: flex-start;
-    -webkit-justify-content: flex-start;
+    //display: -moz-box;
+    //display: -ms-flexbox;
+    //display: -webkit-flex;
+    //display: flex;
+    //flex: 1 0 auto;
+    //justify-content: flex-start;
+    //-webkit-justify-content: flex-start;
 
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
@@ -160,12 +160,12 @@ watch(isHovered, (newValue) => {
   .title_main {
     //width: 100%;
     height: 100%;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    //display: -moz-box;
+    //display: -ms-flexbox;
+    //display: -webkit-flex;
+    //display: flex;
+    //justify-content: flex-start;
+    //align-items: center;
     padding-left: 5px;
     //background-color: $surface;
 
@@ -444,13 +444,13 @@ watch(isHovered, (newValue) => {
   .header {
     width: 85%;
     height: 100%;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: flex-start;
-    -webkit-justify-content: flex-start;
+    //display: -moz-box;
+    //display: -ms-flexbox;
+    //display: -webkit-flex;
+    //display: flex;
+    //flex: 1 0 auto;
+    //justify-content: flex-start;
+    //-webkit-justify-content: flex-start;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
   }
@@ -458,13 +458,13 @@ watch(isHovered, (newValue) => {
   .title_main {
     //width: 100%;
     height: 100%;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    //display: -webkit-box;
+    //display: -moz-box;
+    //display: -ms-flexbox;
+    //display: -webkit-flex;
+    //display: flex;
+    //justify-content: flex-start;
+    //align-items: center;
     padding-left: 5px;
     //background-color: $surface;
 
