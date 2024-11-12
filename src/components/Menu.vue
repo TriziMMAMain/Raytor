@@ -133,7 +133,7 @@ watch(isHovered, (newValue) => {
   // Menu
 
   .wrap_menu {
-    width: 100%;
+    width: 100vw;
     height: 50px;
     display: flex;
     overflow: hidden;
@@ -145,12 +145,13 @@ watch(isHovered, (newValue) => {
   .header {
     width: 85%;
     height: 100%;
-    display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     justify-content: start;
+    -webkit-justify-content: flex-start;
+
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
   }
@@ -158,7 +159,6 @@ watch(isHovered, (newValue) => {
   .title_main {
     //width: 100%;
     height: 100%;
-    display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -176,9 +176,6 @@ watch(isHovered, (newValue) => {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
-
-    display: flex;
-    justify-content: start;
   }
 
   // Expansions
@@ -434,7 +431,7 @@ watch(isHovered, (newValue) => {
   // Menu
 
   .wrap_menu {
-    width: 100%;
+    width: 100vw;
     height: 50px;
     display: flex;
     overflow: hidden;
@@ -446,12 +443,12 @@ watch(isHovered, (newValue) => {
   .header {
     width: 85%;
     height: 100%;
-    display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     justify-content: start;
+    -webkit-justify-content: flex-start;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
   }
@@ -477,9 +474,6 @@ watch(isHovered, (newValue) => {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
-
-    display: flex;
-    justify-content: start;
   }
 
   // Expansions
