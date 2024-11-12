@@ -158,6 +158,9 @@ watch(isHovered, (newValue) => {
     //width: 100%;
     height: 100%;
     display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content: start;
     align-items: center;
     padding-left: 5px;
@@ -454,6 +457,9 @@ watch(isHovered, (newValue) => {
     //width: 100%;
     height: 100%;
     display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content: start;
     align-items: center;
     padding-left: 5px;
