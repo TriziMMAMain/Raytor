@@ -145,7 +145,10 @@ watch(isHovered, (newValue) => {
   .header {
     width: 85%;
     height: 100%;
-    display:flex;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content: start;
     backdrop-filter: blur(4px);
     background-color: rgba(104, 102, 102, 0.56);
