@@ -149,6 +149,7 @@ watch(isHovered, (newValue) => {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    flex: 1 0 auto;
     justify-content: start;
     -webkit-justify-content: flex-start;
 
@@ -447,6 +448,7 @@ watch(isHovered, (newValue) => {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    flex: 1 0 auto;
     justify-content: start;
     -webkit-justify-content: flex-start;
     backdrop-filter: blur(4px);
